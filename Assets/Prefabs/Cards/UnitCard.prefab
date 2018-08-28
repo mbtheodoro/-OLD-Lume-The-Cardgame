@@ -276,6 +276,7 @@ GameObject:
   - component: {fileID: 222810238789517674}
   - component: {fileID: 114767129413192916}
   - component: {fileID: 114606332035975960}
+  - component: {fileID: 114123459128105446}
   m_Layer: 5
   m_Name: UnitCard
   m_TagString: Untagged
@@ -423,6 +424,30 @@ MonoBehaviour:
   m_Text: '
 
 '
+--- !u!114 &114123459128105446
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1837743095976710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8581c531d1e2cb24fbba95350dd79c09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card: {fileID: 0}
+  art: {fileID: 114197435720245068}
+  cardIcon: {fileID: 114036936706733568}
+  nameBackground: {fileID: 114098016436852858}
+  descriptionBackground: {fileID: 114518254051688078}
+  nameText: {fileID: 114762887334687814}
+  descriptionText: {fileID: 114892457050062930}
+  flavorText: {fileID: 114343672330730136}
+  healthText: {fileID: 114924520549793420}
+  strengthText: {fileID: 114613946712231936}
+  agilityText: {fileID: 114889983279686414}
+  wisdomText: {fileID: 114110114751549986}
+  spiritText: {fileID: 114512106187259002}
 --- !u!114 &114197435720245068
 MonoBehaviour:
   m_ObjectHideFlags: 1

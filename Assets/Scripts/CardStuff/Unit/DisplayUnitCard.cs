@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DisplayLocationCard : MonoBehaviour
+public class DisplayUnitCard : MonoBehaviour
 {
     #region REFERENCES
-    [HideInInspector] public LocationCard card;
+    [HideInInspector] public UnitCard card;
 
     public Image art;
     public Image cardIcon;
@@ -16,10 +16,15 @@ public class DisplayLocationCard : MonoBehaviour
     public Text nameText;
     public Text descriptionText;
     public Text flavorText;
+    public Text healthText;
+    public Text strengthText;
+    public Text agilityText;
+    public Text wisdomText;
+    public Text spiritText;
     #endregion
 
     #region METHODS
-    public void InitiateCard(LocationCard card)
+    public void InitiateCard(UnitCard card)
     {
         this.card = card;
 
@@ -30,6 +35,11 @@ public class DisplayLocationCard : MonoBehaviour
         nameText.text = this.card.cardName;
         descriptionText.text = this.card.description;
         flavorText.text = this.card.flavorText;
+        healthText.text = this.card.health.ToString();
+        strengthText.text = this.card.strength.ToString();
+        agilityText.text = this.card.agility.ToString();
+        wisdomText.text = this.card.wisdom.ToString();
+        spiritText.text = this.card.spirit.ToString();
     }
     #endregion
 }

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DisplayLocationCard : MonoBehaviour
+public class DisplaySpellCard : MonoBehaviour
 {
     #region REFERENCES
-    [HideInInspector] public LocationCard card;
+    [HideInInspector] public SpellCard card;
 
     public Image art;
     public Image cardIcon;
@@ -16,10 +16,11 @@ public class DisplayLocationCard : MonoBehaviour
     public Text nameText;
     public Text descriptionText;
     public Text flavorText;
+    public Text costText;
     #endregion
 
     #region METHODS
-    public void InitiateCard(LocationCard card)
+    public void InitiateCard(SpellCard card)
     {
         this.card = card;
 
@@ -30,6 +31,7 @@ public class DisplayLocationCard : MonoBehaviour
         nameText.text = this.card.cardName;
         descriptionText.text = this.card.description;
         flavorText.text = this.card.flavorText;
+        costText.text = this.card.cost.ToString();
     }
     #endregion
 }
