@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1709660031242606}
+  m_IsPrefabAsset: 1
+--- !u!1 &1709660031242606
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4496757456345062}
+  - component: {fileID: 114671184235183984}
+  m_Layer: 0
+  m_Name: CardFactory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4496757456345062
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1709660031242606}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114671184235183984
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1709660031242606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df6aa11f2b3a9fa49abf3d991f7d0cd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitCardPrefab: {fileID: 224793392186385170, guid: c0041f92a6c8719429cc557094bc8165,
+    type: 2}
+  equipCardPrefab: {fileID: 224921898176150006, guid: e1c4c3faab3262746aa5f9ff1b4883de,
+    type: 2}
+  spellCardPrefab: {fileID: 224059465273493506, guid: f4317de19a7be314caa3cbad3b708001,
+    type: 2}
+  attackCardPrefab: {fileID: 224525446656679930, guid: 9e286965edd1d2444834147d12e7542b,
+    type: 2}
+  locationCardPrefab: {fileID: 224009877911027254, guid: 02bf201d8c5a30e48879fc018eba8342,
+    type: 2}
+  earthStyle: {fileID: 11400000, guid: 67b33e2453396e449b2871a51f4eaf41, type: 2}
+  waterStyle: {fileID: 0}
+  fireStyle: {fileID: 11400000, guid: 37da1bfff18728448b2fa74ad4453dca, type: 2}
+  neutralStyle: {fileID: 0}

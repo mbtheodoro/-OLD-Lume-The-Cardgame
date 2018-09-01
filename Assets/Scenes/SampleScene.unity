@@ -190,6 +190,48 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &727742786
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4405100339007412, guid: 0d2a32470e1eecc4a9face39c2f06bdb, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405100339007412, guid: 0d2a32470e1eecc4a9face39c2f06bdb, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405100339007412, guid: 0d2a32470e1eecc4a9face39c2f06bdb, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405100339007412, guid: 0d2a32470e1eecc4a9face39c2f06bdb, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405100339007412, guid: 0d2a32470e1eecc4a9face39c2f06bdb, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405100339007412, guid: 0d2a32470e1eecc4a9face39c2f06bdb, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405100339007412, guid: 0d2a32470e1eecc4a9face39c2f06bdb, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405100339007412, guid: 0d2a32470e1eecc4a9face39c2f06bdb, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0d2a32470e1eecc4a9face39c2f06bdb, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &790147517
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,6 +294,48 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1225381350
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4496757456345062, guid: 83429387b6f503843955a7ae16a8983d, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496757456345062, guid: 83429387b6f503843955a7ae16a8983d, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496757456345062, guid: 83429387b6f503843955a7ae16a8983d, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496757456345062, guid: 83429387b6f503843955a7ae16a8983d, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496757456345062, guid: 83429387b6f503843955a7ae16a8983d, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496757456345062, guid: 83429387b6f503843955a7ae16a8983d, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496757456345062, guid: 83429387b6f503843955a7ae16a8983d, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496757456345062, guid: 83429387b6f503843955a7ae16a8983d, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 83429387b6f503843955a7ae16a8983d, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &1265804974
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,6 +347,7 @@ GameObject:
   - component: {fileID: 1265804977}
   - component: {fileID: 1265804976}
   - component: {fileID: 1265804975}
+  - component: {fileID: 1265804979}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -345,3 +430,16 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1265804979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1265804974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0005cb19d8711ea4fa80d6b69b38aeb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 1265804978}
+  cardName: Bakko
