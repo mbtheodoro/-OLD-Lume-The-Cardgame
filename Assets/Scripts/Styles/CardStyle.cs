@@ -10,6 +10,7 @@ public class CardStyle : ScriptableObject
     public Color mainColorA;
     public Color mainColorB;
     public Color accentColor;
+    public Color borderColor;
 
     public Font nameTextFont;
     public Font descriptionTextFont;

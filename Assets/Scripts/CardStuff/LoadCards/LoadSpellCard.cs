@@ -12,6 +12,7 @@ public class LoadSpellCard : MonoBehaviour
     public Image cardIcon;
     public Image nameBackground;
     public Image descriptionBackground;
+    public Image costBorder;
 
     public Text nameText;
     public Text descriptionText;
@@ -46,8 +47,9 @@ public class LoadSpellCard : MonoBehaviour
         flavorText.color = style.flavorTextColor;
         flavorText.font = style.flavorTextFont;
 
-        costText.color = style.mainColorB;
+        costText.color = style.borderColor;
         costText.font = style.numbersTextFont;
+        costBorder.color = style.borderColor;
     }
     #endregion
 }

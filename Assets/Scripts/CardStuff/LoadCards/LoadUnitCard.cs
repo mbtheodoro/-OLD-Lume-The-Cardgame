@@ -55,8 +55,8 @@ public class LoadUnitCard : MonoBehaviour
         flavorText.color = style.flavorTextColor;
         flavorText.font = style.flavorTextFont;
 
-        healthText.color = style.mainColorB;
-        healthBorder.color = style.mainColorB;
+        healthText.color = style.borderColor;
+        healthBorder.color = style.borderColor;
         healthText.font = style.nameTextFont;
 
         strengthText.color = style.numbersTextColor;

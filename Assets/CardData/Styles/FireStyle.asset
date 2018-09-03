@@ -9,12 +9,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb19b454a8b9b5a4995883394e20355c, type: 3}
-  m_Name: Style
+  m_Name: FireStyle
   m_EditorClassIdentifier: 
   cardIcon: {fileID: 21300000, guid: 5942c9e800d008b4aa8f77c2dde8dae4, type: 3}
   mainColorA: {r: 0.5566038, g: 0.013127446, b: 0.013127446, a: 1}
   mainColorB: {r: 0.1792453, g: 0.16148986, b: 0.16148986, a: 1}
   accentColor: {r: 0, g: 0, b: 0, a: 0}
+  borderColor: {r: 0.5568628, g: 0.011764707, b: 0.011764707, a: 1}
   nameTextFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   descriptionTextFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   flavorTextFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
@@ -22,4 +23,4 @@ MonoBehaviour:
   nameTextColor: {r: 1, g: 1, b: 1, a: 1}
   descriptionTextColor: {r: 1, g: 1, b: 1, a: 1}
   flavorTextColor: {r: 1, g: 1, b: 1, a: 1}
-  numbersTextColor: {r: 0, g: 0, b: 0, a: 1}
+  numbersTextColor: {r: 1, g: 1, b: 1, a: 1}

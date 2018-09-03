@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fba0c7d19fbcf5418273eb9ead2dd1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 0}
+  cardData: {fileID: 0}
   art: {fileID: 114978789197578958}
   cardIcon: {fileID: 114658974039557404}
   nameBackground: {fileID: 114047092454159678}
@@ -583,8 +583,8 @@ RectTransform:
   m_Father: {fileID: 224150447178747314}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.015625, y: 0.8537734}
-  m_AnchorMax: {x: 0.14062501, y: 0.9837734}
+  m_AnchorMin: {x: 0, y: 0.81}
+  m_AnchorMax: {x: 0.241, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}

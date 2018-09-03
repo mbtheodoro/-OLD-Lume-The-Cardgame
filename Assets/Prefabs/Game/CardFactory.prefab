@@ -51,13 +51,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df6aa11f2b3a9fa49abf3d991f7d0cd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitCardPrefab: {fileID: 224793392186385170, guid: c0041f92a6c8719429cc557094bc8165,
+  unitCardPrefab: {fileID: 224526994790639038, guid: c0041f92a6c8719429cc557094bc8165,
     type: 2}
   equipCardPrefab: {fileID: 224921898176150006, guid: e1c4c3faab3262746aa5f9ff1b4883de,
     type: 2}
-  spellCardPrefab: {fileID: 224059465273493506, guid: f4317de19a7be314caa3cbad3b708001,
+  spellCardPrefab: {fileID: 224922208269610628, guid: f4317de19a7be314caa3cbad3b708001,
     type: 2}
-  attackCardPrefab: {fileID: 224525446656679930, guid: 9e286965edd1d2444834147d12e7542b,
+  attackCardPrefab: {fileID: 224578749930614684, guid: 9e286965edd1d2444834147d12e7542b,
     type: 2}
   locationCardPrefab: {fileID: 224009877911027254, guid: 02bf201d8c5a30e48879fc018eba8342,
     type: 2}

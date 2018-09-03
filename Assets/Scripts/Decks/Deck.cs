@@ -2,10 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Deck : MonoBehaviour
+public class Deck
 {
-    [SerializeField] private int deckSize;
+    private int deckSize;
     private List<string> deck;
+
+    public int DeckSize
+    {
+        get { return deckSize; }
+    }
+
+    public Deck(int deckSize)
+    {
+        this.deckSize = deckSize;
+        deck = new List<string>(deckSize);
+    }
 
     public void ShuffleDeck()
     {
