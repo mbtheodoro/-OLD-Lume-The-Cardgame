@@ -13,6 +13,8 @@ public class LoadSpellCard : MonoBehaviour
     public Image nameBackground;
     public Image descriptionBackground;
     public Image costBorder;
+    public Image cardBack;
+    public Image cardBackIcon;
 
     public Text nameText;
     public Text descriptionText;

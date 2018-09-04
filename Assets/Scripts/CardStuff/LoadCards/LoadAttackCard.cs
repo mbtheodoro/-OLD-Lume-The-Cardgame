@@ -13,6 +13,12 @@ public class LoadAttackCard : MonoBehaviour
     public Image nameBackground;
     public Image descriptionBackground;
     public Image costBorder;
+    public Image cardBack;
+    public Image cardBackIcon;
+    public Image attackTypeIcon;
+
+    public Sprite physicalIcon;
+    public Sprite magicalIcon;
 
     public Text nameText;
     public Text descriptionText;
@@ -55,6 +61,11 @@ public class LoadAttackCard : MonoBehaviour
 
         baseDamageText.font = style.numbersTextFont;
         baseDamageText.color = style.mainColorB;
+
+        if(cardData.attackType == AttackType.PHYSICAL)
+            attackTypeIcon.sprite = physicalIcon;
+        if (cardData.attackType == AttackType.MAGICAL)
+            attackTypeIcon.sprite = magicalIcon;
     }
     #endregion
 }

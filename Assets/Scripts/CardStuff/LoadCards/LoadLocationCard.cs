@@ -12,6 +12,8 @@ public class LoadLocationCard : MonoBehaviour
     public Image cardIcon;
     public Image nameBackground;
     public Image descriptionBackground;
+    public Image cardBack;
+    public Image cardBackIcon;
 
     public Text nameText;
     public Text descriptionText;

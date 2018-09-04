@@ -13,6 +13,8 @@ public class LoadUnitCard : MonoBehaviour
     public Image nameBackground;
     public Image descriptionBackground;
     public Image healthBorder;
+    public Image cardBack;
+    public Image cardBackIcon;
 
     public Text nameText;
     public Text descriptionText;
@@ -33,6 +35,7 @@ public class LoadUnitCard : MonoBehaviour
         nameText.text = cardData.name;
         descriptionText.text = cardData.description;
         flavorText.text = cardData.flavorText;
+
         healthText.text = cardData.health.ToString();
         strengthText.text = cardData.strength.ToString();
         agilityText.text = cardData.agility.ToString();
