@@ -7,6 +7,7 @@ public class Deck
     private int deckSize;
     private List<string> deck;
 
+    #region CONSTRUCTORS
     public int DeckSize
     {
         get { return deckSize; }
@@ -17,6 +18,7 @@ public class Deck
         this.deckSize = deckSize;
         deck = new List<string>(deckSize);
     }
+    #endregion
 
     public void ShuffleDeck()
     {
@@ -30,10 +32,10 @@ public class Deck
 
     public void AddCardTop(string cardName)
     {
-        deck.Add(cardName);
+        deck.Insert(0, cardName);
     }
 
-    public RectTransform DrawCard()
+    public Card DrawCard()
     {
         string card = deck[0];
         deck.RemoveAt(0);

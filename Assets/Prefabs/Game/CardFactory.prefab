@@ -62,6 +62,6 @@ MonoBehaviour:
   locationCardPrefab: {fileID: 224009877911027254, guid: 02bf201d8c5a30e48879fc018eba8342,
     type: 2}
   earthStyle: {fileID: 11400000, guid: 67b33e2453396e449b2871a51f4eaf41, type: 2}
-  waterStyle: {fileID: 0}
+  waterStyle: {fileID: 11400000, guid: 71c4cbb20adeb79488f4808f595ddb09, type: 2}
   fireStyle: {fileID: 11400000, guid: 37da1bfff18728448b2fa74ad4453dca, type: 2}
-  neutralStyle: {fileID: 0}
+  neutralStyle: {fileID: 11400000, guid: 59b4e93173fca0b4cb2e218e58424d27, type: 2}

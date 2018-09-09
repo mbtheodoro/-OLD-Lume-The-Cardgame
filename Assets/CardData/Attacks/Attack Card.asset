@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Name: Attack Card
   m_EditorClassIdentifier: 
   name: Shield Breaker
-  flavorText: 
-  description: 
+  description: This damage can't be reduced
+  flavorText: When the technique and the execution are flawless, nothing can't stop
+    it.
   type: 2
   nation: 3
   art: {fileID: 0}
-  baseDamage: 0
-  cost: 0
+  baseDamage: 10
+  cost: 15
   attackType: 0

@@ -11,10 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c021ed992f2ee3442a857d49f3cda23c, type: 3}
   m_Name: Unit Card 1
   m_EditorClassIdentifier: 
-  name: Bakko
+  className: UnitCard
+  name: Jayme
+  description: Units adjacent to Bakko gain "support wisdom 10" when in combat
   flavorText: '"One of the goodest and wisest souls I Had the pleasure of meeting"
     - Tefnut'
-  description: Units adjacent to Bakko gain "support wisdom 10" when in combat
   type: 0
   nation: 0
   art: {fileID: 0}

@@ -5,19 +5,15 @@ using UnityEngine;
 public class TestCardSpawn : MonoBehaviour
 {
     public RectTransform canvas;
-    public string cardName;
+    public List<string> cardNames;
 
 	// Use this for initialization
 	void Start ()
     {
-        RectTransform card = CardFactory.CreateCard(cardName);
-        card.SetParent(canvas);
-        card.localPosition = Vector3.zero;
-        card.localScale = Vector3.one;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+        foreach (string name in cardNames)
+        {
+            Card card = CardFactory.CreateCard(name);
+            card.SetParent(canvas);
+        }
 	}
 }

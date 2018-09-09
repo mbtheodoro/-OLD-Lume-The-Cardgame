@@ -3,26 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LoadAttackCard : MonoBehaviour
+public class LoadAttackCard : LoadCard
 {
     #region REFERENCES
     [HideInInspector] public AttackCardData cardData;
 
-    public Image art;
-    public Image cardIcon;
-    public Image nameBackground;
-    public Image descriptionBackground;
     public Image costBorder;
-    public Image cardBack;
-    public Image cardBackIcon;
     public Image attackTypeIcon;
 
     public Sprite physicalIcon;
     public Sprite magicalIcon;
-
-    public Text nameText;
-    public Text descriptionText;
-    public Text flavorText;
+    
     public Text costText;
     public Text baseDamageText;
     #endregion
@@ -32,35 +23,22 @@ public class LoadAttackCard : MonoBehaviour
     {
         cardData = card;
 
-        art.sprite = cardData.art;
-        nameText.text = cardData.name;
-        descriptionText.text = cardData.description;
-        flavorText.text = cardData.flavorText;
+        LoadRegularCardData(card);
+
         costText.text = cardData.cost.ToString();
         baseDamageText.text = cardData.baseDamage.ToString();
     }
 
-    public void LoadCardStyle(CardStyle style)
+    public override void LoadCardStyle(CardStyle style)
     {
-        cardIcon.sprite = style.cardIcon;
-
-        nameBackground.color = style.mainColorA;
-        nameText.font = style.nameTextFont;
-        nameText.color = style.nameTextColor;
-
-        descriptionBackground.color = style.mainColorB;
-        descriptionText.font = style.descriptionTextFont;
-        descriptionText.color = style.descriptionTextColor;
-
-        flavorText.color = style.flavorTextColor;
-        flavorText.font = style.flavorTextFont;
+        base.LoadCardStyle(style);
 
         costText.color = style.borderColor;
-        costText.font = style.numbersTextFont;
+        costText.font = style.nameTextFont;
         costBorder.color = style.borderColor;
 
         baseDamageText.font = style.numbersTextFont;
-        baseDamageText.color = style.mainColorB;
+        baseDamageText.color = style.descriptionTextColor;
 
         if(cardData.attackType == AttackType.PHYSICAL)
             attackTypeIcon.sprite = physicalIcon;

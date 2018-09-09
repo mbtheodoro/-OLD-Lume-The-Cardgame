@@ -3,22 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LoadUnitCard : MonoBehaviour
+public class LoadUnitCard : LoadCard
 {
     #region REFERENCES
     [HideInInspector] public UnitCardData cardData;
 
-    public Image art;
-    public Image cardIcon;
-    public Image nameBackground;
-    public Image descriptionBackground;
     public Image healthBorder;
-    public Image cardBack;
-    public Image cardBackIcon;
-
-    public Text nameText;
-    public Text descriptionText;
-    public Text flavorText;
+    
     public Text healthText;
     public Text strengthText;
     public Text agilityText;
@@ -31,32 +22,26 @@ public class LoadUnitCard : MonoBehaviour
     {
         cardData = card;
 
-        art.sprite = cardData.art;
-        nameText.text = cardData.name;
-        descriptionText.text = cardData.description;
-        flavorText.text = cardData.flavorText;
+        LoadRegularCardData(card);
 
-        healthText.text = cardData.health.ToString();
-        strengthText.text = cardData.strength.ToString();
-        agilityText.text = cardData.agility.ToString();
-        wisdomText.text = cardData.wisdom.ToString();
-        spiritText.text = cardData.spirit.ToString();
+        UnitCard unitCard = (UnitCard) GetComponent<UnitCard>();
+
+        unitCard.healthText = healthText;
+        unitCard.strengthText = strengthText;
+        unitCard.agilityText = agilityText;
+        unitCard.wisdomText = wisdomText;
+        unitCard.spiritText = spiritText;
+
+        unitCard.OriginalHealth = cardData.health;
+        unitCard.OriginalStrength = cardData.strength;
+        unitCard.OriginalAgility = cardData.agility;
+        unitCard.OriginalWisdom = cardData.wisdom;
+        unitCard.OriginalSpirit = cardData.spirit;
     }
 
-    public void LoadCardStyle(CardStyle style)
+    public override void LoadCardStyle(CardStyle style)
     {
-        cardIcon.sprite = style.cardIcon;
-
-        nameBackground.color = style.mainColorA;
-        nameText.font = style.nameTextFont;
-        nameText.color = style.nameTextColor;
-
-        descriptionBackground.color = style.mainColorB;
-        descriptionText.font = style.descriptionTextFont;
-        descriptionText.color = style.descriptionTextColor;
-
-        flavorText.color = style.flavorTextColor;
-        flavorText.font = style.flavorTextFont;
+        base.LoadCardStyle(style);
 
         healthText.color = style.borderColor;
         healthBorder.color = style.borderColor;

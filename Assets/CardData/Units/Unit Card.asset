@@ -11,10 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c021ed992f2ee3442a857d49f3cda23c, type: 3}
   m_Name: Unit Card
   m_EditorClassIdentifier: 
-  name: Grognak
+  className: UnitCard
+  name: Shio-yah
+  description: 'Agression 10: Physical attacks used by Grognak deal 10 more damage.'
   flavorText: Though he seems ferocious, in reality, he is much more ferocius than
     you can imagine.
-  description: 'Agression 10: Physical attacks used by Grognak deal 10 more damage.'
   type: 0
   nation: 1
   art: {fileID: 21300000, guid: 8f61926bb867fa940b30d2cd9f1d1029, type: 3}
