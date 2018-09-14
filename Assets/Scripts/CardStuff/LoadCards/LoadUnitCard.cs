@@ -26,17 +26,53 @@ public class LoadUnitCard : LoadCard
 
         UnitCard unitCard = (UnitCard) GetComponent<UnitCard>();
 
+        //references
         unitCard.healthText = healthText;
         unitCard.strengthText = strengthText;
         unitCard.agilityText = agilityText;
         unitCard.wisdomText = wisdomText;
         unitCard.spiritText = spiritText;
 
+        //stats
         unitCard.OriginalHealth = cardData.health;
         unitCard.OriginalStrength = cardData.strength;
         unitCard.OriginalAgility = cardData.agility;
         unitCard.OriginalWisdom = cardData.wisdom;
         unitCard.OriginalSpirit = cardData.spirit;
+
+        //keywords
+        unitCard.aggression = cardData.aggression;
+        unitCard.analytic = cardData.analytic;
+
+        unitCard.masteryStrenght = cardData.masteryStrenght;
+        unitCard.masteryAgility = cardData.masteryAgility;
+        unitCard.masteryWisdom = cardData.masteryWisdom;
+        unitCard.masterySpirit = cardData.masterySpirit;
+
+        unitCard.weaken = cardData.weaken;
+        unitCard.hypnosis = cardData.hypnosis;
+        unitCard.intimidate = cardData.intimidate;
+
+        unitCard.supportStrenght = cardData.supportStrenght;
+        unitCard.supportAgility = cardData.supportAgility;
+        unitCard.supportWisdom = cardData.supportWisdom;
+        unitCard.supportSpirit = cardData.supportSpirit;
+
+        unitCard.infiltrate = cardData.infiltrate;
+
+        unitCard.berserk = cardData.berserk;
+        unitCard.overdrive = cardData.overdrive;
+
+        unitCard.armor = cardData.armor;
+        unitCard.endurance = cardData.endurance;
+
+        unitCard.reckless = cardData.reckless;
+        unitCard.regenerate = cardData.regenerate;
+
+        unitCard.defiant = cardData.defiant;
+        unitCard.stubborn = cardData.stubborn;
+        unitCard.piercer = cardData.piercer;
+        unitCard.taunt = cardData.taunt;
     }
 
     public override void LoadCardStyle(CardStyle style)

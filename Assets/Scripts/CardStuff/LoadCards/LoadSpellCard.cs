@@ -19,7 +19,10 @@ public class LoadSpellCard : LoadCard
 
         LoadRegularCardData(card);
 
-        costText.text = cardData.cost.ToString();
+        SpellCard spellCard = (SpellCard) GetComponent<SpellCard>();
+
+        spellCard.costText = costText;
+        spellCard.originalCost = card.cost;
     }
 
     public override void LoadCardStyle(CardStyle style)

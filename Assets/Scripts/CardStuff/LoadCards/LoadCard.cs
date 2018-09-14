@@ -21,6 +21,10 @@ public class LoadCard : MonoBehaviour
     #region METHODS
     protected void LoadRegularCardData(CardData cardData)
     {
+        Card card = (Card) GetComponent<Card>();
+
+        card.name = cardData.name;
+
         art.sprite = cardData.art;
         nameText.text = cardData.name;
         descriptionText.text = cardData.description;

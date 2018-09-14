@@ -4,6 +4,21 @@ using UnityEngine;
 
 public class Card : MonoBehaviour
 {
+    private string _cardName;
+
+    public new string name
+    {
+        get
+        {
+            return _cardName;
+        }
+
+        set
+        {
+            _cardName = value;
+        }
+    }
+
     public void SetParent(RectTransform parent)
     {
         RectTransform rect = (RectTransform)GetComponent<RectTransform>();

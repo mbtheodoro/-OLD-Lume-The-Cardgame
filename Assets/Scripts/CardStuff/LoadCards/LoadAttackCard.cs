@@ -25,9 +25,36 @@ public class LoadAttackCard : LoadCard
 
         LoadRegularCardData(card);
 
-        costText.text = cardData.cost.ToString();
-        baseDamageText.text = cardData.baseDamage.ToString();
-    }
+        AttackCard attackCard = (AttackCard) GetComponent<AttackCard>();
+
+        attackCard.costText = costText;
+        attackCard.baseDamageText = baseDamageText;
+
+        attackCard.originalCost = card.cost;
+        attackCard.baseDamage = card.baseDamage;
+        attackCard.type = card.attackType;
+        attackCard.target = card.target;
+
+        attackCard.statTestStrength = card.statTestStrength;
+        attackCard.statTestAgility = card.statTestAgility;
+        attackCard.statTestWisdom = card.statTestWisdom;
+        attackCard.statTestSpirit = card.statTestSpirit;
+
+        attackCard.outStatStrength = card.outStatStrength;
+        attackCard.outStatAgility = card.outStatAgility;
+        attackCard.outStatWisdom = card.outStatWisdom;
+        attackCard.outStatSpirit = card.outStatSpirit;
+
+        attackCard.statFailStrength = card.statFailStrength;
+        attackCard.statFailAgility = card.statFailAgility;
+        attackCard.statFailWisdom = card.statFailWisdom;
+        attackCard.statFailSpirit = card.statFailSpirit;
+
+        attackCard.modifyStrength = card.modifyStrength;
+        attackCard.modifyAgility = card.modifyAgility;
+        attackCard.modifyWisdom = card.modifyWisdom;
+        attackCard.modifySpirit = card.modifySpirit;
+}
 
     public override void LoadCardStyle(CardStyle style)
     {
