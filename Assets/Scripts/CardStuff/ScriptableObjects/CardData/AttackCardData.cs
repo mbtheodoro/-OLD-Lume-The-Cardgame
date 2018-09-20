@@ -8,12 +8,6 @@ public enum AttackType
     MAGICAL
 }
 
-public enum AttackTarget
-{
-    USER,
-    ENEMY
-}
-
 [CreateAssetMenu(fileName = "Attack Card", menuName = "Card/Attack")]
 public class AttackCardData : CardData
 {
@@ -21,7 +15,6 @@ public class AttackCardData : CardData
     public int baseDamage;
     public int cost;
     public AttackType attackType;
-    public AttackTarget target;
 
     [Header("Operations")]
     public Vector2 statTestStrength;
@@ -39,8 +32,13 @@ public class AttackCardData : CardData
     public Vector2 statFailWisdom;
     public Vector2 statFailSpirit;
 
-    public int modifyStrength;
-    public int modifyAgility;
-    public int modifyWisdom;
-    public int modifySpirit;
+    public int modifyUserStrength;
+    public int modifyUserAgility;
+    public int modifyUserWisdom;
+    public int modifyUserSpirit;
+
+    public int modifyEnemyStrength;
+    public int modifyEnemyAgility;
+    public int modifyEnemyWisdom;
+    public int modifyEnemySpirit;
 }

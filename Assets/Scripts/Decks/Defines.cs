@@ -13,4 +13,8 @@ public static class Defines
     public static int maxLocations = 10;
 
     public static int maxAttacks = 20;
+
+    public static int criticalHp = 10;
+    
+    public static int criticalHpMultiplier = 2;
 }

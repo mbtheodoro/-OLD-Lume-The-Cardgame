@@ -33,7 +33,6 @@ public class LoadAttackCard : LoadCard
         attackCard.originalCost = card.cost;
         attackCard.baseDamage = card.baseDamage;
         attackCard.type = card.attackType;
-        attackCard.target = card.target;
 
         attackCard.statTestStrength = card.statTestStrength;
         attackCard.statTestAgility = card.statTestAgility;
@@ -50,11 +49,16 @@ public class LoadAttackCard : LoadCard
         attackCard.statFailWisdom = card.statFailWisdom;
         attackCard.statFailSpirit = card.statFailSpirit;
 
-        attackCard.modifyStrength = card.modifyStrength;
-        attackCard.modifyAgility = card.modifyAgility;
-        attackCard.modifyWisdom = card.modifyWisdom;
-        attackCard.modifySpirit = card.modifySpirit;
-}
+        attackCard.modifyUserStrength = card.modifyUserStrength;
+        attackCard.modifyUserAgility = card.modifyUserAgility;
+        attackCard.modifyUserWisdom = card.modifyUserWisdom;
+        attackCard.modifyUserSpirit = card.modifyUserSpirit;
+
+        attackCard.modifyEnemyStrength = card.modifyEnemyStrength;
+        attackCard.modifyEnemyAgility = card.modifyEnemyAgility;
+        attackCard.modifyEnemyWisdom = card.modifyEnemyWisdom;
+        attackCard.modifyEnemySpirit = card.modifyEnemySpirit;
+    }
 
     public override void LoadCardStyle(CardStyle style)
     {

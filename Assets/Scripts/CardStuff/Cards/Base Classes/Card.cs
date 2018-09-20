@@ -19,7 +19,7 @@ public class Card : MonoBehaviour
         }
     }
 
-    public void SetParent(RectTransform parent)
+    public virtual void SetParent(RectTransform parent)
     {
         RectTransform rect = (RectTransform)GetComponent<RectTransform>();
         rect.SetParent(parent);

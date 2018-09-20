@@ -15,7 +15,7 @@ MonoBehaviour:
   mainColorA: {r: 0.7294118, g: 0.78823537, b: 0.454902, a: 1}
   mainColorB: {r: 0.40784317, g: 0.26666668, b: 0.21568629, a: 1}
   accentColor: {r: 0.9450981, g: 0.7686275, b: 0.058823533, a: 0}
-  borderColor: {r: 0.40784317, g: 0.26666668, b: 0.21568629, a: 1}
+  borderColor: {r: 0.2901961, g: 0.2901961, b: 0.2901961, a: 1}
   nameTextFont: {fileID: 12800000, guid: b5e8ceedccd9d734db6d725354277b2f, type: 3}
   descriptionTextFont: {fileID: 12800000, guid: 5e1939d27c99e7348b122e9651bba765,
     type: 3}

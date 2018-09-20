@@ -44,7 +44,7 @@ public class LoadUnitCard : LoadCard
         unitCard.aggression = cardData.aggression;
         unitCard.analytic = cardData.analytic;
 
-        unitCard.masteryStrenght = cardData.masteryStrenght;
+        unitCard.masteryStrength = cardData.masteryStrenght;
         unitCard.masteryAgility = cardData.masteryAgility;
         unitCard.masteryWisdom = cardData.masteryWisdom;
         unitCard.masterySpirit = cardData.masterySpirit;

@@ -14,6 +14,7 @@ public class UnitCard : Card
     #endregion
 
     #region ATTRIBUTES
+
     private int originalHealth;
     private int originalStrength;
     private int originalAgility;
@@ -30,7 +31,7 @@ public class UnitCard : Card
     private int _aggression;
     private int _analytic;
 
-    private int _masteryStrenght;
+    private int _masteryStrength;
     private int _masteryAgility;
     private int _masteryWisdom;
     private int _masterySpirit;
@@ -124,7 +125,7 @@ public class UnitCard : Card
 
         set
         {
-            currentHealth = value;
+            currentHealth = Mathf.Max(0, value);
             healthText.text = currentHealth.ToString();
         }
     }
@@ -135,7 +136,7 @@ public class UnitCard : Card
 
         set
         {
-            currentStrength = value;
+            currentStrength = Mathf.Max(0, value);
             strengthText.text = currentStrength.ToString();
         }
     }
@@ -146,7 +147,7 @@ public class UnitCard : Card
 
         set
         {
-            currentAgility = value;
+            currentAgility = Mathf.Max(0, value);
             agilityText.text = currentAgility.ToString();
         }
     }
@@ -157,7 +158,7 @@ public class UnitCard : Card
 
         set
         {
-            currentWisdom = value;
+            currentWisdom = Mathf.Max(0, value);
             wisdomText.text = currentWisdom.ToString();
         }
     }
@@ -168,7 +169,7 @@ public class UnitCard : Card
 
         set
         {
-            currentSpirit = value;
+            currentSpirit = Mathf.Max(0, value);
             spiritText.text = currentSpirit.ToString();
         }
     }
@@ -199,16 +200,16 @@ public class UnitCard : Card
         }
     }
 
-    public int masteryStrenght
+    public int masteryStrength
     {
         get
         {
-            return _masteryStrenght;
+            return _masteryStrength;
         }
 
         set
         {
-            _masteryStrenght = value;
+            _masteryStrength = value;
         }
     }
 
@@ -500,18 +501,22 @@ public class UnitCard : Card
     #endregion
 
     #region METHODS
-    public void ModifyHealth(int value, bool gain=false)
+    public virtual void ModifyHealth(int value, bool gain=false)
     {
-        int temp = currentHealth - value; //positive value means damage is being taken
-        if (gain)
-            CurrentHealth = temp;
+        if (value < 0) //heal
+        {
+            int temp = CurrentHealth - value;
+            if (gain)
+                CurrentHealth = temp;
+            else
+                CurrentHealth = Mathf.Max(CurrentHealth, temp);
+        }
         else
-            CurrentHealth = Mathf.Max(OriginalHealth, temp);
+            CurrentHealth -= value;
+        
+        Debug.Log(name + " took " + value + " damage");
 
-        //if(CurrentHealth <= 0)
-        //{
-
-        //}
+        //TO DO: death
     }
     #endregion
 }

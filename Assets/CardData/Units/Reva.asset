@@ -9,27 +9,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c021ed992f2ee3442a857d49f3cda23c, type: 3}
-  m_Name: Unit Card
+  m_Name: Reva
   m_EditorClassIdentifier: 
   className: UnitCard
-  name: Shio-yah
-  description: 'Agression 10: Physical attacks used by Grognak deal 10 more damage.'
-  flavorText: Though he seems ferocious, in reality, he is much more ferocius than
-    you can imagine.
+  name: Reva
+  description: 'Mastery Spirit 5: Tests of Spirit deal 5 more damage.'
+  flavorText: '"If anything is gonna stop me, it''s gonna be death itself" - Reva'
   type: 0
-  nation: 1
-  art: {fileID: 21300000, guid: 8f61926bb867fa940b30d2cd9f1d1029, type: 3}
-  health: 60
-  strength: 8
-  agility: 4
-  wisdom: 2
-  spirit: 6
-  aggression: 10
+  nation: 2
+  art: {fileID: 21300000, guid: cce205bacd7592d4abb38483d32071ae, type: 3}
+  health: 40
+  strength: 6
+  agility: 5
+  wisdom: 3
+  spirit: 8
+  aggression: 0
   analytic: 0
   masteryStrenght: 0
   masteryAgility: 0
   masteryWisdom: 0
-  masterySpirit: 0
+  masterySpirit: 5
   weaken: 0
   restrain: 0
   hypnosis: 0

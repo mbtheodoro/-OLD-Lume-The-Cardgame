@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class AttackCard : Card
 {
     #region REFERENCES
+    public new BoxCollider2D collider;
+    private AspectRatioFitter aspectRatioFitter;
+
     public Text costText;
     public Text baseDamageText;
 
@@ -18,7 +22,6 @@ public class AttackCard : Card
     private int _currentCost;
     private int _baseDamage;
     private AttackType _type;
-    private AttackTarget _target;
 
     private Vector2 _statTestStrength;
     private Vector2 _statTestAgility;
@@ -35,14 +38,19 @@ public class AttackCard : Card
     private Vector2 _statFailWisdom;
     private Vector2 _statFailSpirit;
 
-    private int _modifyStrength;
-    private int _modifyAgility;
-    private int _modifyWisdom;
-    private int _modifySpirit;
+    private int _modifyUserStrength;
+    private int _modifyUserAgility;
+    private int _modifyUserWisdom;
+    private int _modifyUserSpirit;
+
+    private int _modifyEnemyStrength;
+    private int _modifyEnemyAgility;
+    private int _modifyEnemyWisdom;
+    private int _modifyEnemySpirit;
     #endregion
 
     #region PROPERTIES
-    public int originalCost
+    public virtual int originalCost
     {
         get
         {
@@ -56,7 +64,7 @@ public class AttackCard : Card
         }
     }
 
-    public int currentCost
+    public virtual int currentCost
     {
         get
         {
@@ -70,7 +78,7 @@ public class AttackCard : Card
         }
     }
     
-    public int baseDamage
+    public virtual int baseDamage
     {
         get
         {
@@ -84,7 +92,7 @@ public class AttackCard : Card
         }
     }
 
-    public Vector2 statTestStrength
+    public virtual Vector2 statTestStrength
     {
         get
         {
@@ -97,7 +105,7 @@ public class AttackCard : Card
         }
     }
 
-    public Vector2 statTestAgility
+    public virtual Vector2 statTestAgility
     {
         get
         {
@@ -110,7 +118,7 @@ public class AttackCard : Card
         }
     }
 
-    public Vector2 statTestWisdom
+    public virtual Vector2 statTestWisdom
     {
         get
         {
@@ -123,7 +131,7 @@ public class AttackCard : Card
         }
     }
 
-    public Vector2 statTestSpirit
+    public virtual Vector2 statTestSpirit
     {
         get
         {
@@ -136,7 +144,7 @@ public class AttackCard : Card
         }
     }
 
-    public Vector2 outStatStrength
+    public virtual Vector2 outStatStrength
     {
         get
         {
@@ -149,7 +157,7 @@ public class AttackCard : Card
         }
     }
 
-    public Vector2 outStatAgility
+    public virtual Vector2 outStatAgility
     {
         get
         {
@@ -162,7 +170,7 @@ public class AttackCard : Card
         }
     }
 
-    public Vector2 outStatWisdom
+    public virtual Vector2 outStatWisdom
     {
         get
         {
@@ -175,7 +183,7 @@ public class AttackCard : Card
         }
     }
 
-    public Vector2 outStatSpirit
+    public virtual Vector2 outStatSpirit
     {
         get
         {
@@ -188,7 +196,7 @@ public class AttackCard : Card
         }
     }
 
-    public Vector2 statFailStrength
+    public virtual Vector2 statFailStrength
     {
         get
         {
@@ -201,7 +209,7 @@ public class AttackCard : Card
         }
     }
 
-    public Vector2 statFailAgility
+    public virtual Vector2 statFailAgility
     {
         get
         {
@@ -214,7 +222,7 @@ public class AttackCard : Card
         }
     }
 
-    public Vector2 statFailWisdom
+    public virtual Vector2 statFailWisdom
     {
         get
         {
@@ -227,7 +235,7 @@ public class AttackCard : Card
         }
     }
 
-    public Vector2 statFailSpirit
+    public virtual Vector2 statFailSpirit
     {
         get
         {
@@ -240,59 +248,111 @@ public class AttackCard : Card
         }
     }
 
-    public int modifyStrength
+    public virtual int modifyUserStrength
     {
         get
         {
-            return modifyStrength;
+            return _modifyUserStrength;
         }
 
         set
         {
-            modifyStrength = value;
+            _modifyUserStrength = value;
         }
     }
 
-    public int modifyAgility
+    public virtual int modifyUserAgility
     {
         get
         {
-            return modifyAgility;
+            return _modifyUserAgility;
         }
 
         set
         {
-            modifyAgility = value;
+            _modifyUserAgility = value;
         }
     }
 
-    public int modifyWisdom
+    public virtual int modifyUserWisdom
     {
         get
         {
-            return modifyWisdom;
+            return _modifyUserWisdom;
         }
 
         set
         {
-            modifyWisdom = value;
+            _modifyUserWisdom = value;
         }
     }
 
-    public int modifySpirit
+    public virtual int modifyUserSpirit
     {
         get
         {
-            return modifySpirit;
+            return _modifyUserSpirit;
         }
 
         set
         {
-            modifySpirit = value;
+            _modifyUserSpirit = value;
         }
     }
 
-    public AttackType type
+    public virtual int modifyEnemyStrength
+    {
+        get
+        {
+            return _modifyEnemyStrength;
+        }
+
+        set
+        {
+            _modifyEnemyStrength = value;
+        }
+    }
+
+    public virtual int modifyEnemyAgility
+    {
+        get
+        {
+            return _modifyEnemyAgility;
+        }
+
+        set
+        {
+            _modifyEnemyAgility = value;
+        }
+    }
+
+    public virtual int modifyEnemyWisdom
+    {
+        get
+        {
+            return _modifyEnemyWisdom;
+        }
+
+        set
+        {
+            _modifyEnemyWisdom = value;
+        }
+    }
+
+    public virtual int modifyEnemySpirit
+    {
+        get
+        {
+            return _modifyEnemySpirit;
+        }
+
+        set
+        {
+            _modifyEnemySpirit = value;
+        }
+    }
+
+    public virtual AttackType type
     {
         get
         {
@@ -304,73 +364,171 @@ public class AttackCard : Card
             _type = value;
         }
     }
-
-    public AttackTarget target
-    {
-        get
-        {
-            return _target;
-        }
-
-        set
-        {
-            _target = value;
-        }
-    }
     #endregion
 
     #region METHODS
+    protected virtual int StatBasedDamageCalculation()
+    {
+        int damage = 0;
+
+        //stat tests
+        if (statTestStrength.y > 0 && user.CurrentStrength >= statTestStrength.x)
+        {
+            damage += (int)statTestStrength.y;
+            damage += user.masteryStrength; //mastery
+        }
+        if (statTestAgility.y > 0 && user.CurrentAgility >= statTestAgility.x)
+        {
+            damage += (int)statTestAgility.y;
+            damage += user.masteryAgility; //mastery
+        }
+        if (statTestWisdom.y > 0 && user.CurrentWisdom >= statTestWisdom.x)
+        {
+            damage += (int)statTestWisdom.y;
+            damage += user.masteryWisdom; //mastery
+        }
+        if (statTestSpirit.y > 0 && user.CurrentSpirit >= statTestSpirit.x)
+        {
+            damage += (int)statTestSpirit.y;
+            damage += user.masterySpirit; //mastery
+        }
+
+        //stat fails
+        if (statFailStrength.y > 0 && enemy.CurrentStrength < statFailStrength.x)
+            damage += (int)statFailStrength.y;
+        if (statFailAgility.y > 0 && enemy.CurrentAgility < statFailAgility.x)
+            damage += (int)statFailAgility.y;
+        if (statFailWisdom.y > 0 && enemy.CurrentWisdom < statFailWisdom.x)
+            damage += (int)statFailWisdom.y;
+        if (statFailSpirit.y > 0 && enemy.CurrentSpirit < statFailSpirit.x)
+            damage += (int)statFailSpirit.y;
+
+        //outstats
+        if (outStatStrength.y > 0 && user.CurrentStrength - enemy.CurrentStrength >= outStatStrength.x)
+        {
+            damage += (int)outStatStrength.y;
+            damage += user.masteryStrength; //mastery
+        }
+        if (outStatAgility.y > 0 && user.CurrentAgility - enemy.CurrentAgility >= outStatAgility.x)
+        {
+            damage += (int)outStatAgility.y;
+            damage += user.masteryAgility; //mastery
+        }
+        if (outStatWisdom.y > 0 && user.CurrentWisdom - enemy.CurrentWisdom >= outStatWisdom.x)
+        {
+            damage += (int)outStatWisdom.y;
+            damage += user.masteryWisdom; //mastery
+        }
+        if (outStatSpirit.y > 0 && user.CurrentSpirit - enemy.CurrentSpirit >= outStatSpirit.x)
+        {
+            damage += (int)outStatSpirit.y;
+            damage += user.masterySpirit; //mastery
+        }
+
+        return damage;
+    }
+
+    protected virtual int UserDamageModifiers(int damage)
+    {
+        if (type == AttackType.PHYSICAL)
+        {
+            //aggresion
+            damage += user.aggression;
+
+            //berserk
+            if (user.CurrentHealth <= Defines.criticalHp && user.berserk)
+                damage *= Defines.criticalHpMultiplier;
+        }
+        else //type == AttackType.MAGICAL
+        {
+            //analytic
+            damage += user.analytic;
+
+            //overdrive
+            if (user.CurrentHealth <= Defines.criticalHp && user.overdrive)
+                damage *= Defines.criticalHpMultiplier;
+        }
+
+        return damage;
+    }
+
+    protected virtual int EnemyDamageModifiers(int damage)
+    {
+        if (type == AttackType.PHYSICAL)
+            damage -= user.aggression; //armor
+        else //type == AttackType.MAGICAL
+            damage += user.analytic; //analytic
+
+        return damage;
+    }
+
     public virtual int CalculateDamage()
     {
         int damage = baseDamage;
 
-        //stat tests
-        if (statTestStrength.y > 0 && user.CurrentStrength > statTestStrength.x)
-            damage += (int) statTestStrength.y;
-        if (statTestAgility.y > 0 && user.CurrentAgility > statTestAgility.x)
-            damage += (int) statTestAgility.y;
-        if (statTestWisdom.y > 0 && user.CurrentWisdom > statTestWisdom.x)
-            damage += (int)statTestWisdom.y;
-        if (statTestSpirit.y > 0 && user.CurrentSpirit > statTestSpirit.x)
-            damage += (int)statTestSpirit.y;
+        damage += StatBasedDamageCalculation();
+        
+        damage = UserDamageModifiers(damage);
+        damage = EnemyDamageModifiers(damage);
 
-        //stat fails
-        if (statFailStrength.y > 0 && enemy.CurrentStrength > statFailStrength.x)
-            damage += (int)statFailStrength.y;
-        if (statFailAgility.y > 0 && enemy.CurrentAgility > statFailAgility.x)
-            damage += (int)statFailAgility.y;
-        if (statFailWisdom.y > 0 && enemy.CurrentWisdom > statFailWisdom.x)
-            damage += (int)statFailWisdom.y;
-        if (statFailSpirit.y > 0 && enemy.CurrentSpirit > statFailSpirit.x)
-            damage += (int)statFailSpirit.y;
-
-        //outstats
-        if (outStatStrength.y > 0 && user.CurrentStrength - enemy.CurrentStrength > outStatStrength.x)
-            damage += (int)outStatStrength.y;
-        if (outStatAgility.y > 0 && user.CurrentAgility - enemy.CurrentAgility > outStatAgility.x)
-            damage += (int)outStatAgility.y;
-        if (outStatWisdom.y > 0 && user.CurrentWisdom - enemy.CurrentWisdom > outStatWisdom.x)
-            damage += (int)outStatWisdom.y;
-        if (outStatSpirit.y > 0 && user.CurrentSpirit - enemy.CurrentSpirit > outStatSpirit.x)
-            damage += (int)outStatSpirit.y;
-
-        //TO DO: unit's combat modifiers
-
-
+        Debug.Log("Total damage: " + damage);
         return damage;
     }
     
+    public virtual void SetUserEnemy()
+    {
+        user = CombatController.attackingUnit;
+        enemy = CombatController.defendingUnit;
+    }
+
+    public void ModifyUserStats()
+    {
+        user.CurrentStrength += modifyUserStrength;
+        user.CurrentAgility += modifyUserAgility;
+        user.CurrentWisdom += modifyUserWisdom;
+        user.CurrentSpirit += modifyUserSpirit;
+    }
+
+    public void ModifyEnemyStats()
+    {
+        enemy.CurrentStrength += modifyEnemyStrength;
+        enemy.CurrentAgility += modifyEnemyAgility;
+        enemy.CurrentWisdom += modifyEnemyWisdom;
+        enemy.CurrentSpirit += modifyEnemySpirit;
+    }
+
     public virtual void Activate()
     {
-        if(target == AttackTarget.USER)
-        {
-            user.ModifyHealth(CalculateDamage());
-        }
-        else
-        {
-            enemy.ModifyHealth(CalculateDamage());
-        }
+        SetUserEnemy();
 
+        enemy.ModifyHealth(CalculateDamage());
+
+        ModifyUserStats();
+        ModifyEnemyStats();
+
+        CombatController.SwitchTurn();
+    }
+    #endregion
+
+    #region OVERIDES
+    public override void SetParent(RectTransform parent)
+    {
+        base.SetParent(parent);
+        collider.size = new Vector2(parent.sizeDelta.y * aspectRatioFitter.aspectRatio, parent.sizeDelta.y);
+
+    }
+    #endregion
+
+    #region UNITY
+    private void Awake()
+    {
+        collider = GetComponent<BoxCollider2D>();
+        aspectRatioFitter = GetComponent<AspectRatioFitter>();
+    }
+
+    private void OnMouseUpAsButton()
+    {
+        Activate();
     }
     #endregion
 }
