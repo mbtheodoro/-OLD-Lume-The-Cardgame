@@ -3,19 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LoadSpellCard : MonoBehaviour
+public class LoadSpellCard : LoadCard
 {
     #region REFERENCES
     [HideInInspector] public SpellCardData cardData;
 
-    public Image art;
-    public Image cardIcon;
-    public Image nameBackground;
-    public Image descriptionBackground;
-
-    public Text nameText;
-    public Text descriptionText;
-    public Text flavorText;
+    public Image costBorder;
     public Text costText;
     #endregion
 
@@ -24,30 +17,21 @@ public class LoadSpellCard : MonoBehaviour
     {
         cardData = card;
 
-        art.sprite = cardData.art;
-        nameText.text = cardData.name;
-        descriptionText.text = cardData.description;
-        flavorText.text = cardData.flavorText;
-        costText.text = cardData.cost.ToString();
+        LoadRegularCardData(card);
+
+        SpellCard spellCard = (SpellCard) GetComponent<SpellCard>();
+
+        spellCard.costText = costText;
+        spellCard.originalCost = card.cost;
     }
 
-    public void LoadCardStyle(CardStyle style)
+    public override void LoadCardStyle(CardStyle style)
     {
-        cardIcon.sprite = style.cardIcon;
+        base.LoadCardStyle(style);
 
-        nameBackground.color = style.mainColorA;
-        nameText.font = style.nameTextFont;
-        nameText.color = style.nameTextColor;
-
-        descriptionBackground.color = style.mainColorB;
-        descriptionText.font = style.descriptionTextFont;
-        descriptionText.color = style.descriptionTextColor;
-
-        flavorText.color = style.flavorTextColor;
-        flavorText.font = style.flavorTextFont;
-
-        costText.color = style.mainColorB;
+        costText.color = style.borderColor;
         costText.font = style.numbersTextFont;
+        costBorder.color = style.borderColor;
     }
     #endregion
 }

@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 public class CardFactory : MonoBehaviour
@@ -32,7 +34,7 @@ public class CardFactory : MonoBehaviour
         get { return _instance; }
     }
 
-    public static RectTransform CreateCard(string name)
+    public static Card CreateCard(string name)
     {
         CardData card = CardDatabase.GetCardData(name);
         CardStyle style;
@@ -52,57 +54,62 @@ public class CardFactory : MonoBehaviour
             case CardType.ATTACK:
                 //instantiate prefab
                 go = (GameObject) Instantiate(instance.attackCardPrefab.gameObject, Vector3.zero, Quaternion.identity);
+                Card attackCard = (Card) go.AddComponent(Type.GetType(card.className, false, true));
 
                 //load card data and style
                 LoadAttackCard loadAttackCard = go.GetComponent<LoadAttackCard>();
                 loadAttackCard.LoadCardData((AttackCardData)card);
                 loadAttackCard.LoadCardStyle(style);
                 
-                return go.GetComponent<RectTransform>();
+                return attackCard;
 
             case CardType.UNIT:
                 //instantiate prefab
                 go = (GameObject)Instantiate(instance.unitCardPrefab.gameObject, Vector3.zero, Quaternion.identity);
+                Card unitCard = (Card) go.AddComponent(Type.GetType(card.className, false, true));
 
                 //load card data and style
                 LoadUnitCard loadUnitCard = go.GetComponent<LoadUnitCard>();
                 loadUnitCard.LoadCardData((UnitCardData) card);
                 loadUnitCard.LoadCardStyle(style);
 
-                return go.GetComponent<RectTransform>();
+                return unitCard;
 
             case CardType.SPELL:
                 //instantiate prefab
-                go = (GameObject)Instantiate(instance.attackCardPrefab.gameObject, Vector3.zero, Quaternion.identity);
+                go = (GameObject)Instantiate(instance.spellCardPrefab.gameObject, Vector3.zero, Quaternion.identity);
+                Card spellCard = (Card) go.AddComponent(Type.GetType(card.className, false, true));
 
                 //load card data and style
                 LoadSpellCard loadSpellCard = go.GetComponent<LoadSpellCard>();
                 loadSpellCard.LoadCardData((SpellCardData)card);
                 loadSpellCard.LoadCardStyle(style);
 
-                return go.GetComponent<RectTransform>();
+                return spellCard;
 
             case CardType.LOCATION:
                 //instantiate prefab
-                go = (GameObject)Instantiate(instance.attackCardPrefab.gameObject, Vector3.zero, Quaternion.identity);
+                go = (GameObject)Instantiate(instance.locationCardPrefab.gameObject, Vector3.zero, Quaternion.identity);
+                Card locationCard = (Card) go.AddComponent(Type.GetType(card.className, false, true));
 
                 //load card data and style
                 LoadLocationCard loadLocationCard = go.GetComponent<LoadLocationCard>();
                 loadLocationCard.LoadCardData((LocationCardData)card);
                 loadLocationCard.LoadCardStyle(style);
 
-                return go.GetComponent<RectTransform>();
+                return locationCard;
 
             case CardType.EQUIP:
                 //instantiate prefab
-                go = (GameObject)Instantiate(instance.attackCardPrefab.gameObject, Vector3.zero, Quaternion.identity);
+                go = (GameObject)Instantiate(instance.equipCardPrefab.gameObject, Vector3.zero, Quaternion.identity);
+                Card equipCard = (Card) go.AddComponent(Type.GetType(card.className, false, true));
 
                 //load card data and style
                 LoadEquipCard loadEquipCard = go.GetComponent<LoadEquipCard>();
                 loadEquipCard.LoadCardData((EquipCardData)card);
                 loadEquipCard.LoadCardStyle(style);
 
-                return go.GetComponent<RectTransform>();
+                return equipCard;
         }
 
         return null;

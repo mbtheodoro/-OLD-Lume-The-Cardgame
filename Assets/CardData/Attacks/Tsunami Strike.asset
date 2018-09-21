@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b435711300fcb64abee0d7634b06702, type: 3}
+  m_Name: Tsunami Strike
+  m_EditorClassIdentifier: 
+  className: AttackCard
+  name: Tsunami Strike
+  description: 'Outstat Strength: deal 5 more Damage.
+
+    Outstat Agility: deal 5 more Damage.'
+  flavorText: The Water Clan people are known for their fighting prowess and few attacks
+    are more fearsome than this.
+  type: 2
+  nation: 2
+  art: {fileID: 0}
+  baseDamage: 10
+  cost: 20
+  attackType: 0
+  statTestStrength: {x: 0, y: 0}
+  statTestAgility: {x: 0, y: 0}
+  statTestWisdom: {x: 0, y: 0}
+  statTestSpirit: {x: 0, y: 0}
+  outStatStrength: {x: 1, y: 5}
+  outStatAgility: {x: 1, y: 5}
+  outStatWisdom: {x: 0, y: 0}
+  outStatSpirit: {x: 0, y: 0}
+  statFailStrength: {x: 0, y: 0}
+  statFailAgility: {x: 0, y: 0}
+  statFailWisdom: {x: 0, y: 0}
+  statFailSpirit: {x: 0, y: 0}
+  modifyUserStrength: 0
+  modifyUserAgility: 0
+  modifyUserWisdom: 0
+  modifyUserSpirit: 0
+  modifyEnemyStrength: 0
+  modifyEnemyAgility: 0
+  modifyEnemyWisdom: 0
+  modifyEnemySpirit: 0

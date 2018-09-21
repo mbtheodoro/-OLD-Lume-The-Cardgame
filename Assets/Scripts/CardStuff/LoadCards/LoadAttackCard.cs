@@ -3,19 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LoadAttackCard : MonoBehaviour
+public class LoadAttackCard : LoadCard
 {
     #region REFERENCES
     [HideInInspector] public AttackCardData cardData;
 
-    public Image art;
-    public Image cardIcon;
-    public Image nameBackground;
-    public Image descriptionBackground;
+    public Image costBorder;
+    public Image attackTypeIcon;
 
-    public Text nameText;
-    public Text descriptionText;
-    public Text flavorText;
+    public Sprite physicalIcon;
+    public Sprite magicalIcon;
+    
     public Text costText;
     public Text baseDamageText;
     #endregion
@@ -25,34 +23,58 @@ public class LoadAttackCard : MonoBehaviour
     {
         cardData = card;
 
-        art.sprite = cardData.art;
-        nameText.text = cardData.name;
-        descriptionText.text = cardData.description;
-        flavorText.text = cardData.flavorText;
-        costText.text = cardData.cost.ToString();
-        baseDamageText.text = cardData.baseDamage.ToString();
+        LoadRegularCardData(card);
+
+        AttackCard attackCard = (AttackCard) GetComponent<AttackCard>();
+
+        attackCard.costText = costText;
+        attackCard.baseDamageText = baseDamageText;
+
+        attackCard.originalCost = card.cost;
+        attackCard.baseDamage = card.baseDamage;
+        attackCard.type = card.attackType;
+
+        attackCard.statTestStrength = card.statTestStrength;
+        attackCard.statTestAgility = card.statTestAgility;
+        attackCard.statTestWisdom = card.statTestWisdom;
+        attackCard.statTestSpirit = card.statTestSpirit;
+
+        attackCard.outStatStrength = card.outStatStrength;
+        attackCard.outStatAgility = card.outStatAgility;
+        attackCard.outStatWisdom = card.outStatWisdom;
+        attackCard.outStatSpirit = card.outStatSpirit;
+
+        attackCard.statFailStrength = card.statFailStrength;
+        attackCard.statFailAgility = card.statFailAgility;
+        attackCard.statFailWisdom = card.statFailWisdom;
+        attackCard.statFailSpirit = card.statFailSpirit;
+
+        attackCard.modifyUserStrength = card.modifyUserStrength;
+        attackCard.modifyUserAgility = card.modifyUserAgility;
+        attackCard.modifyUserWisdom = card.modifyUserWisdom;
+        attackCard.modifyUserSpirit = card.modifyUserSpirit;
+
+        attackCard.modifyEnemyStrength = card.modifyEnemyStrength;
+        attackCard.modifyEnemyAgility = card.modifyEnemyAgility;
+        attackCard.modifyEnemyWisdom = card.modifyEnemyWisdom;
+        attackCard.modifyEnemySpirit = card.modifyEnemySpirit;
     }
 
-    public void LoadCardStyle(CardStyle style)
+    public override void LoadCardStyle(CardStyle style)
     {
-        cardIcon.sprite = style.cardIcon;
+        base.LoadCardStyle(style);
 
-        nameBackground.color = style.mainColorA;
-        nameText.font = style.nameTextFont;
-        nameText.color = style.nameTextColor;
-
-        descriptionBackground.color = style.mainColorB;
-        descriptionText.font = style.descriptionTextFont;
-        descriptionText.color = style.descriptionTextColor;
-
-        flavorText.color = style.flavorTextColor;
-        flavorText.font = style.flavorTextFont;
-
-        costText.color = style.mainColorB;
-        costText.font = style.numbersTextFont;
+        costText.color = style.borderColor;
+        costText.font = style.nameTextFont;
+        costBorder.color = style.borderColor;
 
         baseDamageText.font = style.numbersTextFont;
-        baseDamageText.color = style.mainColorB;
+        baseDamageText.color = style.descriptionTextColor;
+
+        if(cardData.attackType == AttackType.PHYSICAL)
+            attackTypeIcon.sprite = physicalIcon;
+        if (cardData.attackType == AttackType.MAGICAL)
+            attackTypeIcon.sprite = magicalIcon;
     }
     #endregion
 }

@@ -3,20 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LoadUnitCard : MonoBehaviour
+public class LoadUnitCard : LoadCard
 {
     #region REFERENCES
     [HideInInspector] public UnitCardData cardData;
 
-    public Image art;
-    public Image cardIcon;
-    public Image nameBackground;
-    public Image descriptionBackground;
     public Image healthBorder;
-
-    public Text nameText;
-    public Text descriptionText;
-    public Text flavorText;
+    
     public Text healthText;
     public Text strengthText;
     public Text agilityText;
@@ -29,34 +22,65 @@ public class LoadUnitCard : MonoBehaviour
     {
         cardData = card;
 
-        art.sprite = cardData.art;
-        nameText.text = cardData.name;
-        descriptionText.text = cardData.description;
-        flavorText.text = cardData.flavorText;
-        healthText.text = cardData.health.ToString();
-        strengthText.text = cardData.strength.ToString();
-        agilityText.text = cardData.agility.ToString();
-        wisdomText.text = cardData.wisdom.ToString();
-        spiritText.text = cardData.spirit.ToString();
+        LoadRegularCardData(card);
+
+        UnitCard unitCard = (UnitCard) GetComponent<UnitCard>();
+
+        //references
+        unitCard.healthText = healthText;
+        unitCard.strengthText = strengthText;
+        unitCard.agilityText = agilityText;
+        unitCard.wisdomText = wisdomText;
+        unitCard.spiritText = spiritText;
+
+        //stats
+        unitCard.OriginalHealth = cardData.health;
+        unitCard.OriginalStrength = cardData.strength;
+        unitCard.OriginalAgility = cardData.agility;
+        unitCard.OriginalWisdom = cardData.wisdom;
+        unitCard.OriginalSpirit = cardData.spirit;
+
+        //keywords
+        unitCard.aggression = cardData.aggression;
+        unitCard.analytic = cardData.analytic;
+
+        unitCard.masteryStrength = cardData.masteryStrenght;
+        unitCard.masteryAgility = cardData.masteryAgility;
+        unitCard.masteryWisdom = cardData.masteryWisdom;
+        unitCard.masterySpirit = cardData.masterySpirit;
+
+        unitCard.weaken = cardData.weaken;
+        unitCard.hypnosis = cardData.hypnosis;
+        unitCard.intimidate = cardData.intimidate;
+
+        unitCard.supportStrenght = cardData.supportStrenght;
+        unitCard.supportAgility = cardData.supportAgility;
+        unitCard.supportWisdom = cardData.supportWisdom;
+        unitCard.supportSpirit = cardData.supportSpirit;
+
+        unitCard.infiltrate = cardData.infiltrate;
+
+        unitCard.berserk = cardData.berserk;
+        unitCard.overdrive = cardData.overdrive;
+
+        unitCard.armor = cardData.armor;
+        unitCard.endurance = cardData.endurance;
+
+        unitCard.reckless = cardData.reckless;
+        unitCard.regenerate = cardData.regenerate;
+
+        unitCard.defiant = cardData.defiant;
+        unitCard.stubborn = cardData.stubborn;
+        unitCard.piercer = cardData.piercer;
+        unitCard.taunt = cardData.taunt;
     }
 
-    public void LoadCardStyle(CardStyle style)
+    public override void LoadCardStyle(CardStyle style)
     {
-        cardIcon.sprite = style.cardIcon;
+        base.LoadCardStyle(style);
 
-        nameBackground.color = style.mainColorA;
-        nameText.font = style.nameTextFont;
-        nameText.color = style.nameTextColor;
-
-        descriptionBackground.color = style.mainColorB;
-        descriptionText.font = style.descriptionTextFont;
-        descriptionText.color = style.descriptionTextColor;
-
-        flavorText.color = style.flavorTextColor;
-        flavorText.font = style.flavorTextFont;
-
-        healthText.color = style.mainColorB;
-        healthBorder.color = style.mainColorB;
+        healthText.color = style.borderColor;
+        healthBorder.color = style.borderColor;
         healthText.font = style.nameTextFont;
 
         strengthText.color = style.numbersTextColor;

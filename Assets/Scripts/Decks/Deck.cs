@@ -2,11 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Deck : MonoBehaviour
+public class Deck
 {
-    [SerializeField] private int deckSize;
+    private int deckSize;
     private List<string> deck;
 
+    #region PROPERTIES
+    public int DeckSize
+    {
+        get { return deckSize; }
+    }
+    #endregion
+
+    #region CONSTRUCTORS
+    public Deck(int deckSize)
+    {
+        this.deckSize = deckSize;
+        deck = new List<string>(deckSize);
+    }
+    #endregion
+
+    #region METHODS
     public void ShuffleDeck()
     {
         deck.Shuffle<string>();
@@ -19,10 +35,10 @@ public class Deck : MonoBehaviour
 
     public void AddCardTop(string cardName)
     {
-        deck.Add(cardName);
+        deck.Insert(0, cardName);
     }
 
-    public RectTransform DrawCard()
+    public Card DrawCard()
     {
         string card = deck[0];
         deck.RemoveAt(0);
@@ -33,6 +49,7 @@ public class Deck : MonoBehaviour
     {
         return deck.Count;
     }
+    #endregion
 }
 
 public static class ExtensionMethods

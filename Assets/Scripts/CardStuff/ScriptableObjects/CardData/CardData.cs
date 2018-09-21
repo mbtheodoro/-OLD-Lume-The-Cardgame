@@ -21,9 +21,14 @@ public enum Nation
 
 public class CardData : ScriptableObject
 {
+    [Header("Script")]
+    public string className;
+    [Header("General")]
     public new string name;
-    public string flavorText;
+    [TextArea(2, 3)]
     public string description;
+    [TextArea(2, 3)]
+    public string flavorText;
 
     public CardType type;
     public Nation nation;
