@@ -7,12 +7,14 @@ public class Deck
     private int deckSize;
     private List<string> deck;
 
-    #region CONSTRUCTORS
+    #region PROPERTIES
     public int DeckSize
     {
         get { return deckSize; }
     }
+    #endregion
 
+    #region CONSTRUCTORS
     public Deck(int deckSize)
     {
         this.deckSize = deckSize;
@@ -20,6 +22,7 @@ public class Deck
     }
     #endregion
 
+    #region METHODS
     public void ShuffleDeck()
     {
         deck.Shuffle<string>();
@@ -46,6 +49,7 @@ public class Deck
     {
         return deck.Count;
     }
+    #endregion
 }
 
 public static class ExtensionMethods

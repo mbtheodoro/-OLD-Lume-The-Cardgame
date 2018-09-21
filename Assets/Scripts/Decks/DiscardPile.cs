@@ -26,8 +26,20 @@ public class DiscardPile
         return cards.Contains(cardName);
     }
 
-    public string GetTopCard()
+    public string Peek()
     {
         return cards[cards.Count - 1];
+    }
+
+    public string GetTopCard()
+    {
+        string card = cards[cards.Count - 1];
+        RemoveCard(card);
+        return card;
+    }
+
+    public int size
+    {
+        get { return cards.Count; }
     }
 }

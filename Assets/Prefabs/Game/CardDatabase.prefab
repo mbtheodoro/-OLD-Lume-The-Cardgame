@@ -51,8 +51,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd30d475fc4c2ac4098d1b771761b824, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardList:
-  - {fileID: 11400000, guid: 3ea38fe3f1edeae4baf5744e202443a3, type: 2}
+  attackList:
+  - {fileID: 11400000, guid: 0b3988d5f9653d24b8e998541aad71d0, type: 2}
+  - {fileID: 11400000, guid: d9122cfced1d2f14aa67c3d644cd7e21, type: 2}
+  - {fileID: 11400000, guid: 0296caba341fbee41adb34c9aae30992, type: 2}
+  - {fileID: 11400000, guid: 191041adfec6fb04c931970e70051c55, type: 2}
+  - {fileID: 11400000, guid: b1f8a356cde736741b7e2605405bb7e8, type: 2}
+  - {fileID: 11400000, guid: 3547d313b6327844fbea7654b67a586e, type: 2}
+  - {fileID: 11400000, guid: 249a63eeffed2464984985b8efc9c545, type: 2}
+  unitList:
   - {fileID: 11400000, guid: 43da041c6c69f8d4fb8340dc040c7c62, type: 2}
   - {fileID: 11400000, guid: 91f322be6dc54ca4194c00123c0411ff, type: 2}
-  - {fileID: 11400000, guid: b1f8a356cde736741b7e2605405bb7e8, type: 2}
+  - {fileID: 11400000, guid: 3ea38fe3f1edeae4baf5744e202443a3, type: 2}
+  equipList: []
+  locationList: []

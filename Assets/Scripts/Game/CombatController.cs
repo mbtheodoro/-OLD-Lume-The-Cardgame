@@ -2,12 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Turn
-{
-    PLAYER1,
-    PLAYER2
-}
-
 public class CombatController : MonoBehaviour
 {
     #region SINGLETON
@@ -18,17 +12,21 @@ public class CombatController : MonoBehaviour
     }
     #endregion
 
+    #region REFERENCES  
     [SerializeField] private RectTransform player1Rect;
     [SerializeField] private RectTransform player2Rect;
 
     public UnitCard player1Card;
     public UnitCard player2Card;
     //public LocationCard location;
+    #endregion
 
-    private Turn _turn;
+    #region ATTRIBUTES
+    private PlayerInfo _turn;
+    #endregion
 
     #region PROPERTIES
-    public Turn turn
+    public PlayerInfo turn
     {
         get
         {
@@ -45,7 +43,7 @@ public class CombatController : MonoBehaviour
     {
         get
         {
-            if (instance.turn == Turn.PLAYER1)
+            if (instance.turn == PlayerInfo.PLAYER1)
                 return instance.player1Card;
             else
                 return instance.player2Card;
@@ -56,7 +54,7 @@ public class CombatController : MonoBehaviour
     {
         get
         {
-            if (instance.turn == Turn.PLAYER1)
+            if (instance.turn == PlayerInfo.PLAYER1)
                 return instance.player2Card;
             else
                 return instance.player1Card;
@@ -65,31 +63,35 @@ public class CombatController : MonoBehaviour
     #endregion
 
     #region METHODS
-    public static void SwitchTurn()
+    public void SwitchTurn()
     {
-        if(instance.turn == Turn.PLAYER1)
-            instance.turn = Turn.PLAYER2;
+        if(instance.turn == PlayerInfo.PLAYER1)
+            instance.turn = PlayerInfo.PLAYER2;
         else
-            instance.turn = Turn.PLAYER1;
+            instance.turn = PlayerInfo.PLAYER1;
+    }
+
+    public static void OnAttackCardPlayed()
+    {
+        instance.SwitchTurn();
     }
     #endregion
 
     #region UNITY
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             _instance = this;
         }
         else
             DestroyImmediate(gameObject);
-
     }
 
     private void OnEnable()
     {
         //TO DO: location determines turn
-        turn = Turn.PLAYER1;
+        turn = PlayerInfo.PLAYER1;
 
         if (player1Card != null && player2Card != null)
         {

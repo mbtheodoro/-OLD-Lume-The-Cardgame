@@ -251,11 +251,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc85662ab8b321140af3d489c2b58582, type: 2}
   m_IsPrefabAsset: 0
---- !u!224 &354501846 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 224956774068998558, guid: dc85662ab8b321140af3d489c2b58582,
-    type: 2}
-  m_PrefabInternal: {fileID: 1170737737}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,6 +328,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &639388107 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114794729247377674, guid: dc85662ab8b321140af3d489c2b58582,
+    type: 2}
+  m_PrefabInternal: {fileID: 1170737737}
+  m_Script: {fileID: 11500000, guid: 8461abf4fe89aed4688db52a442dfc63, type: 3}
 --- !u!1001 &727742786
 Prefab:
   m_ObjectHideFlags: 0
@@ -470,6 +471,12 @@ RectTransform:
   m_AnchoredPosition: {x: -310, y: 0}
   m_SizeDelta: {x: 240, y: 360}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1053566762 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114467178065168598, guid: dc85662ab8b321140af3d489c2b58582,
+    type: 2}
+  m_PrefabInternal: {fileID: 150780797}
+  m_Script: {fileID: 11500000, guid: 8461abf4fe89aed4688db52a442dfc63, type: 3}
 --- !u!1001 &1170737737
 Prefab:
   m_ObjectHideFlags: 0
@@ -567,33 +574,9 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 224597805701996664, guid: dc85662ab8b321140af3d489c2b58582,
-        type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224597805701996664, guid: dc85662ab8b321140af3d489c2b58582,
-        type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224597805701996664, guid: dc85662ab8b321140af3d489c2b58582,
-        type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1139038935566718, guid: dc85662ab8b321140af3d489c2b58582, type: 2}
       propertyPath: m_Name
       value: Player2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1881023828378650, guid: dc85662ab8b321140af3d489c2b58582, type: 2}
-      propertyPath: m_Name
-      value: Player2Hand
-      objectReference: {fileID: 0}
-    - target: {fileID: 114924147239367028, guid: dc85662ab8b321140af3d489c2b58582,
-        type: 2}
-      propertyPath: m_ChildAlignment
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc85662ab8b321140af3d489c2b58582, type: 2}
@@ -832,18 +815,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1265804974}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0005cb19d8711ea4fa80d6b69b38aeb5, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b6d2af92699e3e44b846dbaf457137d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 354501846}
-  cardNames:
-  - Knee Capper
-  - Knee Capper
-  - Knee Capper
-  - Knee Capper
-  - Knee Capper
   player1unit: Jayme
   player2unit: Reva
+  attacks:
+  - Backstab
+  - Fire Ball
+  - Illusion in the Shadows
+  - Intimidating Roar
+  - Knee Capper
+  - Tsunami Strike
+  - Unstoppable Blow
+  player1Controller: {fileID: 1053566762}
+  player2Controller: {fileID: 639388107}
 --- !u!224 &2122550890 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224597805701996664, guid: dc85662ab8b321140af3d489c2b58582,

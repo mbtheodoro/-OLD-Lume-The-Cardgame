@@ -9,23 +9,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2b435711300fcb64abee0d7634b06702, type: 3}
-  m_Name: Knee Capper
+  m_Name: Illusion in the Shadows
   m_EditorClassIdentifier: 
   className: AttackCard
-  name: Knee Capper
-  description: 'Stat Test Agility 6: Deal 10 more damage.
-
-    The enemy loses 1 agility.'
-  flavorText: When the technique and the execution are flawless, nothing can't stop
-    it.
+  name: Illusion in the Shadows
+  description: 'Stat Fail Wisdom 6: If the enemy has less than 6 Wisdom, deal 5 damage.'
+  flavorText: It`s a cheap trick, but it's enough to fool many.
   type: 2
   nation: 3
   art: {fileID: 0}
-  baseDamage: 5
-  cost: 15
-  attackType: 0
+  baseDamage: 0
+  cost: 0
+  attackType: 1
   statTestStrength: {x: 0, y: 0}
-  statTestAgility: {x: 6, y: 10}
+  statTestAgility: {x: 0, y: 0}
   statTestWisdom: {x: 0, y: 0}
   statTestSpirit: {x: 0, y: 0}
   outStatStrength: {x: 0, y: 0}
@@ -34,13 +31,13 @@ MonoBehaviour:
   outStatSpirit: {x: 0, y: 0}
   statFailStrength: {x: 0, y: 0}
   statFailAgility: {x: 0, y: 0}
-  statFailWisdom: {x: 0, y: 0}
+  statFailWisdom: {x: 6, y: 5}
   statFailSpirit: {x: 0, y: 0}
   modifyUserStrength: 0
   modifyUserAgility: 0
   modifyUserWisdom: 0
   modifyUserSpirit: 0
   modifyEnemyStrength: 0
-  modifyEnemyAgility: -1
+  modifyEnemyAgility: 0
   modifyEnemyWisdom: 0
   modifyEnemySpirit: 0

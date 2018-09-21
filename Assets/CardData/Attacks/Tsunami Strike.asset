@@ -9,27 +9,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2b435711300fcb64abee0d7634b06702, type: 3}
-  m_Name: Knee Capper
+  m_Name: Tsunami Strike
   m_EditorClassIdentifier: 
   className: AttackCard
-  name: Knee Capper
-  description: 'Stat Test Agility 6: Deal 10 more damage.
+  name: Tsunami Strike
+  description: 'Outstat Strength: deal 5 more Damage.
 
-    The enemy loses 1 agility.'
-  flavorText: When the technique and the execution are flawless, nothing can't stop
-    it.
+    Outstat Agility: deal 5 more Damage.'
+  flavorText: The Water Clan people are known for their fighting prowess and few attacks
+    are more fearsome than this.
   type: 2
-  nation: 3
+  nation: 2
   art: {fileID: 0}
-  baseDamage: 5
-  cost: 15
+  baseDamage: 10
+  cost: 20
   attackType: 0
   statTestStrength: {x: 0, y: 0}
-  statTestAgility: {x: 6, y: 10}
+  statTestAgility: {x: 0, y: 0}
   statTestWisdom: {x: 0, y: 0}
   statTestSpirit: {x: 0, y: 0}
-  outStatStrength: {x: 0, y: 0}
-  outStatAgility: {x: 0, y: 0}
+  outStatStrength: {x: 1, y: 5}
+  outStatAgility: {x: 1, y: 5}
   outStatWisdom: {x: 0, y: 0}
   outStatSpirit: {x: 0, y: 0}
   statFailStrength: {x: 0, y: 0}
@@ -41,6 +41,6 @@ MonoBehaviour:
   modifyUserWisdom: 0
   modifyUserSpirit: 0
   modifyEnemyStrength: 0
-  modifyEnemyAgility: -1
+  modifyEnemyAgility: 0
   modifyEnemyWisdom: 0
   modifyEnemySpirit: 0

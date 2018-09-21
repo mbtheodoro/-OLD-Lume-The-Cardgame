@@ -7,14 +7,15 @@ using UnityEngine.EventSystems;
 public class AttackCard : Card
 {
     #region REFERENCES
+    public PlayerController player;
+    public UnitCard user;
+    public UnitCard enemy;
+
     public new BoxCollider2D collider;
     private AspectRatioFitter aspectRatioFitter;
 
     public Text costText;
     public Text baseDamageText;
-
-    public UnitCard user;
-    public UnitCard enemy;
     #endregion
 
     #region ATTRIBUTES
@@ -501,12 +502,16 @@ public class AttackCard : Card
     {
         SetUserEnemy();
 
+        //deal damage
         enemy.ModifyHealth(CalculateDamage());
 
+        //modifying status come after damage
         ModifyUserStats();
         ModifyEnemyStats();
 
-        CombatController.SwitchTurn();
+        //callbacks
+        CombatController.OnAttackCardPlayed();
+        player.OnAttackCardPlayed(this);
     }
     #endregion
 
@@ -515,7 +520,6 @@ public class AttackCard : Card
     {
         base.SetParent(parent);
         collider.size = new Vector2(parent.sizeDelta.y * aspectRatioFitter.aspectRatio, parent.sizeDelta.y);
-
     }
     #endregion
 

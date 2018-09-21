@@ -19,10 +19,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 224597805701996664}
-  - component: {fileID: 114688671700299438}
   - component: {fileID: 114512567793096492}
   - component: {fileID: 222597037525401842}
   - component: {fileID: 114108971141771314}
+  - component: {fileID: 114794729247377674}
+  - component: {fileID: 114467178065168598}
   m_Layer: 5
   m_Name: Player1
   m_TagString: Untagged
@@ -42,7 +43,7 @@ GameObject:
   - component: {fileID: 114924147239367028}
   - component: {fileID: 114419356542181238}
   m_Layer: 5
-  m_Name: Player1Hand
+  m_Name: Player2Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -88,6 +89,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 1
   m_VerticalFit: 0
+--- !u!114 &114467178065168598
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1139038935566718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8461abf4fe89aed4688db52a442dfc63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisRect: {fileID: 224597805701996664}
+  hand: {fileID: 224956774068998558}
+  closedSize: 20
+  openedSize: 100
+  player: 0
 --- !u!114 &114512567793096492
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -104,7 +121,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 114688671700299438}
+        - m_Target: {fileID: 114467178065168598}
           m_MethodName: OpenHand
           m_Mode: 1
           m_Arguments:
@@ -121,7 +138,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 114688671700299438}
+        - m_Target: {fileID: 114467178065168598}
           m_MethodName: CloseHand
           m_Mode: 1
           m_Arguments:
@@ -135,7 +152,7 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
---- !u!114 &114688671700299438
+--- !u!114 &114794729247377674
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,13 +160,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1139038935566718}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5b813302f33bbc409dabbd47f2b385a, type: 3}
+  m_Script: {fileID: 11500000, guid: 8461abf4fe89aed4688db52a442dfc63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   thisRect: {fileID: 224597805701996664}
   hand: {fileID: 224956774068998558}
   closedSize: 20
   openedSize: 100
+  player: 0
 --- !u!114 &114924147239367028
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -166,7 +184,7 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 7
+  m_ChildAlignment: 1
   m_Spacing: 5
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0

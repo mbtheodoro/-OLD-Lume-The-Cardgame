@@ -4,17 +4,17 @@ using UnityEngine;
 
 public static class Defines
 {
-    public static int maxUnits = 6;
+    public static int unitsInAnArmy = 6;
 
-    public static int maxEquips = maxUnits;
+    public static int equipsInAnArmy = unitsInAnArmy;
 
-    public static int maxSpells = maxUnits;
+    public static int locationDeckSize = 10;
 
-    public static int maxLocations = 10;
-
-    public static int maxAttacks = 20;
+    public static int attackDeckSize = 20;
 
     public static int criticalHp = 10;
     
     public static int criticalHpMultiplier = 2;
+
+    public static int defaultHandSize = 5;
 }
