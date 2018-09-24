@@ -15,6 +15,8 @@ public class LoadLocationCard : LoadCard
         cardData = card;
 
         LoadRegularCardData(card);
+        LocationCard locationCard = GetComponent<LocationCard>();
+        locationCard.initiative = card.initiative;
     }
 
     public override void LoadCardStyle(CardStyle style)

@@ -24,7 +24,7 @@ public class LoadUnitCard : LoadCard
 
         LoadRegularCardData(card);
 
-        UnitCard unitCard = (UnitCard) GetComponent<UnitCard>();
+        UnitCard unitCard = GetComponent<UnitCard>();
 
         //references
         unitCard.healthText = healthText;

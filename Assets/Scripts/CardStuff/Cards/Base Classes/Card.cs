@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Card : MonoBehaviour
 {
+    public PlayerController player;
     private string _cardName;
+    private Nation _nation;
 
     public new string name
     {
@@ -16,6 +18,19 @@ public class Card : MonoBehaviour
         set
         {
             _cardName = value;
+        }
+    }
+
+    public Nation nation
+    {
+        get
+        {
+            return _nation;
+        }
+
+        set
+        {
+            _nation = value;
         }
     }
 

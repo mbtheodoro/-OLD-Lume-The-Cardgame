@@ -515,8 +515,28 @@ public class UnitCard : Card
             CurrentHealth -= value;
         
         Debug.Log(name + " took " + value + " damage");
+    }
+    #endregion
 
-        //TO DO: death
+    #region EVENTS
+    public virtual void OnCombatStart(UnitCard enemy)
+    {
+
+    }
+
+    public virtual void OnAttack(AttackCard attack, UnitCard enemy)
+    {
+
+    }
+
+    public virtual void OnAttackTarget(AttackCard attack, UnitCard enemy)
+    {
+
+    }
+
+    public virtual void OnCombatEnd()
+    {
+
     }
     #endregion
 }

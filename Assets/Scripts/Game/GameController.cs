@@ -17,12 +17,23 @@ public class GameController : MonoBehaviour
         get { return _instance; }
     }
     #endregion
-    
+
     //test
     public string player1unit;
     public string player2unit;
-
+    public string location;
     public List<string> attacks;
+
+    #region ATTRIBUTES
+    private PlayerInfo _turnPlayer;
+    #endregion
+
+    #region PROPERTIES
+    public static PlayerInfo turnPlayer
+    {
+        get { return instance._turnPlayer; }
+    }
+    #endregion
 
     #region REFERENCES
     public PlayerController player1Controller;
@@ -52,15 +63,14 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
-        CombatController.instance.gameObject.SetActive(false);
-
         //set player controllers
         player1Controller.player = PlayerInfo.PLAYER1;
         player2Controller.player = PlayerInfo.PLAYER2;
 
         //set unit cards
-        CombatController.instance.player1Card = (UnitCard)CardFactory.CreateCard(player1unit);
-        CombatController.instance.player2Card = (UnitCard)CardFactory.CreateCard(player2unit);
+        CombatController.instance.player1Card = (UnitCard) CardFactory.CreateCard(player1unit);
+        CombatController.instance.player2Card = (UnitCard) CardFactory.CreateCard(player2unit);
+        CombatController.instance.location = (LocationCard) CardFactory.CreateCard(location);
 
         //set players attack card decks
         foreach (string name in attacks)
@@ -76,6 +86,10 @@ public class GameController : MonoBehaviour
         player1Controller.DrawAttackCard(Defines.defaultHandSize);
         player2Controller.DrawAttackCard(Defines.defaultHandSize);
 
+        //set player turn
+        _turnPlayer = PlayerInfo.PLAYER1;
+
+        //start combat
         CombatController.instance.gameObject.SetActive(true);
     }
     #endregion
