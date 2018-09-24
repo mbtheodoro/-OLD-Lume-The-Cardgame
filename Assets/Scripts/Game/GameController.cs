@@ -67,11 +67,6 @@ public class GameController : MonoBehaviour
         player1Controller.player = PlayerInfo.PLAYER1;
         player2Controller.player = PlayerInfo.PLAYER2;
 
-        //set unit cards
-        CombatController.instance.player1Card = (UnitCard) CardFactory.CreateCard(player1unit);
-        CombatController.instance.player2Card = (UnitCard) CardFactory.CreateCard(player2unit);
-        CombatController.instance.location = (LocationCard) CardFactory.CreateCard(location);
-
         //set players attack card decks
         foreach (string name in attacks)
         {
@@ -90,7 +85,7 @@ public class GameController : MonoBehaviour
         _turnPlayer = PlayerInfo.PLAYER1;
 
         //start combat
-        CombatController.instance.gameObject.SetActive(true);
+        CombatController.instance.StartCombat((LocationCard)CardFactory.CreateCard(location), (UnitCard)CardFactory.CreateCard(player1unit), (UnitCard)CardFactory.CreateCard(player2unit));
     }
     #endregion
 }

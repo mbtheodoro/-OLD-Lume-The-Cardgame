@@ -147,8 +147,14 @@ public class CombatController : MonoBehaviour
         }
     }
 
-    private void StartCombat()
+    public void StartCombat(LocationCard l, UnitCard p1, UnitCard p2)
     {
+        gameObject.SetActive(true);
+
+        location = l;
+        player1Card = p1;
+        player2Card = p2;
+
         location.SetParent(instance.locationRect);
         player1Card.SetParent(instance.player1Rect);
         player2Card.SetParent(instance.player2Rect);
@@ -196,11 +202,6 @@ public class CombatController : MonoBehaviour
         }
         else
             DestroyImmediate(gameObject);
-    }
-    
-    private void OnEnable()
-    {
-        StartCombat();
     }
     #endregion
 }
