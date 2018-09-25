@@ -70,6 +70,8 @@ public class CombatController : MonoBehaviour
             instance.turn = PlayerInfo.PLAYER2;
         else
             instance.turn = PlayerInfo.PLAYER1;
+
+        Debug.Log("Now it's " + turn + "'s turn!");
     }
     
     private void CalculateInitiative()
@@ -176,6 +178,9 @@ public class CombatController : MonoBehaviour
 
     private void OnCombatStart()
     {
+        Debug.Log("Combat Started! It's " + player1Card.name + " Vs " + player2Card.name + " on " + location.name + "!");
+        Debug.Log(turn + "'s got the advantage!");
+
         location.OnCombatStart(player1Card, player2Card);
         player1Card.OnCombatStart(player2Card);
         player2Card.OnCombatStart(player1Card);
@@ -184,10 +189,12 @@ public class CombatController : MonoBehaviour
 
     private void OnCombatEnd()
     {
-        location.OnCombatEnd(player1Card, player2Card);
+        location.OnCombatEnd(attackingUnit, defendingUnit);
         player1Card.OnCombatEnd();
         player2Card.OnCombatEnd();
         //TO DO: then controllers
+
+        Debug.Log("Combat Ended! " + attackingUnit.name + " is victorious!");
         gameObject.SetActive(false);
     }
     #endregion

@@ -37,7 +37,7 @@ public class LocationCard : Card
 
     }
 
-    public virtual void OnCombatEnd(UnitCard player1, UnitCard player2)
+    public virtual void OnCombatEnd(UnitCard winner, UnitCard loser)
     {
 
     }

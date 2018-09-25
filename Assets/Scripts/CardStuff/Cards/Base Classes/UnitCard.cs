@@ -513,8 +513,6 @@ public class UnitCard : Card
         }
         else
             CurrentHealth -= value;
-        
-        Debug.Log(name + " took " + value + " damage");
     }
     #endregion
 
