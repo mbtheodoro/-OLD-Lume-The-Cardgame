@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     #region REFERENCES
     public RectTransform thisRect;
     public RectTransform hand;
-
+    
     public float closedSize;
     public float openedSize;
     #endregion
@@ -32,7 +32,9 @@ public class PlayerController : MonoBehaviour
 
     public void ReshuffleLocationDeck()
     {
-        //TO DO
+        for (int i = 0; i < locationDiscardPile.size; i++)
+            locationDeck.AddCardTop(locationDiscardPile.GetTopCard());
+        locationDeck.ShuffleDeck();
     }
 
     public void DrawAttackCard()
@@ -52,20 +54,25 @@ public class PlayerController : MonoBehaviour
             DrawAttackCard();
     }
 
-    //public void DrawLocationCard()
-    //{
-    //    if (attackDeck.Count() <= 0)
-    //        ReshuffleLocationDeck();
+    public LocationCard DrawLocationCard()
+    {
+        if (locationDeck.Count() <= 0)
+            ReshuffleLocationDeck();
 
-    //    LocationCard card = (LocationCard)attackDeck.DrawCard();
-    //    card.player = player;
-    //    card.SetParent(hand);
-    //    hand.ForceUpdateRectTransforms();
-    //}
+        LocationCard card = (LocationCard) locationDeck.DrawCard();
+        card.player = this;
+        return card;
+    }
 
     public void DiscardAttackCard(AttackCard card)
     {
         attackDiscardPile.AddCard(card.name);
+        Destroy(card.gameObject);
+    }
+
+    public void DiscardLocationCard(LocationCard card)
+    {
+        locationDiscardPile.AddCard(card.name);
         Destroy(card.gameObject);
     }
 
