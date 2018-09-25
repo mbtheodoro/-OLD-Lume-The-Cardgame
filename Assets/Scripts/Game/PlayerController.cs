@@ -102,6 +102,8 @@ public class PlayerController : MonoBehaviour
         locationDiscardPile = new DiscardPile();
         attackDeck = new Deck(Defines.attackDeckSize);
         locationDeck = new Deck(Defines.locationDeckSize);
+
+        hand.sizeDelta = new Vector2(0f, openedSize);
     }
     #endregion
 }

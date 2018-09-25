@@ -455,9 +455,9 @@ public class AttackCard : Card
     protected virtual int EnemyDamageModifiers(int damage)
     {
         if (type == AttackType.PHYSICAL)
-            damage -= user.aggression; //armor
+            damage -= enemy.armor; //armor
         else //type == AttackType.MAGICAL
-            damage += user.analytic; //analytic
+            damage -= enemy.endurance; //endurance
 
         return damage;
     }
@@ -471,7 +471,6 @@ public class AttackCard : Card
         damage = UserDamageModifiers(damage);
         damage = EnemyDamageModifiers(damage);
 
-        Debug.Log("Total damage: " + damage);
         return damage;
     }
     
@@ -502,7 +501,9 @@ public class AttackCard : Card
         SetUserEnemy();
 
         //deal damage
-        enemy.ModifyHealth(CalculateDamage());
+        int damage = CalculateDamage();
+        enemy.ModifyHealth(damage);
+        Debug.Log(user.name + " used " + name + " on " + enemy.name + " and dealt " + damage + " damage!");
 
         //modifying status come after damage
         ModifyUserStats();
@@ -510,8 +511,8 @@ public class AttackCard : Card
 
         //callbacks
         CombatController.instance.location.OnAttackCardPlayed(this, user, enemy); //first resolve location effects
-        //user.OnAttack(this, enemy); //then resolve user
-        //enemy.OnAttackTarget(this, user); //then resolve enemy
+        user.OnAttack(this, enemy); //then resolve user
+        enemy.OnAttackTarget(this, user); //then resolve enemy
         player.OnAttackCardPlayed(this); //then discard card and draw a new one
         CombatController.OnAttackCardPlayed(); //and finally, switch turns
     }
