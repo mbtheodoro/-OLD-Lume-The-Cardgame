@@ -284,6 +284,12 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc85662ab8b321140af3d489c2b58582, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &150780798 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114794729247377674, guid: dc85662ab8b321140af3d489c2b58582,
+    type: 2}
+  m_PrefabInternal: {fileID: 150780797}
+  m_Script: {fileID: 11500000, guid: 8461abf4fe89aed4688db52a442dfc63, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,12 +510,6 @@ RectTransform:
   m_AnchoredPosition: {x: -350, y: 0}
   m_SizeDelta: {x: 240, y: 360}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1053566762 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114467178065168598, guid: dc85662ab8b321140af3d489c2b58582,
-    type: 2}
-  m_PrefabInternal: {fileID: 150780797}
-  m_Script: {fileID: 11500000, guid: 8461abf4fe89aed4688db52a442dfc63, type: 3}
 --- !u!1001 &1170737737
 Prefab:
   m_ObjectHideFlags: 0
@@ -865,7 +865,7 @@ MonoBehaviour:
   - Knee Capper
   - Tsunami Strike
   - Unstoppable Blow
-  player1Controller: {fileID: 1053566762}
+  player1Controller: {fileID: 150780798}
   player2Controller: {fileID: 639388107}
 --- !u!224 &2122550890 stripped
 RectTransform:
