@@ -39,7 +39,7 @@ public class LocationCard : Card
 
     public virtual void OnCombatEnd(UnitCard winner, UnitCard loser)
     {
-
+        player.DiscardLocationCard(this);
     }
     #endregion
 
