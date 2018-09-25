@@ -21,7 +21,7 @@ public class GameController : MonoBehaviour
     //test
     public string player1unit;
     public string player2unit;
-    public string location;
+    public List<string> locations;
     public List<string> attacks;
 
     #region ATTRIBUTES
@@ -32,6 +32,17 @@ public class GameController : MonoBehaviour
     public static PlayerInfo turnPlayer
     {
         get { return instance._turnPlayer; }
+    }
+
+    public static PlayerController turnPlayerController
+    {
+        get
+        {
+            if(instance._turnPlayer == PlayerInfo.PLAYER1)
+                return instance.player1Controller;
+            else
+                return instance.player2Controller;
+        }
     }
     #endregion
 
@@ -72,10 +83,19 @@ public class GameController : MonoBehaviour
         {
             player1Controller.attackDeck.AddCardTop(name);
             player2Controller.attackDeck.AddCardTop(name);
-
-            player1Controller.attackDeck.ShuffleDeck();
-            player2Controller.attackDeck.ShuffleDeck();
         }
+
+        player1Controller.attackDeck.ShuffleDeck();
+        player2Controller.attackDeck.ShuffleDeck();
+
+        foreach (string name in locations)
+        {
+            player1Controller.locationDeck.AddCardTop(name);
+            player2Controller.locationDeck.AddCardTop(name);
+        }
+
+        player1Controller.locationDeck.ShuffleDeck();
+        player2Controller.locationDeck.ShuffleDeck();
 
         //draw cards for their hands
         player1Controller.DrawAttackCard(Defines.defaultHandSize);
@@ -85,7 +105,7 @@ public class GameController : MonoBehaviour
         _turnPlayer = PlayerInfo.PLAYER1;
 
         //start combat
-        CombatController.instance.StartCombat((LocationCard)CardFactory.CreateCard(location), (UnitCard)CardFactory.CreateCard(player1unit), (UnitCard)CardFactory.CreateCard(player2unit));
+        CombatController.instance.StartCombat(turnPlayerController.DrawLocationCard(), (UnitCard)CardFactory.CreateCard(player1unit), (UnitCard)CardFactory.CreateCard(player2unit));
     }
     #endregion
 }

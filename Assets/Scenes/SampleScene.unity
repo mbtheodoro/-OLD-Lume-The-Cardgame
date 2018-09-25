@@ -856,7 +856,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1unit: Shio-yah
   player2unit: Reva
-  location: Water Capital
+  locations:
+  - Water Capital
   attacks:
   - Backstab
   - Fire Ball
