@@ -6,10 +6,10 @@ public class CardDatabase : MonoBehaviour
 {
     private static CardDatabase _instance;
 
-    public List<CardData> attackList;
-    public List<CardData> unitList;
-    public List<CardData> equipList;
-    public List<CardData> locationList;
+    public List<AttackCardData> attackList;
+    public List<UnitCardData> unitList;
+    public List<EquipCardData> equipList;
+    public List<LocationCardData> locationList;
     private Dictionary<string, CardData> cardDatabase = new Dictionary<string, CardData>();
 
     private static CardDatabase instance

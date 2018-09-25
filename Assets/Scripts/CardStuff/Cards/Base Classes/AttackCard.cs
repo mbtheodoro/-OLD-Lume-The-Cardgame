@@ -7,7 +7,6 @@ using UnityEngine.EventSystems;
 public class AttackCard : Card
 {
     #region REFERENCES
-    public PlayerController player;
     public UnitCard user;
     public UnitCard enemy;
 
@@ -510,8 +509,11 @@ public class AttackCard : Card
         ModifyEnemyStats();
 
         //callbacks
-        CombatController.OnAttackCardPlayed();
-        player.OnAttackCardPlayed(this);
+        CombatController.instance.location.OnAttackCardPlayed(this, user, enemy); //first resolve location effects
+        //user.OnAttack(this, enemy); //then resolve user
+        //enemy.OnAttackTarget(this, user); //then resolve enemy
+        player.OnAttackCardPlayed(this); //then discard card and draw a new one
+        CombatController.OnAttackCardPlayed(); //and finally, switch turns
     }
     #endregion
 

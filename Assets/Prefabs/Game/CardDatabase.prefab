@@ -64,4 +64,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 91f322be6dc54ca4194c00123c0411ff, type: 2}
   - {fileID: 11400000, guid: 3ea38fe3f1edeae4baf5744e202443a3, type: 2}
   equipList: []
-  locationList: []
+  locationList:
+  - {fileID: 11400000, guid: 14029b97d543c3d4e945f2447e27f8bb, type: 2}

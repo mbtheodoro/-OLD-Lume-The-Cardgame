@@ -15,10 +15,11 @@ public class CombatController : MonoBehaviour
     #region REFERENCES  
     [SerializeField] private RectTransform player1Rect;
     [SerializeField] private RectTransform player2Rect;
+    [SerializeField] private RectTransform locationRect;
 
     public UnitCard player1Card;
     public UnitCard player2Card;
-    //public LocationCard location;
+    public LocationCard location;
     #endregion
 
     #region ATTRIBUTES
@@ -63,17 +64,138 @@ public class CombatController : MonoBehaviour
     #endregion
 
     #region METHODS
-    public void SwitchTurn()
+    private void SwitchTurn()
     {
         if(instance.turn == PlayerInfo.PLAYER1)
             instance.turn = PlayerInfo.PLAYER2;
         else
             instance.turn = PlayerInfo.PLAYER1;
+
+        Debug.Log("Now it's " + turn + "'s turn!");
+    }
+    
+    private void CalculateInitiative()
+    {
+        switch (location.initiative)
+        {
+            case Initiative.NONTURNPLAYER:
+                turn = GameController.turnPlayer;
+                if (turn == PlayerInfo.PLAYER1)
+                    turn = PlayerInfo.PLAYER2;
+                else
+                    turn = PlayerInfo.PLAYER1;
+                break;
+
+            case Initiative.STRENGTH:
+                if (player1Card.CurrentStrength > player2Card.CurrentStrength)
+                    turn = PlayerInfo.PLAYER1;
+                else if (player1Card.CurrentStrength < player2Card.CurrentStrength)
+                    turn = PlayerInfo.PLAYER2;
+                else
+                    turn = GameController.turnPlayer;
+                break;
+
+            case Initiative.AGILITY:
+                if (player1Card.CurrentAgility > player2Card.CurrentAgility)
+                    turn = PlayerInfo.PLAYER1;
+                else if (player1Card.CurrentAgility < player2Card.CurrentAgility)
+                    turn = PlayerInfo.PLAYER2;
+                else
+                    turn = GameController.turnPlayer;
+                break;
+
+            case Initiative.WISDOM:
+                if (player1Card.CurrentWisdom > player2Card.CurrentWisdom)
+                    turn = PlayerInfo.PLAYER1;
+                else if (player1Card.CurrentWisdom < player2Card.CurrentWisdom)
+                    turn = PlayerInfo.PLAYER2;
+                else
+                    turn = GameController.turnPlayer;
+                break;
+
+            case Initiative.SPIRIT:
+                if (player1Card.CurrentSpirit > player2Card.CurrentSpirit)
+                    turn = PlayerInfo.PLAYER1;
+                else if (player1Card.CurrentSpirit < player2Card.CurrentSpirit)
+                    turn = PlayerInfo.PLAYER2;
+                else
+                    turn = GameController.turnPlayer;
+                break;
+
+            case Initiative.HEALTH:
+                if (player1Card.CurrentHealth > player2Card.CurrentHealth)
+                    turn = PlayerInfo.PLAYER1;
+                else if (player1Card.CurrentHealth < player2Card.CurrentHealth)
+                    turn = PlayerInfo.PLAYER2;
+                else
+                    turn = GameController.turnPlayer;
+                break;
+
+            case Initiative.WATER:
+                //TO DO:
+                break;
+
+            case Initiative.EARTH:
+                //TO DO:
+                break;
+
+            case Initiative.FIRE:
+                //TO DO:
+                break;
+
+            default:
+                turn = GameController.turnPlayer;
+                break;
+        }
     }
 
+    public void StartCombat(LocationCard l, UnitCard p1, UnitCard p2)
+    {
+        gameObject.SetActive(true);
+
+        location = l;
+        player1Card = p1;
+        player2Card = p2;
+
+        location.SetParent(instance.locationRect);
+        player1Card.SetParent(instance.player1Rect);
+        player2Card.SetParent(instance.player2Rect);
+
+        CalculateInitiative();
+
+        OnCombatStart();
+    }
+    #endregion
+
+    #region EVENTS
     public static void OnAttackCardPlayed()
     {
-        instance.SwitchTurn();
+        if(defendingUnit.CurrentHealth <= 0)
+            instance.OnCombatEnd();
+        else
+            instance.SwitchTurn();
+    }
+
+    private void OnCombatStart()
+    {
+        Debug.Log("Combat Started! It's " + player1Card.name + " Vs " + player2Card.name + " on " + location.name + "!");
+        Debug.Log(turn + "'s got the advantage!");
+
+        location.OnCombatStart(player1Card, player2Card);
+        player1Card.OnCombatStart(player2Card);
+        player2Card.OnCombatStart(player1Card);
+        //TO DO: then controllers
+    }
+
+    private void OnCombatEnd()
+    {
+        location.OnCombatEnd(attackingUnit, defendingUnit);
+        player1Card.OnCombatEnd();
+        player2Card.OnCombatEnd();
+        //TO DO: then controllers
+
+        Debug.Log("Combat Ended! " + attackingUnit.name + " is victorious!");
+        gameObject.SetActive(false);
     }
     #endregion
 
@@ -83,21 +205,10 @@ public class CombatController : MonoBehaviour
         if (instance == null)
         {
             _instance = this;
+            gameObject.SetActive(false);
         }
         else
             DestroyImmediate(gameObject);
-    }
-
-    private void OnEnable()
-    {
-        //TO DO: location determines turn
-        turn = PlayerInfo.PLAYER1;
-
-        if (player1Card != null && player2Card != null)
-        {
-            player1Card.SetParent(instance.player1Rect);
-            player2Card.SetParent(instance.player2Rect);
-        }
     }
     #endregion
 }

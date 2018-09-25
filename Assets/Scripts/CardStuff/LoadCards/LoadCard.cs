@@ -24,6 +24,7 @@ public class LoadCard : MonoBehaviour
         Card card = (Card) GetComponent<Card>();
 
         card.name = cardData.name;
+        card.nation = cardData.nation;
 
         art.sprite = cardData.art;
         nameText.text = cardData.name;
