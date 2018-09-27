@@ -9,10 +9,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c021ed992f2ee3442a857d49f3cda23c, type: 3}
-  m_Name: Shio-yah
+  m_Name: Shio
   m_EditorClassIdentifier: 
   className: UnitCard
-  name: Shio-yah
+  name: Shio
   description: 'Analytic 10: Magical attacks used by Shio-yah deal 10 more damage.'
   flavorText: Fierce and determined, he uses his sheer will to overcome his lack of
     physical prowence.

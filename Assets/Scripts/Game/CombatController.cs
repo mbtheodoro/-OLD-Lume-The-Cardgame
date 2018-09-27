@@ -87,45 +87,45 @@ public class CombatController : MonoBehaviour
                 break;
 
             case Initiative.STRENGTH:
-                if (player1Card.CurrentStrength > player2Card.CurrentStrength)
+                if (player1Card.currentStrength > player2Card.currentStrength)
                     turn = PlayerInfo.PLAYER1;
-                else if (player1Card.CurrentStrength < player2Card.CurrentStrength)
+                else if (player1Card.currentStrength < player2Card.currentStrength)
                     turn = PlayerInfo.PLAYER2;
                 else
                     turn = GameController.turnPlayer;
                 break;
 
             case Initiative.AGILITY:
-                if (player1Card.CurrentAgility > player2Card.CurrentAgility)
+                if (player1Card.currentAgility > player2Card.currentAgility)
                     turn = PlayerInfo.PLAYER1;
-                else if (player1Card.CurrentAgility < player2Card.CurrentAgility)
+                else if (player1Card.currentAgility < player2Card.currentAgility)
                     turn = PlayerInfo.PLAYER2;
                 else
                     turn = GameController.turnPlayer;
                 break;
 
             case Initiative.WISDOM:
-                if (player1Card.CurrentWisdom > player2Card.CurrentWisdom)
+                if (player1Card.currentWisdom > player2Card.currentWisdom)
                     turn = PlayerInfo.PLAYER1;
-                else if (player1Card.CurrentWisdom < player2Card.CurrentWisdom)
+                else if (player1Card.currentWisdom < player2Card.currentWisdom)
                     turn = PlayerInfo.PLAYER2;
                 else
                     turn = GameController.turnPlayer;
                 break;
 
             case Initiative.SPIRIT:
-                if (player1Card.CurrentSpirit > player2Card.CurrentSpirit)
+                if (player1Card.currentSpirit > player2Card.currentSpirit)
                     turn = PlayerInfo.PLAYER1;
-                else if (player1Card.CurrentSpirit < player2Card.CurrentSpirit)
+                else if (player1Card.currentSpirit < player2Card.currentSpirit)
                     turn = PlayerInfo.PLAYER2;
                 else
                     turn = GameController.turnPlayer;
                 break;
 
             case Initiative.HEALTH:
-                if (player1Card.CurrentHealth > player2Card.CurrentHealth)
+                if (player1Card.currentHealth > player2Card.currentHealth)
                     turn = PlayerInfo.PLAYER1;
-                else if (player1Card.CurrentHealth < player2Card.CurrentHealth)
+                else if (player1Card.currentHealth < player2Card.currentHealth)
                     turn = PlayerInfo.PLAYER2;
                 else
                     turn = GameController.turnPlayer;
@@ -170,7 +170,7 @@ public class CombatController : MonoBehaviour
     #region EVENTS
     public static void OnAttackCardPlayed()
     {
-        if(defendingUnit.CurrentHealth <= 0)
+        if(defendingUnit.currentHealth <= 0)
             instance.OnCombatEnd();
         else
             instance.SwitchTurn();

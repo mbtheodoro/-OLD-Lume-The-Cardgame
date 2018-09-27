@@ -34,11 +34,11 @@ public class LoadUnitCard : LoadCard
         unitCard.spiritText = spiritText;
 
         //stats
-        unitCard.OriginalHealth = cardData.health;
-        unitCard.OriginalStrength = cardData.strength;
-        unitCard.OriginalAgility = cardData.agility;
-        unitCard.OriginalWisdom = cardData.wisdom;
-        unitCard.OriginalSpirit = cardData.spirit;
+        unitCard.originalHealth = cardData.health;
+        unitCard.originalStrength = cardData.strength;
+        unitCard.originalAgility = cardData.agility;
+        unitCard.originalWisdom = cardData.wisdom;
+        unitCard.originalSpirit = cardData.spirit;
 
         //keywords
         unitCard.aggression = cardData.aggression;
@@ -50,6 +50,7 @@ public class LoadUnitCard : LoadCard
         unitCard.masterySpirit = cardData.masterySpirit;
 
         unitCard.weaken = cardData.weaken;
+        unitCard.restrain = cardData.restrain;
         unitCard.hypnosis = cardData.hypnosis;
         unitCard.intimidate = cardData.intimidate;
 
