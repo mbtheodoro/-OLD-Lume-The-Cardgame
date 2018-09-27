@@ -11,21 +11,23 @@ public class UnitCard : Card
     public Text agilityText;
     public Text wisdomText;
     public Text spiritText;
+
+    public EquipCard equip;
     #endregion
 
     #region ATTRIBUTES
 
-    private int originalHealth;
-    private int originalStrength;
-    private int originalAgility;
-    private int originalWisdom;
-    private int originalSpirit;
+    private int _originalHealth;
+    private int _originalStrength;
+    private int _originalAgility;
+    private int _originalWisdom;
+    private int _originalSpirit;
 
-    private int currentHealth;
-    private int currentStrength;
-    private int currentAgility;
-    private int currentWisdom;
-    private int currentSpirit;
+    private int _currentHealth;
+    private int _currentStrength;
+    private int _currentAgility;
+    private int _currentWisdom;
+    private int _currentSpirit;
 
     //keywords
     private int _aggression;
@@ -64,113 +66,193 @@ public class UnitCard : Card
     #endregion
 
     #region PROPERTIES
-    public int OriginalHealth
+    public int originalHealth
     {
-        get { return originalHealth; }
+        get { return _originalHealth; }
 
         set
         {
-            originalHealth = value;
-            CurrentHealth = value;
+            _originalHealth = value;
+            healthText.text = _originalHealth.ToString();
         }
     }
 
-    public int OriginalStrength
+    public int originalStrength
     {
-        get { return originalStrength; }
+        get { return _originalStrength; }
 
         set
         {
-            originalStrength = value;
-            CurrentStrength= value;
+            _originalStrength = value;
+            strengthText.text = _originalStrength.ToString();
         }
     }
 
-    public int OriginalAgility
+    public int originalAgility
     {
-        get { return originalAgility;}
+        get { return _originalAgility; }
 
         set
         {
-            originalAgility = value;
-            CurrentAgility = value;
+            _originalAgility = value;
+            agilityText.text = _originalAgility.ToString();
         }
     }
 
-    public int OriginalWisdom
+    public int originalWisdom
     {
-        get { return originalWisdom; }
+        get { return _originalWisdom; }
 
         set
         {
-            originalWisdom = value;
-            CurrentWisdom = value;
+            _originalWisdom = value;
+            wisdomText.text = _originalWisdom.ToString();
         }
     }
 
-    public int OriginalSpirit
+    public int originalSpirit
     {
-        get { return originalSpirit; }
+        get { return _originalSpirit; }
 
         set
         {
-            originalSpirit = value;
-            CurrentSpirit= value;
+            _originalSpirit = value;
+            spiritText.text = _originalSpirit.ToString();
         }
     }
 
-    public int CurrentHealth
+    public int currentHealth
     {
-        get { return currentHealth; }
+        get { return _currentHealth; }
 
         set
         {
-            currentHealth = Mathf.Max(0, value);
-            healthText.text = currentHealth.ToString();
+            _currentHealth = Mathf.Max(0, value);
+            healthText.text = _currentHealth.ToString();
         }
     }
 
-    public int CurrentStrength
+    public int currentStrength
     {
-        get { return currentStrength; }
+        get { return _currentStrength; }
 
         set
         {
-            currentStrength = Mathf.Max(0, value);
-            strengthText.text = currentStrength.ToString();
+            if (value < _currentStrength)
+            {
+                if (defiant)
+                    Debug.Log(name + "'s Defiant prevents its stat from getting lowered.");
+                else
+                {
+                    if (_currentStrength == 0)
+                        Debug.Log(name + "'s Strength can't get any lower!");
+                    else
+                    {
+                        Debug.Log(name + "'s Strength is reduced by " + (_currentStrength - value));
+                        _currentStrength = value;
+                    }
+                }
+            }
+            else
+            {
+                Debug.Log(name + "'s Strength is increased by " + (value - _currentStrength));
+                _currentStrength = value;
+            }
+
+            strengthText.text = _currentStrength.ToString();
         }
     }
 
-    public int CurrentAgility
+    public int currentAgility
     {
-        get { return currentAgility; }
+        get { return _currentAgility; }
 
         set
         {
-            currentAgility = Mathf.Max(0, value);
-            agilityText.text = currentAgility.ToString();
+            if (value < _currentAgility)
+            {
+                if (defiant)
+                    Debug.Log(name + "'s Defiant prevents its stat from getting lowered.");
+                else
+                {
+                    if (_currentAgility == 0)
+                        Debug.Log(name + "'s Agility can't get any lower!");
+                    else
+                    {
+                        Debug.Log(name + "'s Agility is reduced by " + (_currentAgility - value));
+                        _currentAgility = value;
+                    }
+                }
+            }
+            else
+            {
+                Debug.Log(name + "'s Agility is increased by " + (value - _currentAgility));
+                _currentAgility = value;
+            }
+
+            agilityText.text = _currentAgility.ToString();
         }
     }
 
-    public int CurrentWisdom
+    public int currentWisdom
     {
-        get { return currentWisdom; }
+        get { return _currentWisdom; }
 
         set
         {
-            currentWisdom = Mathf.Max(0, value);
-            wisdomText.text = currentWisdom.ToString();
+            if (value < _currentWisdom)
+            {
+                if (defiant)
+                    Debug.Log(name + "'s Defiant prevents its stat from getting lowered.");
+                else
+                {
+                    if (_currentWisdom == 0)
+                        Debug.Log(name + "'s Wisdom can't get any lower!");
+                    else
+                    {
+                        Debug.Log(name + "'s Wisdom is reduced by " + (_currentWisdom - value));
+                        _currentWisdom = value;
+                    }
+                }
+            }
+            else
+            {
+                Debug.Log(name + "'s Wisdom is increased by " + (value - _currentWisdom));
+                _currentWisdom = value;
+            }
+
+            wisdomText.text = _currentWisdom.ToString();
         }
     }
 
-    public int CurrentSpirit
+    public int currentSpirit
     {
-        get { return currentSpirit; }
+        get { return _currentSpirit; }
 
         set
         {
-            currentSpirit = Mathf.Max(0, value);
-            spiritText.text = currentSpirit.ToString();
+            if (value < _currentSpirit)
+            {
+                if (defiant)
+                    Debug.Log(name + "'s Defiant prevents its stat from getting lowered.");
+                else
+                {
+                    if (_currentSpirit == 0)
+                        Debug.Log(name + "'s Spirit can't get any lower!");
+                    else
+                    {
+                        Debug.Log(name + "'s Spirit is reduced by "+(_currentSpirit - value));
+                        _currentSpirit = value;
+                    }
+                }
+            }
+            else
+            {
+                Debug.Log(name + "'s Spirit is increased by " + (value - _currentSpirit));
+                _currentSpirit = value;
+            }
+                
+            spiritText.text = _currentSpirit.ToString();
         }
     }
 
@@ -505,21 +587,60 @@ public class UnitCard : Card
     {
         if (value < 0) //heal
         {
-            int temp = CurrentHealth - value;
+            int temp = currentHealth - value;
             if (gain)
-                CurrentHealth = temp;
+                currentHealth = temp;
             else
-                CurrentHealth = Mathf.Max(CurrentHealth, temp);
+                currentHealth = Mathf.Max(currentHealth, temp);
         }
         else
-            CurrentHealth -= value;
+            currentHealth -= value;
+    }
+
+    protected void Weaken(UnitCard enemy)
+    {
+        if(weaken > 0)
+        {
+            Debug.Log(name + "'s Weaken activates");
+            enemy.currentStrength -= weaken;
+        }
+    }
+
+    protected void Restrain(UnitCard enemy)
+    {
+        if (restrain > 0)
+        {
+            Debug.Log(name + "'s Restrain activates");
+            enemy.currentAgility -= restrain;
+        }
+    }
+
+    protected void Hypnosis(UnitCard enemy)
+    {
+        if (hypnosis > 0)
+        {
+            Debug.Log(name + "'s Hypnosis activates");
+            enemy.currentWisdom -= hypnosis;
+        }
+    }
+
+    protected void Intimidate(UnitCard enemy)
+    {
+        if (intimidate > 0)
+        {
+            Debug.Log(name + "'s Intimidate activates");
+            enemy.currentSpirit -= intimidate;
+        }
     }
     #endregion
 
     #region EVENTS
     public virtual void OnCombatStart(UnitCard enemy)
     {
-
+        Weaken(enemy);
+        Restrain(enemy);
+        Hypnosis(enemy);
+        Intimidate(enemy);
     }
 
     public virtual void OnAttack(AttackCard attack, UnitCard enemy)

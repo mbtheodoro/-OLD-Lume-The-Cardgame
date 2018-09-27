@@ -854,8 +854,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b6d2af92699e3e44b846dbaf457137d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1unit: Shio-yah
-  player2unit: Reva
+  player1unit: Jet
+  player2unit: Jayme
   locations:
   - Water Capital
   attacks:

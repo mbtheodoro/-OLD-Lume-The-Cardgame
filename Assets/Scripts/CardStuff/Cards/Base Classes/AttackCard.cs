@@ -372,54 +372,54 @@ public class AttackCard : Card
         int damage = 0;
 
         //stat tests
-        if (statTestStrength.y > 0 && user.CurrentStrength >= statTestStrength.x)
+        if (statTestStrength.y > 0 && user.currentStrength >= statTestStrength.x)
         {
             damage += (int)statTestStrength.y;
             damage += user.masteryStrength; //mastery
         }
-        if (statTestAgility.y > 0 && user.CurrentAgility >= statTestAgility.x)
+        if (statTestAgility.y > 0 && user.currentAgility >= statTestAgility.x)
         {
             damage += (int)statTestAgility.y;
             damage += user.masteryAgility; //mastery
         }
-        if (statTestWisdom.y > 0 && user.CurrentWisdom >= statTestWisdom.x)
+        if (statTestWisdom.y > 0 && user.currentWisdom >= statTestWisdom.x)
         {
             damage += (int)statTestWisdom.y;
             damage += user.masteryWisdom; //mastery
         }
-        if (statTestSpirit.y > 0 && user.CurrentSpirit >= statTestSpirit.x)
+        if (statTestSpirit.y > 0 && user.currentSpirit >= statTestSpirit.x)
         {
             damage += (int)statTestSpirit.y;
             damage += user.masterySpirit; //mastery
         }
 
         //stat fails
-        if (statFailStrength.y > 0 && enemy.CurrentStrength < statFailStrength.x)
+        if (statFailStrength.y > 0 && enemy.currentStrength < statFailStrength.x)
             damage += (int)statFailStrength.y;
-        if (statFailAgility.y > 0 && enemy.CurrentAgility < statFailAgility.x)
+        if (statFailAgility.y > 0 && enemy.currentAgility < statFailAgility.x)
             damage += (int)statFailAgility.y;
-        if (statFailWisdom.y > 0 && enemy.CurrentWisdom < statFailWisdom.x)
+        if (statFailWisdom.y > 0 && enemy.currentWisdom < statFailWisdom.x)
             damage += (int)statFailWisdom.y;
-        if (statFailSpirit.y > 0 && enemy.CurrentSpirit < statFailSpirit.x)
+        if (statFailSpirit.y > 0 && enemy.currentSpirit < statFailSpirit.x)
             damage += (int)statFailSpirit.y;
 
         //outstats
-        if (outStatStrength.y > 0 && user.CurrentStrength - enemy.CurrentStrength >= outStatStrength.x)
+        if (outStatStrength.y > 0 && user.currentStrength - enemy.currentStrength >= outStatStrength.x)
         {
             damage += (int)outStatStrength.y;
             damage += user.masteryStrength; //mastery
         }
-        if (outStatAgility.y > 0 && user.CurrentAgility - enemy.CurrentAgility >= outStatAgility.x)
+        if (outStatAgility.y > 0 && user.currentAgility - enemy.currentAgility >= outStatAgility.x)
         {
             damage += (int)outStatAgility.y;
             damage += user.masteryAgility; //mastery
         }
-        if (outStatWisdom.y > 0 && user.CurrentWisdom - enemy.CurrentWisdom >= outStatWisdom.x)
+        if (outStatWisdom.y > 0 && user.currentWisdom - enemy.currentWisdom >= outStatWisdom.x)
         {
             damage += (int)outStatWisdom.y;
             damage += user.masteryWisdom; //mastery
         }
-        if (outStatSpirit.y > 0 && user.CurrentSpirit - enemy.CurrentSpirit >= outStatSpirit.x)
+        if (outStatSpirit.y > 0 && user.currentSpirit - enemy.currentSpirit >= outStatSpirit.x)
         {
             damage += (int)outStatSpirit.y;
             damage += user.masterySpirit; //mastery
@@ -436,7 +436,7 @@ public class AttackCard : Card
             damage += user.aggression;
 
             //berserk
-            if (user.CurrentHealth <= Defines.criticalHp && user.berserk)
+            if (user.currentHealth <= Defines.criticalHp && user.berserk)
                 damage *= Defines.criticalHpMultiplier;
         }
         else //type == AttackType.MAGICAL
@@ -445,7 +445,7 @@ public class AttackCard : Card
             damage += user.analytic;
 
             //overdrive
-            if (user.CurrentHealth <= Defines.criticalHp && user.overdrive)
+            if (user.currentHealth <= Defines.criticalHp && user.overdrive)
                 damage *= Defines.criticalHpMultiplier;
         }
 
@@ -482,18 +482,18 @@ public class AttackCard : Card
 
     public void ModifyUserStats()
     {
-        user.CurrentStrength += modifyUserStrength;
-        user.CurrentAgility += modifyUserAgility;
-        user.CurrentWisdom += modifyUserWisdom;
-        user.CurrentSpirit += modifyUserSpirit;
+        user.currentStrength += modifyUserStrength;
+        user.currentAgility += modifyUserAgility;
+        user.currentWisdom += modifyUserWisdom;
+        user.currentSpirit += modifyUserSpirit;
     }
 
     public void ModifyEnemyStats()
     {
-        enemy.CurrentStrength += modifyEnemyStrength;
-        enemy.CurrentAgility += modifyEnemyAgility;
-        enemy.CurrentWisdom += modifyEnemyWisdom;
-        enemy.CurrentSpirit += modifyEnemySpirit;
+        enemy.currentStrength += modifyEnemyStrength;
+        enemy.currentAgility += modifyEnemyAgility;
+        enemy.currentWisdom += modifyEnemyWisdom;
+        enemy.currentSpirit += modifyEnemySpirit;
     }
 
     public virtual void Activate()
