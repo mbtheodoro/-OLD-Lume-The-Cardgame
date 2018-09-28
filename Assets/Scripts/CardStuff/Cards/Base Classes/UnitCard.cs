@@ -632,6 +632,24 @@ public class UnitCard : Card
             enemy.currentSpirit -= intimidate;
         }
     }
+
+    protected void Reckless()
+    {
+        if(reckless > 0)
+        {
+            Debug.Log(name + " is Reckless and deals "+reckless+" damage to itself");
+            ModifyHealth(reckless);
+        }
+    }
+    
+    protected void Regenerate()
+    {
+        if(regenerate > 0)
+        {
+            Debug.Log(name + " is Regenerate healed " + regenerate + " HP");
+            ModifyHealth(-regenerate);
+        }
+    }
     #endregion
 
     #region EVENTS
@@ -645,7 +663,7 @@ public class UnitCard : Card
 
     public virtual void OnAttack(AttackCard attack, UnitCard enemy)
     {
-
+        Reckless();
     }
 
     public virtual void OnAttackTarget(AttackCard attack, UnitCard enemy)
@@ -655,7 +673,7 @@ public class UnitCard : Card
 
     public virtual void OnCombatEnd()
     {
-
+        Regenerate();
     }
     #endregion
 }
