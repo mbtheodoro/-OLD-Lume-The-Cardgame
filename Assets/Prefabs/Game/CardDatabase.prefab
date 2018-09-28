@@ -52,13 +52,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackList:
-  - {fileID: 11400000, guid: 0b3988d5f9653d24b8e998541aad71d0, type: 2}
-  - {fileID: 11400000, guid: d9122cfced1d2f14aa67c3d644cd7e21, type: 2}
-  - {fileID: 11400000, guid: 0296caba341fbee41adb34c9aae30992, type: 2}
-  - {fileID: 11400000, guid: 191041adfec6fb04c931970e70051c55, type: 2}
-  - {fileID: 11400000, guid: b1f8a356cde736741b7e2605405bb7e8, type: 2}
-  - {fileID: 11400000, guid: 3547d313b6327844fbea7654b67a586e, type: 2}
-  - {fileID: 11400000, guid: 249a63eeffed2464984985b8efc9c545, type: 2}
+  - {fileID: 11400000, guid: a2fc0ccd25ff17a49b7039492e2a64fc, type: 2}
+  - {fileID: 11400000, guid: 756ee3e6495abeb419d2869e67601c3f, type: 2}
+  - {fileID: 11400000, guid: f8f53c64eda66dd4192a5f6076685f5e, type: 2}
+  - {fileID: 11400000, guid: c5080e587edad70458bc56ac94484dee, type: 2}
+  - {fileID: 11400000, guid: 76d7746f8471ddd46b56420535221e42, type: 2}
+  - {fileID: 11400000, guid: fb681be2737fb314991147020093487e, type: 2}
+  - {fileID: 11400000, guid: 05a2aa7970f2695448e53879aeabe020, type: 2}
+  - {fileID: 11400000, guid: 01dbfd595935575459f226974b41e79c, type: 2}
+  - {fileID: 11400000, guid: 0bb88cd28b07f5647ac61ae27272d12b, type: 2}
+  - {fileID: 11400000, guid: d006f9eb883334745990b3fcfceb12de, type: 2}
   unitList:
   - {fileID: 11400000, guid: 43da041c6c69f8d4fb8340dc040c7c62, type: 2}
   - {fileID: 11400000, guid: 91f322be6dc54ca4194c00123c0411ff, type: 2}
