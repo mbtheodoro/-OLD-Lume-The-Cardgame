@@ -73,6 +73,7 @@ public class UnitCard : Card
         set
         {
             _originalHealth = value;
+            _currentHealth = value;
             healthText.text = _originalHealth.ToString();
         }
     }
@@ -84,6 +85,7 @@ public class UnitCard : Card
         set
         {
             _originalStrength = value;
+            _currentStrength = value;
             strengthText.text = _originalStrength.ToString();
         }
     }
@@ -95,6 +97,7 @@ public class UnitCard : Card
         set
         {
             _originalAgility = value;
+            _currentAgility = value;
             agilityText.text = _originalAgility.ToString();
         }
     }
@@ -106,6 +109,7 @@ public class UnitCard : Card
         set
         {
             _originalWisdom = value;
+            _currentWisdom = value;
             wisdomText.text = _originalWisdom.ToString();
         }
     }
@@ -117,6 +121,7 @@ public class UnitCard : Card
         set
         {
             _originalSpirit = value;
+            _currentSpirit = value;
             spiritText.text = _originalSpirit.ToString();
         }
     }
