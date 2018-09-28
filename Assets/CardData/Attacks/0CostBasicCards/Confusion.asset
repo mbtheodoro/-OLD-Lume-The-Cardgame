@@ -9,23 +9,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2b435711300fcb64abee0d7634b06702, type: 3}
-  m_Name: Knee Capper
+  m_Name: Confusion
   m_EditorClassIdentifier: 
   className: AttackCard
-  name: Knee Capper
-  description: 'Stat Test Agility 6: Deal 10 more damage.
-
-    The enemy loses 1 agility.'
-  flavorText: When the technique and the execution are flawless, nothing can't stop
-    it.
+  name: Confusion
+  description: Deacrease Enemy's Wisdom by 1.
+  flavorText: 
   type: 2
   nation: 3
   art: {fileID: 0}
-  baseDamage: 5
-  cost: 15
-  attackType: 0
+  baseDamage: 0
+  cost: 0
+  attackType: 1
   statTestStrength: {x: 0, y: 0}
-  statTestAgility: {x: 6, y: 10}
+  statTestAgility: {x: 0, y: 0}
   statTestWisdom: {x: 0, y: 0}
   statTestSpirit: {x: 0, y: 0}
   outStatStrength: {x: 0, y: 0}
@@ -41,6 +38,6 @@ MonoBehaviour:
   modifyUserWisdom: 0
   modifyUserSpirit: 0
   modifyEnemyStrength: 0
-  modifyEnemyAgility: -1
-  modifyEnemyWisdom: 0
+  modifyEnemyAgility: 0
+  modifyEnemyWisdom: -1
   modifyEnemySpirit: 0

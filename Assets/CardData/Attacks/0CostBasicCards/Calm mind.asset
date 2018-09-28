@@ -9,27 +9,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2b435711300fcb64abee0d7634b06702, type: 3}
-  m_Name: Tsunami Strike
+  m_Name: Calm mind
   m_EditorClassIdentifier: 
   className: AttackCard
-  name: Tsunami Strike
-  description: 'Outstat Strength: deal 5 more Damage.
-
-    Outstat Agility: deal 5 more Damage.'
-  flavorText: The Water Clan people are known for their fighting prowess and few attacks
-    are more fearsome than this.
+  name: Calm mind
+  description: Increase User's Wisdom by 1.
+  flavorText: 
   type: 2
-  nation: 2
+  nation: 3
   art: {fileID: 0}
-  baseDamage: 10
-  cost: 20
+  baseDamage: 0
+  cost: 0
   attackType: 0
   statTestStrength: {x: 0, y: 0}
   statTestAgility: {x: 0, y: 0}
   statTestWisdom: {x: 0, y: 0}
   statTestSpirit: {x: 0, y: 0}
-  outStatStrength: {x: 1, y: 5}
-  outStatAgility: {x: 1, y: 5}
+  outStatStrength: {x: 0, y: 0}
+  outStatAgility: {x: 0, y: 0}
   outStatWisdom: {x: 0, y: 0}
   outStatSpirit: {x: 0, y: 0}
   statFailStrength: {x: 0, y: 0}
@@ -38,7 +35,7 @@ MonoBehaviour:
   statFailSpirit: {x: 0, y: 0}
   modifyUserStrength: 0
   modifyUserAgility: 0
-  modifyUserWisdom: 0
+  modifyUserWisdom: 1
   modifyUserSpirit: 0
   modifyEnemyStrength: 0
   modifyEnemyAgility: 0

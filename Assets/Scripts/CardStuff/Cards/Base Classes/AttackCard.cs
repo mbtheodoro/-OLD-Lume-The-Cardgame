@@ -459,7 +459,7 @@ public class AttackCard : Card
         else //type == AttackType.MAGICAL
             damage -= enemy.endurance; //endurance
 
-        return damage;
+        return Mathf.Max(damage, 0);
     }
 
     public virtual int CalculateDamage()
@@ -482,18 +482,26 @@ public class AttackCard : Card
 
     public void ModifyUserStats()
     {
-        user.currentStrength += modifyUserStrength;
-        user.currentAgility += modifyUserAgility;
-        user.currentWisdom += modifyUserWisdom;
-        user.currentSpirit += modifyUserSpirit;
+        if(modifyUserStrength != 0)
+            user.currentStrength += modifyUserStrength;
+        if (modifyUserAgility != 0)
+            user.currentAgility += modifyUserAgility;
+        if (modifyUserWisdom != 0)
+            user.currentWisdom += modifyUserWisdom;
+        if (modifyUserSpirit != 0)
+            user.currentSpirit += modifyUserSpirit;
     }
 
     public void ModifyEnemyStats()
     {
-        enemy.currentStrength += modifyEnemyStrength;
-        enemy.currentAgility += modifyEnemyAgility;
-        enemy.currentWisdom += modifyEnemyWisdom;
-        enemy.currentSpirit += modifyEnemySpirit;
+        if (modifyEnemyStrength != 0)
+            enemy.currentStrength += modifyEnemyStrength;
+        if (modifyEnemyAgility != 0)
+            enemy.currentAgility += modifyEnemyAgility;
+        if (modifyEnemyWisdom != 0)
+            enemy.currentWisdom += modifyEnemyWisdom;
+        if (modifyEnemySpirit != 0)
+            enemy.currentSpirit += modifyEnemySpirit;
     }
 
     public virtual void Activate()
@@ -503,7 +511,9 @@ public class AttackCard : Card
         //deal damage
         int damage = CalculateDamage();
         enemy.ModifyHealth(damage);
-        Debug.Log(user.name + " used " + name + " on " + enemy.name + " and dealt " + damage + " damage!");
+
+        if(damage > 0)
+            Debug.Log(user.name + " used " + name + " on " + enemy.name + " and dealt " + damage + " damage!");
 
         //modifying status come after damage
         ModifyUserStats();

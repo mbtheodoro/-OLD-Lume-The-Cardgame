@@ -859,13 +859,16 @@ MonoBehaviour:
   locations:
   - Water Capital
   attacks:
-  - Backstab
-  - Fire Ball
-  - Illusion in the Shadows
-  - Intimidating Roar
-  - Knee Capper
-  - Tsunami Strike
-  - Unstoppable Blow
+  - Buffout
+  - Burden
+  - Calm mind
+  - Confusion
+  - Flash
+  - Frighten
+  - Psych up
+  - Strength drain
+  - Sucker punch
+  - Unload
   player1Controller: {fileID: 150780798}
   player2Controller: {fileID: 639388107}
 --- !u!224 &2122550890 stripped

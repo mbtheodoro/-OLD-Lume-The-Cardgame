@@ -9,18 +9,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2b435711300fcb64abee0d7634b06702, type: 3}
-  m_Name: Illusion in the Shadows
+  m_Name: Buffout
   m_EditorClassIdentifier: 
   className: AttackCard
-  name: Illusion in the Shadows
-  description: 'Stat Fail Wisdom 6: If the enemy has less than 6 Wisdom, deal 5 damage.'
-  flavorText: It`s a cheap trick, but it's enough to fool many.
+  name: Buffout
+  description: Increase User's Strength by 1.
+  flavorText: 
   type: 2
   nation: 3
   art: {fileID: 0}
   baseDamage: 0
   cost: 0
-  attackType: 1
+  attackType: 0
   statTestStrength: {x: 0, y: 0}
   statTestAgility: {x: 0, y: 0}
   statTestWisdom: {x: 0, y: 0}
@@ -31,9 +31,9 @@ MonoBehaviour:
   outStatSpirit: {x: 0, y: 0}
   statFailStrength: {x: 0, y: 0}
   statFailAgility: {x: 0, y: 0}
-  statFailWisdom: {x: 6, y: 5}
+  statFailWisdom: {x: 0, y: 0}
   statFailSpirit: {x: 0, y: 0}
-  modifyUserStrength: 0
+  modifyUserStrength: 1
   modifyUserAgility: 0
   modifyUserWisdom: 0
   modifyUserSpirit: 0
