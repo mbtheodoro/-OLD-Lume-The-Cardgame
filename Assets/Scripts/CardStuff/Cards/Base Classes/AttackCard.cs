@@ -18,35 +18,35 @@ public class AttackCard : Card
     #endregion
 
     #region ATTRIBUTES
-    private int _originalCost;
-    private int _currentCost;
-    private int _baseDamage;
-    private AttackType _type;
+    protected int _originalCost;
+    protected int _currentCost;
+    protected int _baseDamage;
+    protected AttackType _type;
 
-    private Vector2 _statTestStrength;
-    private Vector2 _statTestAgility;
-    private Vector2 _statTestWisdom;
-    private Vector2 _statTestSpirit;
+    protected Vector2 _statTestStrength;
+    protected Vector2 _statTestAgility;
+    protected Vector2 _statTestWisdom;
+    protected Vector2 _statTestSpirit;
 
-    private Vector2 _outStatStrength;
-    private Vector2 _outStatAgility;
-    private Vector2 _outStatWisdom;
-    private Vector2 _outStatSpirit;
+    protected Vector2 _outStatStrength;
+    protected Vector2 _outStatAgility;
+    protected Vector2 _outStatWisdom;
+    protected Vector2 _outStatSpirit;
 
-    private Vector2 _statFailStrength;
-    private Vector2 _statFailAgility;
-    private Vector2 _statFailWisdom;
-    private Vector2 _statFailSpirit;
+    protected Vector2 _statFailStrength;
+    protected Vector2 _statFailAgility;
+    protected Vector2 _statFailWisdom;
+    protected Vector2 _statFailSpirit;
 
-    private int _modifyUserStrength;
-    private int _modifyUserAgility;
-    private int _modifyUserWisdom;
-    private int _modifyUserSpirit;
+    protected int _modifyUserStrength;
+    protected int _modifyUserAgility;
+    protected int _modifyUserWisdom;
+    protected int _modifyUserSpirit;
 
-    private int _modifyEnemyStrength;
-    private int _modifyEnemyAgility;
-    private int _modifyEnemyWisdom;
-    private int _modifyEnemySpirit;
+    protected int _modifyEnemyStrength;
+    protected int _modifyEnemyAgility;
+    protected int _modifyEnemyWisdom;
+    protected int _modifyEnemySpirit;
     #endregion
 
     #region PROPERTIES

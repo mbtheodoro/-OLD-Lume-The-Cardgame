@@ -854,7 +854,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b6d2af92699e3e44b846dbaf457137d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1unit: Jet
+  player1unit: Reva
   player2unit: Jayme
   locations:
   - Water Capital
@@ -865,6 +865,7 @@ MonoBehaviour:
   - Confusion
   - Flash
   - Frighten
+  - Heal bell
   - Psych up
   - Strength drain
   - Sucker punch

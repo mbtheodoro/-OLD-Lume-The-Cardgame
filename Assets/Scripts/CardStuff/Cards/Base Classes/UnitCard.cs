@@ -596,7 +596,7 @@ public class UnitCard : Card
             if (gain)
                 currentHealth = temp;
             else
-                currentHealth = Mathf.Max(currentHealth, temp);
+                currentHealth = Mathf.Min(originalHealth, temp);
         }
         else
             currentHealth -= value;

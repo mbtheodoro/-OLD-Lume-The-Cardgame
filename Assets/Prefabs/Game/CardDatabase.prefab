@@ -62,6 +62,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 01dbfd595935575459f226974b41e79c, type: 2}
   - {fileID: 11400000, guid: 0bb88cd28b07f5647ac61ae27272d12b, type: 2}
   - {fileID: 11400000, guid: d006f9eb883334745990b3fcfceb12de, type: 2}
+  - {fileID: 11400000, guid: 74e0e4a8ad406b1478ce852e711eec51, type: 2}
   unitList:
   - {fileID: 11400000, guid: 43da041c6c69f8d4fb8340dc040c7c62, type: 2}
   - {fileID: 11400000, guid: 91f322be6dc54ca4194c00123c0411ff, type: 2}

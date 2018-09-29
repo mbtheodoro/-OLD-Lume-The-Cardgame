@@ -19,7 +19,7 @@ MonoBehaviour:
   type: 0
   nation: 1
   art: {fileID: 21300000, guid: 385c181823097a040b8ce7354baa43a3, type: 3}
-  health: 35
+  health: 30
   strength: 4
   agility: 7
   wisdom: 5

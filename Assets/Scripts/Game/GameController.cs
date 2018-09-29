@@ -98,8 +98,8 @@ public class GameController : MonoBehaviour
         player2Controller.locationDeck.ShuffleDeck();
 
         //draw cards for their hands
-        player1Controller.DrawAttackCard(Defines.defaultHandSize);
-        player2Controller.DrawAttackCard(Defines.defaultHandSize);
+        player1Controller.DrawAttackCard(3);//Defines.defaultHandSize);
+        player2Controller.DrawAttackCard(3);//Defines.defaultHandSize);
 
         //set player turn
         _turnPlayer = PlayerInfo.PLAYER1;
