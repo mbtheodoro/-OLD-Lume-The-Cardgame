@@ -655,6 +655,11 @@ public class UnitCard : Card
             ModifyHealth(-regenerate);
         }
     }
+
+    protected void Support()
+    {
+        //int supportingUnits = BoardController.GetSupportingUnits(this);
+    }
     #endregion
 
     #region EVENTS
@@ -664,6 +669,7 @@ public class UnitCard : Card
         Restrain(enemy);
         Hypnosis(enemy);
         Intimidate(enemy);
+        Support();
     }
 
     public virtual void OnAttack(AttackCard attack, UnitCard enemy)

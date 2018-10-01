@@ -469,7 +469,8 @@ public class AttackCard : Card
         damage += StatBasedDamageCalculation();
         
         damage = UserDamageModifiers(damage);
-        damage = EnemyDamageModifiers(damage);
+        if(!user.piercer)
+            damage = EnemyDamageModifiers(damage);
 
         return damage;
     }
