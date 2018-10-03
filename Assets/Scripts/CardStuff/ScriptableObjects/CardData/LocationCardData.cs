@@ -21,4 +21,9 @@ public class LocationCardData : CardData
 {
     [Header("Location")]
     public Initiative initiative;
+
+    private void OnEnable()
+    {
+        type = CardType.LOCATION;
+    }
 }

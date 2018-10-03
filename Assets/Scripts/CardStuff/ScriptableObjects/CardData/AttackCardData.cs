@@ -41,4 +41,9 @@ public class AttackCardData : CardData
     public int modifyEnemyAgility;
     public int modifyEnemyWisdom;
     public int modifyEnemySpirit;
+
+    private void OnEnable()
+    {
+        type = CardType.ATTACK;
+    }
 }

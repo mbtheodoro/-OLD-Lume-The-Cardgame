@@ -854,23 +854,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b6d2af92699e3e44b846dbaf457137d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1unit: Jet
-  player2unit: Jayme
-  locations:
-  - Water Capital
-  attacks:
-  - Buffout
-  - Burden
-  - Calm mind
-  - Confusion
-  - Flash
-  - Frighten
-  - Psych up
-  - Strength drain
-  - Sucker punch
-  - Unload
   player1Controller: {fileID: 150780798}
   player2Controller: {fileID: 639388107}
+  earthArmy: {fileID: 11400000, guid: 8610eef6b5503ec4c9db0aa32ebc4305, type: 2}
+  fireArmy: {fileID: 0}
+  waterArmy: {fileID: 0}
 --- !u!224 &2122550890 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224597805701996664, guid: dc85662ab8b321140af3d489c2b58582,

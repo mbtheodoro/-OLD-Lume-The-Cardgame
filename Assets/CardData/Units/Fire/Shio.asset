@@ -9,26 +9,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c021ed992f2ee3442a857d49f3cda23c, type: 3}
-  m_Name: Reva
+  m_Name: Shio
   m_EditorClassIdentifier: 
   className: UnitCard
-  name: Reva
-  description: Mastery Spirit 5 - Tests of Spirit deal 5 more damage.
-  flavorText: '"If anything is gonna stop me, it''s gonna be death itself" - Reva'
+  name: Shio
+  description: 'Analytic 5: Magical attacks used by Shio deal 5 more damage.'
+  flavorText: Fierce and determined, he uses his sheer will to overcome his lack of
+    physical prowence.
   type: 0
   nation: 2
-  art: {fileID: 21300000, guid: cce205bacd7592d4abb38483d32071ae, type: 3}
-  health: 40
-  strength: 6
-  agility: 5
-  wisdom: 3
-  spirit: 8
+  art: {fileID: 21300000, guid: 385c181823097a040b8ce7354baa43a3, type: 3}
+  health: 35
+  strength: 3
+  agility: 4
+  wisdom: 7
+  spirit: 7
   aggression: 0
-  analytic: 0
+  analytic: 5
   masteryStrenght: 0
   masteryAgility: 0
   masteryWisdom: 0
-  masterySpirit: 5
+  masterySpirit: 0
   weaken: 0
   restrain: 0
   hypnosis: 0
@@ -47,4 +48,3 @@ MonoBehaviour:
   defiant: 0
   stubborn: 0
   piercer: 0
-  taunt: 0

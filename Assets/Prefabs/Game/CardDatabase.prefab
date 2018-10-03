@@ -62,8 +62,19 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 01dbfd595935575459f226974b41e79c, type: 2}
   - {fileID: 11400000, guid: 0bb88cd28b07f5647ac61ae27272d12b, type: 2}
   - {fileID: 11400000, guid: d006f9eb883334745990b3fcfceb12de, type: 2}
+  - {fileID: 11400000, guid: 74e0e4a8ad406b1478ce852e711eec51, type: 2}
+  - {fileID: 11400000, guid: 7a078a965a44d6f4ca642e4c22d12281, type: 2}
+  - {fileID: 11400000, guid: dc15e5591bbed6b4b8fdbad9a91233c8, type: 2}
+  - {fileID: 11400000, guid: 50167c8ec12791f4a95cf738f2b6d63e, type: 2}
+  - {fileID: 11400000, guid: e4443b9f198fc204f9efb2fbaed72057, type: 2}
+  - {fileID: 11400000, guid: 0edd4842392d320498cf48a5200f54ed, type: 2}
   unitList:
+  - {fileID: 11400000, guid: 0575bf0160e9c594a9a79aefc5b9a020, type: 2}
+  - {fileID: 11400000, guid: 6fd658b4d32ffba47abb6ed08174c863, type: 2}
+  - {fileID: 11400000, guid: 042d90d5b1e53ab458fc5b88ee0a44a7, type: 2}
+  - {fileID: 11400000, guid: c68e6b46b759e194f8618a39461041d6, type: 2}
   - {fileID: 11400000, guid: 43da041c6c69f8d4fb8340dc040c7c62, type: 2}
+  - {fileID: 11400000, guid: f28ca3cf74b96464f83759aabb5add52, type: 2}
   - {fileID: 11400000, guid: 91f322be6dc54ca4194c00123c0411ff, type: 2}
   - {fileID: 11400000, guid: 3ea38fe3f1edeae4baf5744e202443a3, type: 2}
   equipList: []

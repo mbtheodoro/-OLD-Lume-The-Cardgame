@@ -9,26 +9,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c021ed992f2ee3442a857d49f3cda23c, type: 3}
-  m_Name: Reva
+  m_Name: Guri
   m_EditorClassIdentifier: 
   className: UnitCard
-  name: Reva
-  description: Mastery Spirit 5 - Tests of Spirit deal 5 more damage.
-  flavorText: '"If anything is gonna stop me, it''s gonna be death itself" - Reva'
+  name: Guri
+  description: 'Reckless 5: Guri deals 5 damage to itself everytime he attacks.'
+  flavorText: 
   type: 0
   nation: 2
-  art: {fileID: 21300000, guid: cce205bacd7592d4abb38483d32071ae, type: 3}
+  art: {fileID: 0}
   health: 40
-  strength: 6
-  agility: 5
-  wisdom: 3
-  spirit: 8
+  strength: 5
+  agility: 8
+  wisdom: 7
+  spirit: 6
   aggression: 0
   analytic: 0
   masteryStrenght: 0
   masteryAgility: 0
   masteryWisdom: 0
-  masterySpirit: 5
+  masterySpirit: 0
   weaken: 0
   restrain: 0
   hypnosis: 0
@@ -42,9 +42,8 @@ MonoBehaviour:
   overdrive: 0
   armor: 0
   endurance: 0
-  reckless: 0
+  reckless: 5
   regenerate: 0
   defiant: 0
   stubborn: 0
   piercer: 0
-  taunt: 0

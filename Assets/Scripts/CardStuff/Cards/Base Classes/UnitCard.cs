@@ -596,7 +596,7 @@ public class UnitCard : Card
             if (gain)
                 currentHealth = temp;
             else
-                currentHealth = Mathf.Max(currentHealth, temp);
+                currentHealth = Mathf.Min(originalHealth, temp);
         }
         else
             currentHealth -= value;
@@ -655,6 +655,11 @@ public class UnitCard : Card
             ModifyHealth(-regenerate);
         }
     }
+
+    protected void Support()
+    {
+        //int supportingUnits = BoardController.GetSupportingUnits(this);
+    }
     #endregion
 
     #region EVENTS
@@ -664,6 +669,7 @@ public class UnitCard : Card
         Restrain(enemy);
         Hypnosis(enemy);
         Intimidate(enemy);
+        Support();
     }
 
     public virtual void OnAttack(AttackCard attack, UnitCard enemy)

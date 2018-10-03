@@ -8,7 +8,7 @@ public static class Defines
 
     public static int equipsInAnArmy = unitsInAnArmy;
 
-    public static int locationDeckSize = 10;
+    public static int locationDeckSize = 7;
 
     public static int attackDeckSize = 20;
 
