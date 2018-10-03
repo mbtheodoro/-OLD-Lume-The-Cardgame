@@ -45,6 +45,11 @@ public class UnitCardData : CardData
     public bool defiant;
     public bool stubborn;
     public bool piercer;
-    public bool taunt;
+    //public bool taunt;
     //public bool stealth;
+
+    private void OnEnable()
+    {
+        type = CardType.UNIT;
+    }
 }

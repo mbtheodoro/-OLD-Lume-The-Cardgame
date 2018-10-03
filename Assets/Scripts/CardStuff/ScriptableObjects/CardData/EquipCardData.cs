@@ -5,5 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Equip Card", menuName = "Card/Equip")]
 public class EquipCardData : CardData
 {
-
+    private void OnEnable()
+    {
+        type = CardType.EQUIP;
+    }
 }

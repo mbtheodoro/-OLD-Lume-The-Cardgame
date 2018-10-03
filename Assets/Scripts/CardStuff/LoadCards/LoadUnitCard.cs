@@ -73,7 +73,7 @@ public class LoadUnitCard : LoadCard
         unitCard.defiant = cardData.defiant;
         unitCard.stubborn = cardData.stubborn;
         unitCard.piercer = cardData.piercer;
-        unitCard.taunt = cardData.taunt;
+        //unitCard.taunt = cardData.taunt;
     }
 
     public override void LoadCardStyle(CardStyle style)
