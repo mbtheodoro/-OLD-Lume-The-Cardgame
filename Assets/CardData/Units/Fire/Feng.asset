@@ -9,26 +9,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c021ed992f2ee3442a857d49f3cda23c, type: 3}
-  m_Name: Shio
+  m_Name: Feng
   m_EditorClassIdentifier: 
   className: UnitCard
-  name: Shio
-  description: 'Analytic 10: Magical attacks used by Shio-yah deal 10 more damage.'
-  flavorText: Fierce and determined, he uses his sheer will to overcome his lack of
-    physical prowence.
+  name: Feng
+  description: Mastery Wisdom 5 - Tests of Wisdom deal 5 more damage.
+  flavorText: 
   type: 0
-  nation: 1
-  art: {fileID: 21300000, guid: 385c181823097a040b8ce7354baa43a3, type: 3}
-  health: 30
-  strength: 4
-  agility: 7
-  wisdom: 5
-  spirit: 8
+  nation: 2
+  art: {fileID: 0}
+  health: 35
+  strength: 3
+  agility: 6
+  wisdom: 8
+  spirit: 6
   aggression: 0
-  analytic: 10
+  analytic: 0
   masteryStrenght: 0
   masteryAgility: 0
-  masteryWisdom: 0
+  masteryWisdom: 5
   masterySpirit: 0
   weaken: 0
   restrain: 0
@@ -48,4 +47,3 @@ MonoBehaviour:
   defiant: 0
   stubborn: 0
   piercer: 0
-  taunt: 0

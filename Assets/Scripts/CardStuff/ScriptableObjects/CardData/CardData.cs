@@ -13,10 +13,10 @@ public enum CardType
 
 public enum Nation
 {
+    NEUTRAL,
     EARTH,
     FIRE,
-    WATER,
-    NEUTRAL
+    WATER
 }
 
 public class CardData : ScriptableObject
