@@ -16,7 +16,7 @@ MonoBehaviour:
   description: Infiltrate 10 - Attacks deal 10 more damage when infiltrated
   flavorText: 
   type: 0
-  nation: 0
+  nation: 1
   art: {fileID: 0}
   health: 40
   strength: 4
@@ -47,4 +47,3 @@ MonoBehaviour:
   defiant: 0
   stubborn: 0
   piercer: 0
-  taunt: 0

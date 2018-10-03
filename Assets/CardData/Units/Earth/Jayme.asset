@@ -16,7 +16,7 @@ MonoBehaviour:
   description: Armor 5 - Physical attacks used against Jayne deal 5 less damage.
   flavorText: 
   type: 0
-  nation: 0
+  nation: 1
   art: {fileID: 21300000, guid: 7326b59c6ad508b47857f20d6a36bc60, type: 3}
   health: 40
   strength: 6
@@ -47,4 +47,3 @@ MonoBehaviour:
   defiant: 0
   stubborn: 0
   piercer: 0
-  taunt: 0

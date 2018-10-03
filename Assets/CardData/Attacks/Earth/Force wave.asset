@@ -16,7 +16,7 @@ MonoBehaviour:
   description: 'Stat test Strength 8: Deal 20 more damage'
   flavorText: 
   type: 2
-  nation: 0
+  nation: 1
   art: {fileID: 0}
   baseDamage: 5
   cost: 15

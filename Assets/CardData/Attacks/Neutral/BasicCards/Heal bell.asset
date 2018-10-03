@@ -16,7 +16,7 @@ MonoBehaviour:
   description: Heal 10 Damage to the user.
   flavorText: 
   type: 2
-  nation: 3
+  nation: 0
   art: {fileID: 0}
   baseDamage: 10
   cost: 5

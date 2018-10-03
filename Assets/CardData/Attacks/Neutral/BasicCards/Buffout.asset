@@ -16,7 +16,7 @@ MonoBehaviour:
   description: Increase User's Strength by 1.
   flavorText: 
   type: 2
-  nation: 3
+  nation: 0
   art: {fileID: 0}
   baseDamage: 0
   cost: 0

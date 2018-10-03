@@ -9,32 +9,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2b435711300fcb64abee0d7634b06702, type: 3}
-  m_Name: Unload
+  m_Name: Blazing Sparrows
   m_EditorClassIdentifier: 
   className: AttackCard
-  name: Unload
-  description: Increase User's Agility by 1.
+  name: Blazing Sparrows
+  description: 'Outstat Wisdom: deal 5 more damage.'
   flavorText: 
   type: 2
-  nation: 0
+  nation: 2
   art: {fileID: 0}
-  baseDamage: 0
-  cost: 0
-  attackType: 0
+  baseDamage: 10
+  cost: 20
+  attackType: 1
   statTestStrength: {x: 0, y: 0}
   statTestAgility: {x: 0, y: 0}
   statTestWisdom: {x: 0, y: 0}
   statTestSpirit: {x: 0, y: 0}
   outStatStrength: {x: 0, y: 0}
   outStatAgility: {x: 0, y: 0}
-  outStatWisdom: {x: 0, y: 0}
+  outStatWisdom: {x: 1, y: 5}
   outStatSpirit: {x: 0, y: 0}
   statFailStrength: {x: 0, y: 0}
   statFailAgility: {x: 0, y: 0}
   statFailWisdom: {x: 0, y: 0}
   statFailSpirit: {x: 0, y: 0}
   modifyUserStrength: 0
-  modifyUserAgility: 1
+  modifyUserAgility: 0
   modifyUserWisdom: 0
   modifyUserSpirit: 0
   modifyEnemyStrength: 0

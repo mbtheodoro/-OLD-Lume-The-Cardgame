@@ -17,7 +17,7 @@ MonoBehaviour:
   flavorText: Legend tells of a man so strong he could level mountains. Another tells
     that there was a mountain where Gaia is now.
   type: 2
-  nation: 0
+  nation: 1
   art: {fileID: 0}
   baseDamage: 0
   cost: 5

@@ -9,21 +9,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2b435711300fcb64abee0d7634b06702, type: 3}
-  m_Name: Unload
+  m_Name: Hawk Punch
   m_EditorClassIdentifier: 
   className: AttackCard
-  name: Unload
-  description: Increase User's Agility by 1.
-  flavorText: 
+  name: Hawk Punch
+  description: 'Stat test Wisdom 5: deal 5 more damage.
+
+    Stat test Strength 5: deal 5 more damage.'
+  flavorText: '"HAWK... PUUUUUUNCH!"'
   type: 2
-  nation: 0
+  nation: 2
   art: {fileID: 0}
-  baseDamage: 0
-  cost: 0
+  baseDamage: 5
+  cost: 10
   attackType: 0
-  statTestStrength: {x: 0, y: 0}
+  statTestStrength: {x: 5, y: 5}
   statTestAgility: {x: 0, y: 0}
-  statTestWisdom: {x: 0, y: 0}
+  statTestWisdom: {x: 5, y: 5}
   statTestSpirit: {x: 0, y: 0}
   outStatStrength: {x: 0, y: 0}
   outStatAgility: {x: 0, y: 0}
@@ -34,7 +36,7 @@ MonoBehaviour:
   statFailWisdom: {x: 0, y: 0}
   statFailSpirit: {x: 0, y: 0}
   modifyUserStrength: 0
-  modifyUserAgility: 1
+  modifyUserAgility: 0
   modifyUserWisdom: 0
   modifyUserSpirit: 0
   modifyEnemyStrength: 0
