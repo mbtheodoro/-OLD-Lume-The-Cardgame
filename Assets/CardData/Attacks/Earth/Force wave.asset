@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Force wave
   description: 'Stat test Strength 8: Deal 20 more damage'
   flavorText: 
-  type: 0
+  type: 2
   nation: 0
   art: {fileID: 0}
   baseDamage: 5

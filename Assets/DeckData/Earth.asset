@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f994529a6efc2b4588d067f3459102e, type: 3}
+  m_Name: Earth
+  m_EditorClassIdentifier: 
+  units:
+  - {fileID: 11400000, guid: 0575bf0160e9c594a9a79aefc5b9a020, type: 2}
+  - {fileID: 11400000, guid: 6fd658b4d32ffba47abb6ed08174c863, type: 2}
+  - {fileID: 11400000, guid: 042d90d5b1e53ab458fc5b88ee0a44a7, type: 2}
+  - {fileID: 11400000, guid: c68e6b46b759e194f8618a39461041d6, type: 2}
+  - {fileID: 11400000, guid: 43da041c6c69f8d4fb8340dc040c7c62, type: 2}
+  - {fileID: 11400000, guid: f28ca3cf74b96464f83759aabb5add52, type: 2}
+  items: []
+  attacks:
+  - {fileID: 11400000, guid: a2fc0ccd25ff17a49b7039492e2a64fc, type: 2}
+  - {fileID: 11400000, guid: 0edd4842392d320498cf48a5200f54ed, type: 2}
+  - {fileID: 11400000, guid: 74e0e4a8ad406b1478ce852e711eec51, type: 2}
+  - {fileID: 11400000, guid: 50167c8ec12791f4a95cf738f2b6d63e, type: 2}
+  - {fileID: 11400000, guid: dc15e5591bbed6b4b8fdbad9a91233c8, type: 2}
+  - {fileID: 11400000, guid: 7a078a965a44d6f4ca642e4c22d12281, type: 2}
+  - {fileID: 11400000, guid: e4443b9f198fc204f9efb2fbaed72057, type: 2}
+  attackCounts: 03000000020000000300000003000000030000000200000001000000
+  locations:
+  - {fileID: 11400000, guid: 14029b97d543c3d4e945f2447e27f8bb, type: 2}
