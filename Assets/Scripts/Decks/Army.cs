@@ -8,6 +8,7 @@ public class Army
     private List<string> equips;
     private Deck attackDeck;
     private Deck locationDeck;
+    private Nation nation;
 
     public Army()
     {
@@ -50,6 +51,11 @@ public class Army
     public Deck LocationDeck
     {
         get { return locationDeck; }
+    }
+
+    public Nation Nation
+    {
+        get { return Nation; }
     }
     #endregion
 

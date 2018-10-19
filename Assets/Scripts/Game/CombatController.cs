@@ -66,12 +66,13 @@ public class CombatController : MonoBehaviour
     #region METHODS
     private void SwitchTurn()
     {
-        if(instance.turn == PlayerInfo.PLAYER1)
+        if (instance.turn == PlayerInfo.PLAYER1)
             instance.turn = PlayerInfo.PLAYER2;
         else
             instance.turn = PlayerInfo.PLAYER1;
-
+        
         Debug.Log("Now it's " + turn + "'s turn!");
+        GameController.GetPlayerController(instance.turn).EnableCardsOnHand();
     }
     
     private void CalculateInitiative()
@@ -184,18 +185,21 @@ public class CombatController : MonoBehaviour
         location.OnCombatStart(player1Card, player2Card);
         player1Card.OnCombatStart(player2Card);
         player2Card.OnCombatStart(player1Card);
-        //TO DO: then controllers
+        GameController.GetPlayerController(instance.turn).EnableCardsOnHand();
+        //TO DO: other controllers?
     }
 
     private void OnCombatEnd()
     {
+        Debug.Log("Combat Ended! " + attackingUnit.name + " is victorious!");
+        gameObject.SetActive(false);
+
         location.OnCombatEnd(attackingUnit, defendingUnit);
         player1Card.OnCombatEnd();
         player2Card.OnCombatEnd();
-        //TO DO: then controllers
+        //TO DO: player controllers
+        GameController.instance.OnCombatEnd();
 
-        Debug.Log("Combat Ended! " + attackingUnit.name + " is victorious!");
-        gameObject.SetActive(false);
     }
     #endregion
 

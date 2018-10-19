@@ -684,7 +684,12 @@ public class UnitCard : Card
 
     public virtual void OnCombatEnd()
     {
-        Regenerate();
+        if(currentHealth <= 0)
+        {
+            player.DiscardUnitCard(this);
+        }
+        else
+            Regenerate();
     }
     #endregion
 }

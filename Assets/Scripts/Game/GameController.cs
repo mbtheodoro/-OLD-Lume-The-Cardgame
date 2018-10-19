@@ -20,6 +20,11 @@ public class GameController : MonoBehaviour
     
     #region ATTRIBUTES
     private PlayerInfo _turnPlayer;
+    private ArmyData player1army;
+    private ArmyData player2army;
+
+    private UnitCard unit1;
+    private UnitCard unit2;
     #endregion
 
     #region PROPERTIES
@@ -57,6 +62,64 @@ public class GameController : MonoBehaviour
         else
             return instance.player2Controller;
     }
+
+    private void SetPlayersAttacks()
+    {
+        //player 1
+        for (int i = 0; i < player1army.attackCounts.Count; i++)
+        {
+            for (int j = 0; j < player1army.attackCounts[i]; j++)
+                player1Controller.attackDeck.AddCardTop(player1army.attacks[i].name);
+        }
+        player1Controller.attackDeck.ShuffleDeck();
+
+        //player 2
+        for (int i = 0; i < player2army.attackCounts.Count; i++)
+        {
+            for (int j = 0; j < player2army.attackCounts[i]; j++)
+                player2Controller.attackDeck.AddCardTop(player2army.attacks[i].name);
+        }
+        player2Controller.attackDeck.ShuffleDeck();
+    }
+
+    private void SetPlayersLocations()
+    {
+        //player 1
+        foreach (LocationCardData card in player1army.locations)
+            player1Controller.locationDeck.AddCardTop(card.name);
+
+        player1Controller.locationDeck.ShuffleDeck();
+
+        //player 2
+        foreach (LocationCardData card in player2army.locations)
+            player2Controller.locationDeck.AddCardTop(card.name);
+
+        player2Controller.locationDeck.ShuffleDeck();
+    }
+
+    private void SetPlayersUnits()
+    {
+        foreach (UnitCardData card in player1army.units)
+            player1Controller.units.Add(card.name);
+
+        foreach (UnitCardData card in player2army.units)
+            player2Controller.units.Add(card.name);
+        //// player 1
+        //foreach (UnitCardData card in player1army.units)
+        //    player1Controller.units.Add((UnitCard)CardFactory.CreateCard(card.name));
+
+        ////player 2
+        //foreach (UnitCardData card in player2army.units)
+        //    player2Controller.units.Add((UnitCard)CardFactory.CreateCard(card.name));
+    }
+    #endregion
+
+    #region EVENTS
+    public void OnCombatEnd()
+    {
+        test();
+        CombatController.instance.StartCombat(turnPlayerController.DrawLocationCard(), unit1, unit2);
+    }
     #endregion
 
     #region UNITY
@@ -70,34 +133,35 @@ public class GameController : MonoBehaviour
             DestroyImmediate(gameObject);
     }
 
+    private void test()
+    {
+        unit1 = (UnitCard)CardFactory.CreateCard(player1Controller.units[0]);
+        unit2 = (UnitCard)CardFactory.CreateCard(player2Controller.units[0]);
+
+        unit1.player = player1Controller;
+        unit2.player = player2Controller;
+    }
+
     private void Start()
     {
         //set player controllers
         player1Controller.player = PlayerInfo.PLAYER1;
         player2Controller.player = PlayerInfo.PLAYER2;
 
+        player1Controller.nation = Nation.EARTH;
+        player2Controller.nation = Nation.FIRE;
+
+        player1army = earthArmy;
+        player2army = fireArmy;
+
+        //set players units
+        SetPlayersUnits();
 
         //set players attack decks
-        for(int i = 0; i < earthArmy.attackCounts.Count; i++)
-        {
-            for(int j = 0; j < earthArmy.attackCounts[i]; j++)
-            {
-                player1Controller.attackDeck.AddCardTop(earthArmy.attacks[i].name);
-                player2Controller.attackDeck.AddCardTop(earthArmy.attacks[i].name);
-            }
-        }
-        player1Controller.attackDeck.ShuffleDeck();
-        player2Controller.attackDeck.ShuffleDeck();
-
+        SetPlayersAttacks();
 
         //set players location decks
-        foreach (LocationCardData card in earthArmy.locations)
-        {
-            player1Controller.locationDeck.AddCardTop(card.name);
-            player2Controller.locationDeck.AddCardTop(card.name);
-        }
-        player1Controller.locationDeck.ShuffleDeck();
-        player2Controller.locationDeck.ShuffleDeck();
+        SetPlayersLocations();
 
 
         //draw cards for their hands
@@ -108,7 +172,8 @@ public class GameController : MonoBehaviour
         _turnPlayer = PlayerInfo.PLAYER1;
 
         //start combat
-        CombatController.instance.StartCombat(turnPlayerController.DrawLocationCard(), (UnitCard)CardFactory.CreateCard(earthArmy.units[0].name), (UnitCard)CardFactory.CreateCard(earthArmy.units[1].name));
+        test();
+        CombatController.instance.StartCombat(turnPlayerController.DrawLocationCard(), unit1, unit2);
     }
     #endregion
 }

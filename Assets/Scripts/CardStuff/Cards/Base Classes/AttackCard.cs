@@ -18,6 +18,8 @@ public class AttackCard : Card
     #endregion
 
     #region ATTRIBUTES
+    public bool playable;
+
     protected int _originalCost;
     protected int _currentCost;
     protected int _baseDamage;
@@ -546,7 +548,8 @@ public class AttackCard : Card
 
     private void OnMouseUpAsButton()
     {
-        Activate();
+        if(playable)
+            Activate();
     }
     #endregion
 }

@@ -8,6 +8,9 @@ public class PlayerController : MonoBehaviour
     #region REFERENCES
     public RectTransform thisRect;
     public RectTransform hand;
+
+    public Text staminaText;
+    public Text manaText;
     
     public float closedSize;
     public float openedSize;
@@ -15,14 +18,110 @@ public class PlayerController : MonoBehaviour
 
     #region ATTRIBUTES
     public PlayerInfo player;
+    public Nation nation;
+    private int stamina;
+    private int mana;
 
     public DiscardPile attackDiscardPile;
     public DiscardPile locationDiscardPile;
+
     public Deck attackDeck;
     public Deck locationDeck;
-    #endregion
 
+    public List<string> units; //testing
+    //public List<UnitCard> units;
+    public List<AttackCard> attacksOnHand;
+    //public List<EquipCard> items;
+    #endregion
+    
+    #region PROPERTIES
+    public int Stamina
+    {
+        get
+        {
+            return stamina;
+        }
+        set
+        {
+            stamina = value;
+            staminaText.text = stamina.ToString();
+        }
+    }
+
+    public int Mana
+    {
+        get
+        {
+            return mana;
+        }
+        set
+        {
+            mana = value;
+            manaText.text = mana.ToString();
+        }
+    }
+    #endregion
+   
     #region METHODS
+    public void EnableCardsOnHand()
+    {
+        bool atLeastOneCardCanBePlayed = false;
+        for (int i = 0; i < attacksOnHand.Count; i++)
+        {
+            if(attacksOnHand[i].type == AttackType.PHYSICAL && attacksOnHand[i].currentCost <= stamina)
+            {
+                attacksOnHand[i].playable = true;
+                atLeastOneCardCanBePlayed = true;
+            }
+            else if(attacksOnHand[i].type == AttackType.MAGICAL && attacksOnHand[i].currentCost <= mana)
+            {
+                attacksOnHand[i].playable = true;
+                atLeastOneCardCanBePlayed = true;
+            }
+        }
+        if (!atLeastOneCardCanBePlayed)
+        {
+            Debug.Log(player + " can't play any cards on his/her hand");
+            RegenResources();
+            CombatController.OnAttackCardPlayed();
+        }
+    }
+
+    public void DisableCardsOnHand()
+    {
+        for (int i = 0; i < attacksOnHand.Count; i++)
+            attacksOnHand[i].playable = false;
+    }
+
+    public void RegenResources()
+    {
+        int manaRegen, staminaRegen;
+
+        switch(nation)
+        {
+            case Nation.EARTH:
+                manaRegen = Defines.manaRegenEarth;
+                staminaRegen = Defines.staminaRegenEarth;
+                break;
+            case Nation.FIRE:
+                manaRegen = Defines.manaRegenFire;
+                staminaRegen = Defines.staminaRegenFire;
+                break;
+            case Nation.WATER:
+                manaRegen = Defines.manaRegenWater;
+                staminaRegen = Defines.staminaRegenWater;
+                break;
+            default:
+                manaRegen = 10;
+                staminaRegen= 10;
+                break;
+        }
+
+        Mana += manaRegen;
+        Stamina += staminaRegen;
+    }
+
+    #region SHUFFLE
     public void ReshuffleAttackDeck()
     {
         for(int i = 0; i < attackDiscardPile.size; i++)
@@ -36,7 +135,9 @@ public class PlayerController : MonoBehaviour
             locationDeck.AddCardTop(locationDiscardPile.GetTopCard());
         locationDeck.ShuffleDeck();
     }
+    #endregion
 
+    #region DRAW 
     public void DrawAttackCard()
     {
         if (attackDeck.Count() <= 0)
@@ -44,6 +145,9 @@ public class PlayerController : MonoBehaviour
 
         AttackCard card = (AttackCard) attackDeck.DrawCard();
         card.player = this;
+
+        attacksOnHand.Add(card);
+
         card.SetParent(hand);
         hand.ForceUpdateRectTransforms();
     }
@@ -63,10 +167,13 @@ public class PlayerController : MonoBehaviour
         card.player = this;
         return card;
     }
+    #endregion
 
+    #region DISCARDS
     public void DiscardAttackCard(AttackCard card)
     {
         attackDiscardPile.AddCard(card.name);
+        attacksOnHand.Remove(card);
         Destroy(card.gameObject);
     }
 
@@ -76,6 +183,13 @@ public class PlayerController : MonoBehaviour
         Destroy(card.gameObject);
     }
 
+    public void DiscardUnitCard(UnitCard card)
+    {
+        units.Remove(card.name);
+        Destroy(card.gameObject);
+    }
+    #endregion
+    
     #region VISUALS
     public void OpenHand()
     {
@@ -99,6 +213,8 @@ public class PlayerController : MonoBehaviour
     {
         DiscardAttackCard(card);
         DrawAttackCard();
+        DisableCardsOnHand();
+        RegenResources();
     }
     #endregion
 
