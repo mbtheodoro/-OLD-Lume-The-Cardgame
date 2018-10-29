@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour
         }
         if (!atLeastOneCardCanBePlayed)
         {
-            Debug.Log(player + " can't play any cards on his/her hand");
+            LogWindow.Log(player + " can't play any cards on his/her hand");
             RegenResources();
             CombatController.OnAttackCardPlayed();
         }

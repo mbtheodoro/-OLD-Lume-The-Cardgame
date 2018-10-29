@@ -16,6 +16,8 @@ public class LoadAttackCard : LoadCard
     
     public Text costText;
     public Text baseDamageText;
+
+    public Image playableEffect;
     #endregion
 
     #region METHODS
@@ -29,6 +31,7 @@ public class LoadAttackCard : LoadCard
 
         attackCard.costText = costText;
         attackCard.baseDamageText = baseDamageText;
+        attackCard.playableEffect = playableEffect;
 
         attackCard.originalCost = card.cost;
         attackCard.baseDamage = card.baseDamage;

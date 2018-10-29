@@ -29,7 +29,7 @@ public class HealAttackCard : AttackCard
         user.ModifyHealth(-heal);
 
         if (heal > 0)
-            Debug.Log(user.name + " used " + name + " on itself and healed " + heal + " damage!");
+            LogWindow.Log(user.name + " used " + name + " on itself and healed " + heal + " damage!");
 
         //modifying status come after damage
         ModifyUserStats();

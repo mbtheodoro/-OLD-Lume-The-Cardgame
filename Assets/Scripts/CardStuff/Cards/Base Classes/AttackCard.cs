@@ -15,10 +15,12 @@ public class AttackCard : Card
 
     public Text costText;
     public Text baseDamageText;
+
+    public Image playableEffect;
     #endregion
 
     #region ATTRIBUTES
-    public bool playable;
+    public bool _playable;
 
     protected int _originalCost;
     protected int _currentCost;
@@ -52,6 +54,16 @@ public class AttackCard : Card
     #endregion
 
     #region PROPERTIES
+    public virtual bool playable
+    {
+        get { return _playable; }
+        set
+        {
+            _playable = value;
+            playableEffect.gameObject.SetActive(_playable);
+        }
+    }
+
     public virtual int originalCost
     {
         get
@@ -510,6 +522,12 @@ public class AttackCard : Card
     public virtual void Activate()
     {
         SetUserEnemy();
+
+        if (type == AttackType.PHYSICAL)
+            player.Stamina -= currentCost;
+        else
+            player.Mana -= currentCost;
+
 
         //deal damage
         int damage = CalculateDamage();
