@@ -71,7 +71,7 @@ public class CombatController : MonoBehaviour
         else
             instance.turn = PlayerInfo.PLAYER1;
         
-        Debug.Log("Now it's " + turn + "'s turn!");
+        LogWindow.Log("Now it's " + turn + "'s turn!");
         GameController.GetPlayerController(instance.turn).EnableCardsOnHand();
     }
     
@@ -179,8 +179,8 @@ public class CombatController : MonoBehaviour
 
     private void OnCombatStart()
     {
-        Debug.Log("Combat Started! It's " + player1Card.name + " Vs " + player2Card.name + " on " + location.name + "!");
-        Debug.Log(turn + "'s got the advantage!");
+        LogWindow.Log("Combat Started! It's " + player1Card.name + " Vs " + player2Card.name + " on " + location.name + "!");
+        LogWindow.Log(turn + "'s got the advantage!");
 
         location.OnCombatStart(player1Card, player2Card);
         player1Card.OnCombatStart(player2Card);
@@ -191,7 +191,7 @@ public class CombatController : MonoBehaviour
 
     private void OnCombatEnd()
     {
-        Debug.Log("Combat Ended! " + attackingUnit.name + " is victorious!");
+        LogWindow.Log("Combat Ended! " + attackingUnit.name + " is victorious!");
         gameObject.SetActive(false);
 
         location.OnCombatEnd(attackingUnit, defendingUnit);

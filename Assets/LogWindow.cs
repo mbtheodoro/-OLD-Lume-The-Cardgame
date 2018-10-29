@@ -21,7 +21,7 @@ public class LogWindow : MonoBehaviour
     #region METHODS
     public static void Log(string s)
     {
-        instance.text.text += Environment.NewLine + s;
+        instance.text.text += Environment.NewLine + ">" + s;
     }
     #endregion
 

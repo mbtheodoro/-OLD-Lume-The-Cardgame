@@ -534,7 +534,7 @@ public class AttackCard : Card
         enemy.ModifyHealth(damage);
 
         if(damage > 0)
-            Debug.Log(user.name + " used " + name + " on " + enemy.name + " and dealt " + damage + " damage!");
+            LogWindow.Log(user.name + " used " + name + " on " + enemy.name + " and dealt " + damage + " damage!");
 
         //modifying status come after damage
         ModifyUserStats();

@@ -146,21 +146,21 @@ public class UnitCard : Card
             if (value < _currentStrength)
             {
                 if (defiant)
-                    Debug.Log(name + "'s Defiant prevents its stat from getting lowered.");
+                    LogWindow.Log(name + "'s Defiant prevents its stat from getting lowered.");
                 else
                 {
                     if (_currentStrength == 0)
-                        Debug.Log(name + "'s Strength can't get any lower!");
+                        LogWindow.Log(name + "'s Strength can't get any lower!");
                     else
                     {
-                        Debug.Log(name + "'s Strength is reduced by " + (_currentStrength - value));
+                        LogWindow.Log(name + "'s Strength is reduced by " + (_currentStrength - value));
                         _currentStrength = value;
                     }
                 }
             }
             else
             {
-                Debug.Log(name + "'s Strength is increased by " + (value - _currentStrength));
+                LogWindow.Log(name + "'s Strength is increased by " + (value - _currentStrength));
                 _currentStrength = value;
             }
 
@@ -177,21 +177,21 @@ public class UnitCard : Card
             if (value < _currentAgility)
             {
                 if (defiant)
-                    Debug.Log(name + "'s Defiant prevents its stat from getting lowered.");
+                    LogWindow.Log(name + "'s Defiant prevents its stat from getting lowered.");
                 else
                 {
                     if (_currentAgility == 0)
-                        Debug.Log(name + "'s Agility can't get any lower!");
+                        LogWindow.Log(name + "'s Agility can't get any lower!");
                     else
                     {
-                        Debug.Log(name + "'s Agility is reduced by " + (_currentAgility - value));
+                        LogWindow.Log(name + "'s Agility is reduced by " + (_currentAgility - value));
                         _currentAgility = value;
                     }
                 }
             }
             else
             {
-                Debug.Log(name + "'s Agility is increased by " + (value - _currentAgility));
+                LogWindow.Log(name + "'s Agility is increased by " + (value - _currentAgility));
                 _currentAgility = value;
             }
 
@@ -208,21 +208,21 @@ public class UnitCard : Card
             if (value < _currentWisdom)
             {
                 if (defiant)
-                    Debug.Log(name + "'s Defiant prevents its stat from getting lowered.");
+                    LogWindow.Log(name + "'s Defiant prevents its stat from getting lowered.");
                 else
                 {
                     if (_currentWisdom == 0)
-                        Debug.Log(name + "'s Wisdom can't get any lower!");
+                        LogWindow.Log(name + "'s Wisdom can't get any lower!");
                     else
                     {
-                        Debug.Log(name + "'s Wisdom is reduced by " + (_currentWisdom - value));
+                        LogWindow.Log(name + "'s Wisdom is reduced by " + (_currentWisdom - value));
                         _currentWisdom = value;
                     }
                 }
             }
             else
             {
-                Debug.Log(name + "'s Wisdom is increased by " + (value - _currentWisdom));
+                LogWindow.Log(name + "'s Wisdom is increased by " + (value - _currentWisdom));
                 _currentWisdom = value;
             }
 
@@ -239,21 +239,21 @@ public class UnitCard : Card
             if (value < _currentSpirit)
             {
                 if (defiant)
-                    Debug.Log(name + "'s Defiant prevents its stat from getting lowered.");
+                    LogWindow.Log(name + "'s Defiant prevents its stat from getting lowered.");
                 else
                 {
                     if (_currentSpirit == 0)
-                        Debug.Log(name + "'s Spirit can't get any lower!");
+                        LogWindow.Log(name + "'s Spirit can't get any lower!");
                     else
                     {
-                        Debug.Log(name + "'s Spirit is reduced by "+(_currentSpirit - value));
+                        LogWindow.Log(name + "'s Spirit is reduced by "+(_currentSpirit - value));
                         _currentSpirit = value;
                     }
                 }
             }
             else
             {
-                Debug.Log(name + "'s Spirit is increased by " + (value - _currentSpirit));
+                LogWindow.Log(name + "'s Spirit is increased by " + (value - _currentSpirit));
                 _currentSpirit = value;
             }
                 
@@ -606,7 +606,7 @@ public class UnitCard : Card
     {
         if(weaken > 0)
         {
-            Debug.Log(name + "'s Weaken activates");
+            LogWindow.Log(name + "'s Weaken activates");
             enemy.currentStrength -= weaken;
         }
     }
@@ -615,7 +615,7 @@ public class UnitCard : Card
     {
         if (restrain > 0)
         {
-            Debug.Log(name + "'s Restrain activates");
+            LogWindow.Log(name + "'s Restrain activates");
             enemy.currentAgility -= restrain;
         }
     }
@@ -624,7 +624,7 @@ public class UnitCard : Card
     {
         if (hypnosis > 0)
         {
-            Debug.Log(name + "'s Hypnosis activates");
+            LogWindow.Log(name + "'s Hypnosis activates");
             enemy.currentWisdom -= hypnosis;
         }
     }
@@ -633,7 +633,7 @@ public class UnitCard : Card
     {
         if (intimidate > 0)
         {
-            Debug.Log(name + "'s Intimidate activates");
+            LogWindow.Log(name + "'s Intimidate activates");
             enemy.currentSpirit -= intimidate;
         }
     }
@@ -642,7 +642,7 @@ public class UnitCard : Card
     {
         if(reckless > 0)
         {
-            Debug.Log(name + " is Reckless and deals "+reckless+" damage to itself");
+            LogWindow.Log(name + " is Reckless and deals "+reckless+" damage to itself");
             ModifyHealth(reckless);
         }
     }
@@ -651,7 +651,7 @@ public class UnitCard : Card
     {
         if(regenerate > 0)
         {
-            Debug.Log(name + " is Regenerate healed " + regenerate + " HP");
+            LogWindow.Log(name + " is Regenerate healed " + regenerate + " HP");
             ModifyHealth(-regenerate);
         }
     }
