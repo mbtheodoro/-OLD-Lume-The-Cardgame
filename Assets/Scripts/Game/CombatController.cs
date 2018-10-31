@@ -201,7 +201,6 @@ public class CombatController : MonoBehaviour
         player2Card.OnCombatEnd();
         //TO DO: player controllers
         GameController.instance.OnCombatEnd();
-
     }
     #endregion
 
