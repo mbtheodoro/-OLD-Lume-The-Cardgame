@@ -18,12 +18,12 @@ public static class Defines
 
     public static int defaultHandSize = 5;
 
-    public static int manaRegenEarth = 5;
-    public static int staminaRegenEarth = 15;
+    public static int manaRegenEarth = 8;
+    public static int staminaRegenEarth = 8;
 
-    public static int manaRegenFire = 10;
+    public static int manaRegenFire = 5;
     public static int staminaRegenFire = 5;
 
-    public static int manaRegenWater = 10;
-    public static int staminaRegenWater = 10;
+    public static int manaRegenWater = 5;
+    public static int staminaRegenWater = 5;
 }

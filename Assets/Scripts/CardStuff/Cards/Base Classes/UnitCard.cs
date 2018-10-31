@@ -134,6 +134,12 @@ public class UnitCard : Card
         {
             _currentHealth = Mathf.Max(0, value);
             healthText.text = _currentHealth.ToString();
+            if (currentHealth > originalHealth)
+                healthText.color = Color.green;
+            else if (currentHealth < originalHealth && currentHealth > Defines.criticalHp)
+                healthText.color = new Color(1.0f, 0.5f, 0.0f);
+            else if (currentHealth < Defines.criticalHp)
+                healthText.color = Color.red;
         }
     }
 
@@ -155,13 +161,17 @@ public class UnitCard : Card
                     {
                         LogWindow.Log(name + "'s Strength is reduced by " + (_currentStrength - value));
                         _currentStrength = value;
+                        if (_currentStrength < _originalStrength)
+                            strengthText.color = Color.red;
                     }
                 }
             }
-            else
+            else if (value > _currentStrength)
             {
                 LogWindow.Log(name + "'s Strength is increased by " + (value - _currentStrength));
                 _currentStrength = value;
+                if (_currentStrength > _originalStrength)
+                    strengthText.color = Color.green;
             }
 
             strengthText.text = _currentStrength.ToString();
@@ -186,13 +196,17 @@ public class UnitCard : Card
                     {
                         LogWindow.Log(name + "'s Agility is reduced by " + (_currentAgility - value));
                         _currentAgility = value;
+                        if (_currentAgility < originalAgility)
+                            agilityText.color = Color.red;
                     }
                 }
             }
-            else
+            else if (value > _currentAgility)
             {
                 LogWindow.Log(name + "'s Agility is increased by " + (value - _currentAgility));
                 _currentAgility = value;
+                if (_currentAgility > originalAgility)
+                    agilityText.color = Color.green;
             }
 
             agilityText.text = _currentAgility.ToString();
@@ -217,13 +231,17 @@ public class UnitCard : Card
                     {
                         LogWindow.Log(name + "'s Wisdom is reduced by " + (_currentWisdom - value));
                         _currentWisdom = value;
+                        if (_currentWisdom < originalWisdom)
+                            wisdomText.color = Color.red;
                     }
                 }
             }
-            else
+            else if (value > _currentWisdom)
             {
                 LogWindow.Log(name + "'s Wisdom is increased by " + (value - _currentWisdom));
                 _currentWisdom = value;
+                if (_currentWisdom > originalWisdom)
+                    wisdomText.color = Color.green;
             }
 
             wisdomText.text = _currentWisdom.ToString();
@@ -248,13 +266,17 @@ public class UnitCard : Card
                     {
                         LogWindow.Log(name + "'s Spirit is reduced by "+(_currentSpirit - value));
                         _currentSpirit = value;
+                        if (_currentSpirit < originalSpirit)
+                            spiritText.color = Color.red;
                     }
                 }
             }
-            else
+            else if (value > _currentSpirit)
             {
                 LogWindow.Log(name + "'s Spirit is increased by " + (value - _currentSpirit));
                 _currentSpirit = value;
+                if (_currentSpirit > originalSpirit)
+                    spiritText.color = Color.green;
             }
                 
             spiritText.text = _currentSpirit.ToString();

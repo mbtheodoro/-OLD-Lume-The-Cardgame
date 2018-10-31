@@ -185,6 +185,8 @@ public class CombatController : MonoBehaviour
         location.OnCombatStart(player1Card, player2Card);
         player1Card.OnCombatStart(player2Card);
         player2Card.OnCombatStart(player1Card);
+        GameController.GetPlayerController(PlayerInfo.PLAYER1).OnCombatStart();
+        GameController.GetPlayerController(PlayerInfo.PLAYER2).OnCombatStart();
         GameController.GetPlayerController(instance.turn).EnableCardsOnHand();
         //TO DO: other controllers?
     }

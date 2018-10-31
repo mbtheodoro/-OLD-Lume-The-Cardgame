@@ -23,6 +23,11 @@ public class LogWindow : MonoBehaviour
     {
         instance.text.text += Environment.NewLine + ">" + s;
     }
+
+    public static void Clear()
+    {
+        instance.text.text = String.Empty;
+    }
     #endregion
 
     #region UNITY

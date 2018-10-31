@@ -216,6 +216,11 @@ public class PlayerController : MonoBehaviour
         DisableCardsOnHand();
         RegenResources();
     }
+
+    public void OnCombatStart()
+    {
+        RegenResources();
+    }
     #endregion
 
     #region UNITY
