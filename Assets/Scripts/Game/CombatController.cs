@@ -150,22 +150,24 @@ public class CombatController : MonoBehaviour
         }
     }
 
-    public void StartCombat(LocationCard l, UnitCard p1, UnitCard p2)
+    public static void StartCombat(LocationCard l, UnitCard p1, UnitCard p2)
     {
-        gameObject.SetActive(true);
+        instance.gameObject.SetActive(true);
 
-        location = l;
-        player1Card = p1;
-        player2Card = p2;
+        instance.location = l;
+        instance.player1Card = p1;
+        instance.player2Card = p2;
 
-        location.SetParent(instance.locationRect);
-        player1Card.SetParent(instance.player1Rect);
-        player2Card.SetParent(instance.player2Rect);
+        instance.location.SetParent(instance.locationRect);
+        instance.player1Card.SetParent(instance.player1Rect);
+        instance.player2Card.SetParent(instance.player2Rect);
 
-        CalculateInitiative();
+        instance.CalculateInitiative();
 
-        OnCombatStart();
+        instance.OnCombatStart();
     }
+
+
     #endregion
 
     #region EVENTS
@@ -200,6 +202,7 @@ public class CombatController : MonoBehaviour
         player1Card.OnCombatEnd();
         player2Card.OnCombatEnd();
         //TO DO: player controllers
+        BoardController.instance.selectedTile.AddCard(attackingUnit);
         GameController.instance.OnCombatEnd();
     }
     #endregion

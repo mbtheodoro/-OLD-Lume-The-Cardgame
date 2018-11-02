@@ -99,26 +99,30 @@ public class GameController : MonoBehaviour
 
     private void SetPlayersUnits()
     {
+        // player 1
         foreach (UnitCardData card in player1army.units)
-            player1Controller.units.Add(card.name);
+        {
+            UnitCard unitCard = (UnitCard)CardFactory.CreateCard(card.name);
+            unitCard.player = player1Controller;
+            player1Controller.units.Add(unitCard);
+        }
 
+        //player 2
         foreach (UnitCardData card in player2army.units)
-            player2Controller.units.Add(card.name);
-        //// player 1
-        //foreach (UnitCardData card in player1army.units)
-        //    player1Controller.units.Add((UnitCard)CardFactory.CreateCard(card.name));
+        {
+            UnitCard unitCard = (UnitCard)CardFactory.CreateCard(card.name);
+            unitCard.player = player2Controller;
+            player2Controller.units.Add(unitCard);
+        }
 
-        ////player 2
-        //foreach (UnitCardData card in player2army.units)
-        //    player2Controller.units.Add((UnitCard)CardFactory.CreateCard(card.name));
+        BoardController.SetPlayersUnits(player1Controller.units, player2Controller.units);
     }
     #endregion
 
     #region EVENTS
     public void OnCombatEnd()
     {
-        test();
-        CombatController.instance.StartCombat(turnPlayerController.DrawLocationCard(), unit1, unit2);
+        
     }
     #endregion
 
@@ -133,15 +137,6 @@ public class GameController : MonoBehaviour
             DestroyImmediate(gameObject);
     }
 
-    private void test()
-    {
-        unit1 = (UnitCard)CardFactory.CreateCard(player1Controller.units[0]);
-        unit2 = (UnitCard)CardFactory.CreateCard(player2Controller.units[0]);
-
-        unit1.player = player1Controller;
-        unit2.player = player2Controller;
-    }
-
     private void Start()
     {
         //set player controllers
@@ -154,26 +149,26 @@ public class GameController : MonoBehaviour
         player1army = earthArmy;
         player2army = fireArmy;
 
-        //set players units
+        ////set players units
         SetPlayersUnits();
 
-        //set players attack decks
-        SetPlayersAttacks();
+        ////set players attack decks
+        //SetPlayersAttacks();
 
-        //set players location decks
-        SetPlayersLocations();
+        ////set players location decks
+        //SetPlayersLocations();
 
 
-        //draw cards for their hands
-        player1Controller.DrawAttackCard(Defines.defaultHandSize);
-        player2Controller.DrawAttackCard(Defines.defaultHandSize);
+        ////draw cards for their hands
+        //player1Controller.DrawAttackCard(Defines.defaultHandSize);
+        //player2Controller.DrawAttackCard(Defines.defaultHandSize);
 
-        //set player turn
+        ////set player turn
         _turnPlayer = PlayerInfo.PLAYER1;
 
-        //start combat
-        test();
-        CombatController.instance.StartCombat(turnPlayerController.DrawLocationCard(), unit1, unit2);
+        ////start combat
+        //test();
+        //CombatController.instance.StartCombat(turnPlayerController.DrawLocationCard(), unit1, unit2);
     }
     #endregion
 }

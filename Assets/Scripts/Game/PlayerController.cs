@@ -27,9 +27,8 @@ public class PlayerController : MonoBehaviour
 
     public Deck attackDeck;
     public Deck locationDeck;
-
-    public List<string> units; //testing
-    //public List<UnitCard> units;
+    
+    public List<UnitCard> units;
     public List<AttackCard> attacksOnHand;
     //public List<EquipCard> items;
     #endregion
@@ -185,7 +184,7 @@ public class PlayerController : MonoBehaviour
 
     public void DiscardUnitCard(UnitCard card)
     {
-        units.Remove(card.name);
+        units.Remove(card);
         Destroy(card.gameObject);
     }
     #endregion
