@@ -202,7 +202,7 @@ public class CombatController : MonoBehaviour
         player1Card.OnCombatEnd();
         player2Card.OnCombatEnd();
         //TO DO: player controllers
-        BoardController.instance.selectedTile.AddCard(attackingUnit);
+        BoardController.OnCombatEnd(attackingUnit);
         GameController.instance.OnCombatEnd();
     }
     #endregion

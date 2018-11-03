@@ -19,7 +19,7 @@ public class Tile : MonoBehaviour
     #endregion
 
     #region ATTRIBUTES
-    private int id;
+    private int _id;
 
     public UnitCard card;
     #endregion
@@ -28,6 +28,11 @@ public class Tile : MonoBehaviour
     public TilePlayer Player
     {
         get { return player; }
+    }
+
+    public int id
+    {
+        get { return _id; }
     }
     #endregion
 
@@ -55,7 +60,6 @@ public class Tile : MonoBehaviour
     {
         Tile prevSelectedTile = BoardController.instance.selectedTile;
 
-        //TO DO: player turn
         if (prevSelectedTile == null) //first click
         {
             BoardController.SelectTile(this);
@@ -85,6 +89,7 @@ public class Tile : MonoBehaviour
                 }
                 
                 BoardController.SelectTile(this); //to remember where the winner will stay
+                prevSelectedTile.RemoveCard();
 
                 CombatController.StartCombat(GameController.turnPlayerController.DrawLocationCard(), player1Card, player2Card);
             }
@@ -95,7 +100,7 @@ public class Tile : MonoBehaviour
     #region UNITY
     private void Start()
     {
-        id = int.Parse(gameObject.name);
+        _id = int.Parse(gameObject.name);
     }
     #endregion
 }
