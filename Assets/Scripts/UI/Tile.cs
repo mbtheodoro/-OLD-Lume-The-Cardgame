@@ -63,7 +63,10 @@ public class Tile : MonoBehaviour
         if (prevSelectedTile == null) //first click
         {
             BoardController.SelectTile(this);
-            //enable adjacent tiles
+        }
+        else if(prevSelectedTile.id == this.id)
+        {
+            BoardController.DeSelectTile();
         }
         else
         {
