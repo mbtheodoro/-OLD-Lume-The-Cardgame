@@ -18,7 +18,7 @@ public class BoardController : MonoBehaviour
     #endregion
 
     #region ATTRIBUTES
-    [HideInInspector] public Tile selectedTile = null;
+    /*[HideInInspector] */public Tile selectedTile = null;
     #endregion
 
     #region PROPERTIES

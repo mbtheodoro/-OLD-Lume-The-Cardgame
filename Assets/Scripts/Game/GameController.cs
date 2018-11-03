@@ -153,15 +153,15 @@ public class GameController : MonoBehaviour
         SetPlayersUnits();
 
         ////set players attack decks
-        //SetPlayersAttacks();
+        SetPlayersAttacks();
 
         ////set players location decks
-        //SetPlayersLocations();
+        SetPlayersLocations();
 
 
         ////draw cards for their hands
-        //player1Controller.DrawAttackCard(Defines.defaultHandSize);
-        //player2Controller.DrawAttackCard(Defines.defaultHandSize);
+        player1Controller.DrawAttackCard(Defines.defaultHandSize);
+        player2Controller.DrawAttackCard(Defines.defaultHandSize);
 
         ////set player turn
         _turnPlayer = PlayerInfo.PLAYER1;
