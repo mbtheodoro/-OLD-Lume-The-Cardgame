@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class BoardController : MonoBehaviour
 {
@@ -36,7 +37,7 @@ public class BoardController : MonoBehaviour
     public static void DeSelectTile()
     {
         instance.selectedTile = null;
-        instance.ResetAllTiles();
+        ResetAllTiles();
     }
 
     public static void SetPlayersUnits(List<UnitCard> player1Cards, List<UnitCard> player2Cards)
@@ -58,11 +59,12 @@ public class BoardController : MonoBehaviour
 
     private bool TestTile(int tile, TilePlayer tilePlayer)
     {
-        PlayerInfo player;
-        if (tilePlayer == TilePlayer.PLAYER1)
-            player = PlayerInfo.PLAYER1;
-        else
-            player = PlayerInfo.PLAYER2;
+        PlayerInfo player = (PlayerInfo)Enum.Parse(typeof(PlayerInfo), tilePlayer.ToString());
+        //PlayerInfo player;
+        //if (tilePlayer == TilePlayer.PLAYER1)
+        //    player = PlayerInfo.PLAYER1;
+        //else
+        //    player = PlayerInfo.PLAYER2;
 
         if (board[tile].card == null)
             return true;
@@ -83,17 +85,19 @@ public class BoardController : MonoBehaviour
 
     private void EnablePlayerTiles()
     {
+        TilePlayer turnPlayer = (TilePlayer)Enum.Parse(typeof(TilePlayer), GameController.turnPlayer.ToString());
+
         foreach (Tile t in board)
         {
-            if(t.Player != TilePlayer.NEUTRAL)
+            if(t.Player == turnPlayer && !t.moved)
                 t.button.interactable = true;
         }
     }
 
-    private void ResetAllTiles()
+    public static void ResetAllTiles()
     {
-        DisableAllTiles();
-        EnablePlayerTiles();
+        instance.DisableAllTiles();
+        instance.EnablePlayerTiles();
     }
 
     private void SetPlayersUnitsOnTiles(List<UnitCard> player1Cards, List<UnitCard> player2Cards)
@@ -111,6 +115,21 @@ public class BoardController : MonoBehaviour
     #endregion
 
     #region CALLBACKS
+    public static void OnTurnStart()
+    {
+        foreach (Tile t in instance.board)
+        {
+            if (t.moved)
+                t.moved = false;
+        }
+
+        instance.EnablePlayerTiles();
+    }
+
+    public static void OnTurnEnd()
+    {
+        instance.DisableAllTiles();
+    }
     public static void OnCombatEnd(UnitCard victoriousUnit)
     {
         instance.selectedTile.AddCard(victoriousUnit);

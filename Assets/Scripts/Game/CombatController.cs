@@ -166,8 +166,6 @@ public class CombatController : MonoBehaviour
 
         instance.OnCombatStart();
     }
-
-
     #endregion
 
     #region EVENTS
@@ -203,7 +201,7 @@ public class CombatController : MonoBehaviour
         player2Card.OnCombatEnd();
         //TO DO: player controllers
         BoardController.OnCombatEnd(attackingUnit);
-        GameController.instance.OnCombatEnd();
+        GameController.OnCombatEnd();
     }
     #endregion
 
