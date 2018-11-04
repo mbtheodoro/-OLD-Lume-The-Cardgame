@@ -9,6 +9,7 @@ public class LoadAttackCard : LoadCard
     [HideInInspector] public AttackCardData cardData;
 
     public Image costBorder;
+    public Image attackTypeBorder;
     public Image attackTypeIcon;
 
     public Sprite physicalIcon;
@@ -71,6 +72,8 @@ public class LoadAttackCard : LoadCard
         costText.font = style.nameTextFont;
         costBorder.color = style.borderColor;
 
+        attackTypeBorder.color = style.borderColor;
+        
         baseDamageText.font = style.numbersTextFont;
         baseDamageText.color = style.descriptionTextColor;
 

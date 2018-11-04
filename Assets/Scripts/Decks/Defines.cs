@@ -26,4 +26,7 @@ public static class Defines
 
     public static int manaRegenWater = 5;
     public static int staminaRegenWater = 5;
+
+    public static Nation player1nation = Nation.EARTH;
+    public static Nation player2nation = Nation.FIRE;
 }
