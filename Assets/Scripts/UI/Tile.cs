@@ -15,13 +15,14 @@ public class Tile : MonoBehaviour
     #region REFERENCES
     public Button button;
     public RectTransform rect;
+
+    public UnitCard card;
     [SerializeField] private TilePlayer player;
     #endregion
 
     #region ATTRIBUTES
     private int _id;
-
-    public UnitCard card;
+    private bool _moved;
     #endregion
 
     #region PROPERTIES
@@ -33,6 +34,12 @@ public class Tile : MonoBehaviour
     public int id
     {
         get { return _id; }
+    }
+
+    public bool moved
+    {
+        get { return  _moved; }
+        set { _moved = value; }
     }
     #endregion
 
@@ -74,6 +81,7 @@ public class Tile : MonoBehaviour
             {
                 AddCard(prevSelectedTile.card);
                 prevSelectedTile.RemoveCard();
+                moved = true;
                 BoardController.DeSelectTile();
             }
             else //combat initiation
