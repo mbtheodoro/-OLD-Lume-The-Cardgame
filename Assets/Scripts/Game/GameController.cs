@@ -63,6 +63,11 @@ public class GameController : MonoBehaviour
             return instance.player2Controller;
     }
 
+    public void EndTurn()
+    {
+        SwitchTurn();
+    }
+
     private void SetPlayersAttacks()
     {
         //player 1
@@ -117,12 +122,25 @@ public class GameController : MonoBehaviour
 
         BoardController.SetPlayersUnits(player1Controller.units, player2Controller.units);
     }
+    
+    private void SwitchTurn()
+    {
+        BoardController.OnTurnEnd();
+        if (_turnPlayer == PlayerInfo.PLAYER1)
+            _turnPlayer = PlayerInfo.PLAYER2;
+        else
+            _turnPlayer = PlayerInfo.PLAYER1;
+        BoardController.OnTurnStart();
+    }
     #endregion
 
     #region EVENTS
-    public void OnCombatEnd()
+    #endregion
+
+    #region CALLBACKS
+    public static void OnCombatEnd()
     {
-        
+        instance.EndTurn();
     }
     #endregion
 
@@ -165,6 +183,8 @@ public class GameController : MonoBehaviour
 
         ////set player turn
         _turnPlayer = PlayerInfo.PLAYER1;
+
+        BoardController.ResetAllTiles();
 
         ////start combat
         //test();
