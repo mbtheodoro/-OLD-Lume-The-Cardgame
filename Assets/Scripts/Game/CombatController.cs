@@ -71,7 +71,7 @@ public class CombatController : MonoBehaviour
         else
             instance.turn = PlayerInfo.PLAYER1;
         
-        LogWindow.Log("Now it's " + turn + "'s turn!");
+        LogWindow.Log("Now " + turn + " gets to attack!");
         GameController.GetPlayerController(instance.turn).EnableCardsOnHand();
     }
     
