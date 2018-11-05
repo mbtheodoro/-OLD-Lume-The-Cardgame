@@ -107,6 +107,7 @@ public class GameController : MonoBehaviour
         _turnPlayer = PlayerInfo.PLAYER1;
 
         BoardController.ResetAllTiles();
+        BoardController.OnTurnStart();
     }
     #endregion
 }

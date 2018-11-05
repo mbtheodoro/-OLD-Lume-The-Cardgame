@@ -102,7 +102,7 @@ public class Tile : MonoBehaviour
                 BoardController.SelectTile(this); //to remember where the winner will stay
                 prevSelectedTile.RemoveCard();
 
-                CombatController.StartCombat(GameController.turnPlayerController.DrawLocationCard(), player1Card, player2Card);
+                CombatController.StartCombat(BoardController.instance.turnLocation, player1Card, player2Card);
             }
         }
     }

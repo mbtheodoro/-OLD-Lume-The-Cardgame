@@ -133,6 +133,7 @@ public class PlayerController : MonoBehaviour
         for (int i = 0; i < locationDiscardPile.size; i++)
             locationDeck.AddCardTop(locationDiscardPile.GetTopCard());
         locationDeck.ShuffleDeck();
+
     }
     #endregion
 

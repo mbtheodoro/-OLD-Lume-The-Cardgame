@@ -26,6 +26,13 @@ public class LocationCard : Card
     }
     #endregion
 
+    #region METHODS
+    public void Discard()
+    {
+        player.DiscardLocationCard(this);
+    }
+    #endregion
+
     #region EVENTS
     public virtual void OnCombatStart(UnitCard player1Unit, UnitCard player2Unit)
     {
@@ -39,7 +46,7 @@ public class LocationCard : Card
 
     public virtual void OnCombatEnd(UnitCard winner, UnitCard loser)
     {
-        player.DiscardLocationCard(this);
+
     }
 
     public virtual void OnAttackTurnStart(UnitCard player1Unit, UnitCard player2Unit)
