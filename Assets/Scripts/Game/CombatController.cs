@@ -66,15 +66,20 @@ public class CombatController : MonoBehaviour
     #region METHODS
     private void SwitchTurn()
     {
+        OnAttackTurnEnd();
+
         if (instance.turn == PlayerInfo.PLAYER1)
             instance.turn = PlayerInfo.PLAYER2;
         else
             instance.turn = PlayerInfo.PLAYER1;
-        
+
         LogWindow.Log("Now " + turn + " gets to attack!");
+
+        OnAttackTurnStart();
+
         GameController.GetPlayerController(instance.turn).EnableCardsOnHand();
     }
-    
+
     private void CalculateInitiative()
     {
         switch (location.initiative)
@@ -133,15 +138,30 @@ public class CombatController : MonoBehaviour
                 break;
 
             case Initiative.WATER:
-                //TO DO:
+                if (player1Card.nation == Nation.WATER && player2Card.nation == Nation.WATER)
+                    turn = GameController.turnPlayer;
+                else if (player1Card.nation == Nation.WATER)
+                    turn = PlayerInfo.PLAYER1;
+                else
+                    turn = PlayerInfo.PLAYER2;
                 break;
 
             case Initiative.EARTH:
-                //TO DO:
+                if (player1Card.nation == Nation.EARTH && player2Card.nation == Nation.EARTH)
+                    turn = GameController.turnPlayer;
+                else if (player1Card.nation == Nation.EARTH)
+                    turn = PlayerInfo.PLAYER1;
+                else
+                    turn = PlayerInfo.PLAYER2;
                 break;
 
             case Initiative.FIRE:
-                //TO DO:
+                if (player1Card.nation == Nation.FIRE && player2Card.nation == Nation.FIRE)
+                    turn = GameController.turnPlayer;
+                else if (player1Card.nation == Nation.FIRE)
+                    turn = PlayerInfo.PLAYER1;
+                else
+                    turn = PlayerInfo.PLAYER2;
                 break;
 
             default:
@@ -165,13 +185,14 @@ public class CombatController : MonoBehaviour
         instance.CalculateInitiative();
 
         instance.OnCombatStart();
+        instance.OnAttackTurnStart();
     }
     #endregion
 
     #region EVENTS
     public static void OnAttackCardPlayed()
     {
-        if(defendingUnit.currentHealth <= 0)
+        if (defendingUnit.currentHealth <= 0)
             instance.OnCombatEnd();
         else
             instance.SwitchTurn();
@@ -202,6 +223,18 @@ public class CombatController : MonoBehaviour
         //TO DO: player controllers
         BoardController.OnCombatEnd(attackingUnit);
         GameController.OnCombatEnd();
+    }
+
+    private void OnAttackTurnStart()
+    {
+        location.OnAttackTurnStart(player1Card, player2Card);
+        //maybe other cards
+    }
+
+    private void OnAttackTurnEnd()
+    {
+        location.OnAttackTurnEnd(player1Card, player2Card);
+        //maybe other cards
     }
     #endregion
 

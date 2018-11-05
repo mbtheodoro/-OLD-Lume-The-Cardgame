@@ -9,16 +9,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a32234ff52d86440888547dd89f7902, type: 3}
-  m_Name: Water Capital
+  m_Name: TempleOfSailaNole
   m_EditorClassIdentifier: 
-  className: WaterCapital
-  name: Water Capital
-  description: '<b>Advantage: Spirit</b>
+  className: TempleOfSailaNole
+  name: "Temple of Saila N\xF3l\xEB"
+  description: '<b>Advantage: Wisdom</b>
 
-    Water Units gain 10 health.'
-  flavorText: You'd have to be the bravest (or the stupidest) soul alive to come here
-    unwelcomed.
+    Units with 5 or more wisdom gain 5 health.'
+  flavorText: It is said to contain all knowledge in history... if someone could translate
+    it.
   type: 3
-  nation: 3
-  art: {fileID: 21300000, guid: 39fd6b3dd5adc4d4797b0e75d82a52e3, type: 3}
-  initiative: 5
+  nation: 0
+  art: {fileID: 0}
+  initiative: 4

@@ -88,6 +88,12 @@ public class AttackCard : Card
         set
         {
             _currentCost = value;
+
+            if (_currentCost < originalCost)
+                costText.color = Color.green;
+            else if (_currentCost > originalCost)
+                costText.color = Color.red;
+
             costText.text = currentCost.ToString();
         }
     }
