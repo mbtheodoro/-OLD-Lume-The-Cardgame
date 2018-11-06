@@ -6,9 +6,9 @@ public class RoyalCastle : LocationCard
 {
     public override void OnCombatStart(UnitCard player1Unit, UnitCard player2Unit)
     {
-        if (player1Unit.name.Equals("Princess Izumi"))
+        if (string.Equals(player1Unit.name, "Princess Izumi", System.StringComparison.OrdinalIgnoreCase))
             player1Unit.ModifyHealth(-10, true);
-        if (player2Unit.name.Equals("Princess Izumi"))
+        if (string.Equals(player2Unit.name, "Princess Izumi", System.StringComparison.OrdinalIgnoreCase))
             player2Unit.ModifyHealth(-10, true);
     }
 }

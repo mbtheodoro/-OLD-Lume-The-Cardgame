@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Callem
   m_EditorClassIdentifier: 
   className: UnitCard
-  name: Callem
+  name: CALLEM
   description: Mastery Strength 5 - Tests of Strength deal 5 more damage.
   flavorText: 
   type: 0

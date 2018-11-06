@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Harmund
   m_EditorClassIdentifier: 
   className: UnitCard
-  name: Harmund
+  name: HARMUND
   description: Defiant - Harmund stats can't be lowered
   flavorText: 
   type: 0

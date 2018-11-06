@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Princess Izumi
   m_EditorClassIdentifier: 
   className: UnitCard
-  name: Princess Izumi
+  name: PRINCESS IZUMI
   description: 'Mastery Wisdom 10.
 
     Overdrive: double magical damage when in critical HP.'

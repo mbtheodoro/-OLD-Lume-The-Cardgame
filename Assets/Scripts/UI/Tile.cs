@@ -46,6 +46,12 @@ public class Tile : MonoBehaviour
     #region METHODS
     public void AddCard(UnitCard card)
     {
+        if(card == null)
+        {
+            RemoveCard();
+            return;
+        }
+
         this.card = card;
         card.SetParent(rect);
 

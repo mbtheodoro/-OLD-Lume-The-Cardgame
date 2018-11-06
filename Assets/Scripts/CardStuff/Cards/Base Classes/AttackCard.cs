@@ -22,6 +22,8 @@ public class AttackCard : Card
     #region ATTRIBUTES
     public bool _playable;
 
+    protected Color regularTextColor;
+
     protected int _originalCost;
     protected int _currentCost;
     protected int _baseDamage;
@@ -74,7 +76,10 @@ public class AttackCard : Card
         set
         {
             _originalCost = value;
-            currentCost = value;
+
+            _currentCost = _originalCost;
+            costText.text = _currentCost.ToString();
+            regularTextColor = costText.color;
         }
     }
 
@@ -87,12 +92,14 @@ public class AttackCard : Card
 
         set
         {
-            _currentCost = value;
+            _currentCost = Mathf.Max(0, value);
 
             if (_currentCost < originalCost)
                 costText.color = Color.green;
             else if (_currentCost > originalCost)
                 costText.color = Color.red;
+            else
+                costText.color = regularTextColor;
 
             costText.text = currentCost.ToString();
         }
@@ -537,10 +544,17 @@ public class AttackCard : Card
 
         //deal damage
         int damage = CalculateDamage();
-        enemy.ModifyHealth(damage);
 
-        if(damage > 0)
+        if (damage > 0)
+        {
             LogWindow.Log(user.name + " used " + name + " on " + enemy.name + " and dealt " + damage + " damage!");
+            enemy.ModifyHealth(damage);
+        }
+        else
+        {
+            LogWindow.Log(user.name + " used " + name + " on " + enemy.name + " and dealt no damage!");
+        }
+
 
         //modifying status come after damage
         ModifyUserStats();

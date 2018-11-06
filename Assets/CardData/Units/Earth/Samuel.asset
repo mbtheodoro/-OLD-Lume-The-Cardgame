@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Samuel
   m_EditorClassIdentifier: 
   className: UnitCard
-  name: Samuel
+  name: SAMUEL
   description: Endurance 5 - Magical attacks used against Samuel deal 5 less damage.
   flavorText: 
   type: 0

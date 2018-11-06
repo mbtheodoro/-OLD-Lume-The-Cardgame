@@ -192,8 +192,12 @@ public class CombatController : MonoBehaviour
     #region EVENTS
     public static void OnAttackCardPlayed()
     {
+        if(defendingUnit.currentHealth <= 0 && attackingUnit.currentHealth <= 0)
+            instance.OnCombatEnd(false, true); //draw
         if (defendingUnit.currentHealth <= 0)
-            instance.OnCombatEnd();
+            instance.OnCombatEnd(); //attacker wins
+        else if(attackingUnit.currentHealth <= 0)
+            instance.OnCombatEnd(true, false); //suicide (reckless)
         else
             instance.SwitchTurn();
     }
@@ -208,26 +212,45 @@ public class CombatController : MonoBehaviour
         player2Card.OnCombatStart(player1Card);
         GameController.GetPlayerController(PlayerInfo.PLAYER1).OnCombatStart();
         GameController.GetPlayerController(PlayerInfo.PLAYER2).OnCombatStart();
-        GameController.GetPlayerController(instance.turn).EnableCardsOnHand();
         //TO DO: other controllers?
     }
 
-    private void OnCombatEnd()
+    private void OnCombatEnd(bool suicide = false, bool draw = false)
     {
-        LogWindow.Log("Combat Ended! " + attackingUnit.name + " is victorious!");
+        UnitCard winner = attackingUnit;
+        UnitCard loser = defendingUnit;
+
+        if (draw) //they both died
+        {
+            winner = null;
+            loser = null;
+        }
+
+        if (suicide) //swap winner and loser
+        {
+            winner = defendingUnit;
+            loser = attackingUnit;
+        }
+
+        if(winner != null)
+            LogWindow.Log("Combat Ended! " + winner.name + " is victorious!");
+        else
+            LogWindow.Log("Combat Ended! No one came out victorious!");
+
         gameObject.SetActive(false);
 
-        location.OnCombatEnd(attackingUnit, defendingUnit);
+        location.OnCombatEnd(winner, loser);
         player1Card.OnCombatEnd();
         player2Card.OnCombatEnd();
-        //TO DO: player controllers
-        BoardController.OnCombatEnd(attackingUnit);
+        //TO DO: player controllers?
+        BoardController.OnCombatEnd(winner);
         GameController.OnCombatEnd();
     }
 
     private void OnAttackTurnStart()
     {
         location.OnAttackTurnStart(player1Card, player2Card);
+        GameController.GetPlayerController(instance.turn).EnableCardsOnHand();
         //maybe other cards
     }
 

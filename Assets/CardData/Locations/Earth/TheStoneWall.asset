@@ -9,13 +9,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a32234ff52d86440888547dd89f7902, type: 3}
-  m_Name: Miaoian Forest
+  m_Name: TheStoneWall
   m_EditorClassIdentifier: 
-  className: 
-  name: 
-  description: 
+  className: TheStoneWall
+  name: The Stone Wall
+  description: '<b>Advantage: Turn Player</b>
+
+    Both units gain Mastery Strength 10 until the end of the turn.'
   flavorText: 
   type: 3
-  nation: 0
+  nation: 1
   art: {fileID: 0}
   initiative: 0

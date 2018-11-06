@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Feng
   m_EditorClassIdentifier: 
   className: UnitCard
-  name: Feng
+  name: FENG
   description: Mastery Wisdom 5 - Tests of Wisdom deal 5 more damage.
   flavorText: 
   type: 0

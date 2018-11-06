@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Guri
   m_EditorClassIdentifier: 
   className: UnitCard
-  name: Guri
+  name: GURI
   description: 'Reckless 5: Guri deals 5 damage to itself everytime he attacks.'
   flavorText: 
   type: 0

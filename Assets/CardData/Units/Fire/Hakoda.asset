@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Hakoda
   m_EditorClassIdentifier: 
   className: UnitCard
-  name: Hakoda
+  name: HAKODA
   description: 'Aggression 5: Physical attacks used by Hakoda deal 5 more damage.'
   flavorText: 
   type: 0

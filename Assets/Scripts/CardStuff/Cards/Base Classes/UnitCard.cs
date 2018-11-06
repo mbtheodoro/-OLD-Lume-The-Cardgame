@@ -16,6 +16,7 @@ public class UnitCard : Card
     #endregion
 
     #region ATTRIBUTES
+    protected Color regularTextColor;
 
     private int _originalHealth;
     private int _originalStrength;
@@ -74,6 +75,7 @@ public class UnitCard : Card
         {
             _originalHealth = value;
             _currentHealth = value;
+            regularTextColor = healthText.color;
             healthText.text = _originalHealth.ToString();
         }
     }
@@ -134,12 +136,16 @@ public class UnitCard : Card
         {
             _currentHealth = Mathf.Max(0, value);
             healthText.text = _currentHealth.ToString();
+
+
             if (currentHealth > originalHealth)
                 healthText.color = Color.green;
             else if (currentHealth < originalHealth && currentHealth > Defines.criticalHp)
                 healthText.color = new Color(1.0f, 0.5f, 0.0f);
-            else if (currentHealth < Defines.criticalHp)
+            else if (currentHealth <= Defines.criticalHp)
                 healthText.color = Color.red;
+            else
+                healthText.color = regularTextColor;
         }
     }
 

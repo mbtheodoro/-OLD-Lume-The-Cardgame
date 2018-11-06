@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Arianne
   m_EditorClassIdentifier: 
   className: UnitCard
-  name: Arianne
+  name: ARIANNE
   description: Infiltrate 10 - Attacks deal 10 more damage when infiltrated
   flavorText: 
   type: 0

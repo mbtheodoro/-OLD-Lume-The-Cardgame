@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Jayme
   m_EditorClassIdentifier: 
   className: UnitCard
-  name: Jayme
+  name: JAYME
   description: Armor 5 - Physical attacks used against Jayne deal 5 less damage.
   flavorText: 
   type: 0

@@ -137,6 +137,7 @@ public class BoardController : MonoBehaviour
     public static void OnTurnEnd()
     {
         instance.turnLocation.Discard();
+        DeSelectTile();
         instance.DisableAllTiles();
     }
     public static void OnCombatEnd(UnitCard victoriousUnit)

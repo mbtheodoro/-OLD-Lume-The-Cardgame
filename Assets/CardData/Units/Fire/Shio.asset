@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Shio
   m_EditorClassIdentifier: 
   className: UnitCard
-  name: Shio
+  name: SHIO
   description: 'Analytic 5: Magical attacks used by Shio deal 5 more damage.'
   flavorText: Fierce and determined, he uses his sheer will to overcome his lack of
     physical prowence.
