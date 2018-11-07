@@ -77,6 +77,11 @@ public class PlayerHandController : MonoBehaviour
         turn = false;
         endTurnButton.gameObject.SetActive(false);
     }
+
+    public void OnCombatStart()
+    {
+        endTurnButton.gameObject.SetActive(false);
+    }
     #endregion
 
     // Use this for initialization

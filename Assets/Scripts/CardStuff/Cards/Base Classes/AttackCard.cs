@@ -476,6 +476,9 @@ public class AttackCard : Card
                 damage *= Defines.criticalHpMultiplier;
         }
 
+        if(user.infiltrate > 0 && user.Infiltrated())
+            damage += user.infiltrate;
+
         return damage;
     }
 

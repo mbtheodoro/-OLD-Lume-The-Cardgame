@@ -112,6 +112,10 @@ public class GameController : MonoBehaviour
         BoardController.ResetAllTiles();
         BoardController.OnTurnStart();
         GameController.turnPlayerController.OnTurnStart();
+
+        //set starting resources
+        player1Controller.RegenResources();
+        player2Controller.RegenResources();
     }
     #endregion
 }

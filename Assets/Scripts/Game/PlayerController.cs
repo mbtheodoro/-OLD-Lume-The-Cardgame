@@ -197,7 +197,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnCombatStart()
     {
-        RegenResources();
+        playerHandController.OnCombatStart();
     }
     #endregion
 

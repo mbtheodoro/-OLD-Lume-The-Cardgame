@@ -26,10 +26,12 @@ public class HealAttackCard : AttackCard
         int heal = baseDamage;
 
         heal += StatBasedDamageCalculation();
-        user.ModifyHealth(-heal);
+        int result = user.ModifyHealth(-heal);
 
-        if (heal > 0)
-            LogWindow.Log(user.name + " used " + name + " on itself and healed " + heal + " damage!");
+        if (result > 0)
+            LogWindow.Log(user.name + " used " + name + " and healed " + result + " damage!");
+        else
+            LogWindow.Log(user.name + " can't be healed right now!");
 
         //modifying status come after damage
         ModifyUserStats();

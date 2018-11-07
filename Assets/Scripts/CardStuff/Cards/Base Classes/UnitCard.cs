@@ -616,18 +616,33 @@ public class UnitCard : Card
     #endregion
 
     #region METHODS
-    public virtual void ModifyHealth(int value, bool gain=false)
+    public virtual int ModifyHealth(int value, bool gain=false)
     {
-        if (value < 0) //heal
+        int oldHealth = currentHealth;
+        int temp = currentHealth - value;
+
+        if (value < 0 && currentHealth < originalHealth) //heal && health below original
         {
-            int temp = currentHealth - value;
             if (gain)
                 currentHealth = temp;
             else
-                currentHealth = Mathf.Min(originalHealth, temp);
+                currentHealth = Mathf.Min(originalHealth, temp); //can't heal past original health without gain
         }
         else
-            currentHealth -= value;
+        {
+            if (value < 0 && currentHealth >= originalHealth) //heal but already gained health
+            {
+                if (gain)
+                    currentHealth = temp;
+            }
+            else 
+            {
+                if(value > 0) //normal damage
+                    currentHealth = temp;
+            }
+        }
+
+        return currentHealth - oldHealth;
     }
 
     protected void Weaken(UnitCard enemy)
@@ -687,6 +702,23 @@ public class UnitCard : Card
     protected void Support()
     {
         //int supportingUnits = BoardController.GetSupportingUnits(this);
+    }
+    
+    public bool Infiltrated()
+    {
+        int tile = BoardController.instance.selectedTile.id;
+        if (player.player == PlayerInfo.PLAYER1)
+        {
+            if (tile > 9)
+                return true;
+            return false;
+        }
+        else
+        {
+            if (tile < 6)
+                return true;
+            return false;
+        }
     }
     #endregion
 
