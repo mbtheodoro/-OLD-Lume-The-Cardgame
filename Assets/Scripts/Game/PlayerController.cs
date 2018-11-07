@@ -198,6 +198,11 @@ public class PlayerController : MonoBehaviour
         playerHandController.OnCombatStart();
     }
 
+    public void OnCombatEnd()
+    {
+        playerHandController.OnCombatEnd();
+    }
+
     public void OnAttackStart()
     {
         playerHandController.OnAttackStart();

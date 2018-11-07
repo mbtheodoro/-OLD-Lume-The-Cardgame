@@ -23,7 +23,7 @@ public class PlayerHandController : MonoBehaviour
     #endregion
 
     #region ATTRIBUTES
-    private bool turn, active;
+    private bool turn, active, inCombat;
     #endregion
 
     #region PROPERTIES
@@ -78,7 +78,7 @@ public class PlayerHandController : MonoBehaviour
 
         hand.gameObject.SetActive(false);
         playerText.gameObject.SetActive(true);
-        endTurnButton.gameObject.SetActive(turn);
+        endTurnButton.gameObject.SetActive(turn&&!inCombat);
     }
     #endregion
 
@@ -110,7 +110,13 @@ public class PlayerHandController : MonoBehaviour
 
     public void OnCombatStart()
     {
+        inCombat = true;
         endTurnButton.gameObject.SetActive(false);
+    }
+
+    public void OnCombatEnd()
+    {
+        inCombat = false;
     }
     #endregion
 

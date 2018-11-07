@@ -240,10 +240,15 @@ public class CombatController : MonoBehaviour
         gameObject.SetActive(false);
 
         location.OnCombatEnd(winner, loser);
+
         player1Card.OnCombatEnd();
         player2Card.OnCombatEnd();
-        //TO DO: player controllers?
+
+        GameController.GetPlayerController(PlayerInfo.PLAYER1).OnCombatEnd();
+        GameController.GetPlayerController(PlayerInfo.PLAYER2).OnCombatEnd();
+
         BoardController.OnCombatEnd(winner);
+
         GameController.OnCombatEnd();
     }
 

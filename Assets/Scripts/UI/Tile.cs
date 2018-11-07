@@ -14,6 +14,7 @@ public class Tile : MonoBehaviour
 {
     #region REFERENCES
     public Button button;
+    public RectTransform thisRect;
     public RectTransform rect;
 
     public UnitCard card;
@@ -118,6 +119,7 @@ public class Tile : MonoBehaviour
     private void Start()
     {
         _id = int.Parse(gameObject.name);
+        rect.sizeDelta = new Vector2(rect.sizeDelta.x, thisRect.sizeDelta.y-10);
     }
     #endregion
 }
