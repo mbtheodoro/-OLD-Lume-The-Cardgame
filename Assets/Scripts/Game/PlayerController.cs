@@ -181,8 +181,6 @@ public class PlayerController : MonoBehaviour
     {
         DiscardAttackCard(card);
         DrawAttackCard();
-        DisableCardsOnHand();
-        RegenResources();
     }
 
     public void OnTurnStart()
@@ -198,6 +196,19 @@ public class PlayerController : MonoBehaviour
     public void OnCombatStart()
     {
         playerHandController.OnCombatStart();
+    }
+
+    public void OnAttackStart()
+    {
+        playerHandController.OnAttackStart();
+        EnableCardsOnHand();
+    }
+
+    public void OnAttackEnd()
+    {
+        playerHandController.OnAttackEnd();
+        DisableCardsOnHand();
+        RegenResources();
     }
     #endregion
 

@@ -436,6 +436,9 @@ MonoBehaviour:
   staminaText: {fileID: 114074733683442964}
   manaText: {fileID: 114588529320531610}
   playerText: {fileID: 114024560696035508}
+  activeSprite: {fileID: 21300000, guid: 0bc02c35e5b9e2e4f9ac608dcc5e0c56, type: 3}
+  inactiveSprite: {fileID: 21300000, guid: 079b16897d604b44c988387d8593b71a, type: 3}
+  handBackground: {fileID: 114158963704171338}
   closedSize: 66
   openedSize: 200
 --- !u!114 &114864549981021578

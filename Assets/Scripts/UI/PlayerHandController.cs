@@ -15,12 +15,15 @@ public class PlayerHandController : MonoBehaviour
     public Text manaText;
     public Text playerText;
 
+    public Sprite activeSprite, inactiveSprite;
+    public Image handBackground;
+
     public float closedSize;
     public float openedSize;
     #endregion
 
     #region ATTRIBUTES
-    private bool turn;
+    private bool turn, active;
     #endregion
 
     #region PROPERTIES
@@ -32,6 +35,20 @@ public class PlayerHandController : MonoBehaviour
     public int mana
     {
         set { manaText.text = value.ToString(); }
+    }
+
+    public bool Active
+    {
+        get { return active; }
+
+        set
+        {
+            active = value;
+            if (active)
+                handBackground.sprite = activeSprite;
+            else
+                handBackground.sprite = inactiveSprite;
+        }
     }
     #endregion
 
@@ -69,13 +86,26 @@ public class PlayerHandController : MonoBehaviour
     public void OnTurnStart()
     {
         turn = true;
+        Active = true;
+
         endTurnButton.gameObject.SetActive(turn);
     }
 
     public void OnTurnEnd()
     {
         turn = false;
+        Active = false;
         endTurnButton.gameObject.SetActive(false);
+    }
+
+    public void OnAttackStart()
+    {
+        Active = true;
+    }
+
+    public void OnAttackEnd()
+    {
+        Active = false;
     }
 
     public void OnCombatStart()

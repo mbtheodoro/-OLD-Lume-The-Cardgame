@@ -250,13 +250,14 @@ public class CombatController : MonoBehaviour
     private void OnAttackTurnStart()
     {
         location.OnAttackTurnStart(player1Card, player2Card);
-        GameController.GetPlayerController(instance.turn).EnableCardsOnHand();
+        GameController.GetPlayerController(instance.turn).OnAttackStart();
         //maybe other cards
     }
 
     private void OnAttackTurnEnd()
     {
         location.OnAttackTurnEnd(player1Card, player2Card);
+        GameController.GetPlayerController(instance.turn).OnAttackEnd();
         //maybe other cards
     }
     #endregion
