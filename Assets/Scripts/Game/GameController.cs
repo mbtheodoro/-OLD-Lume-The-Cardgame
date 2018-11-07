@@ -64,6 +64,8 @@ public class GameController : MonoBehaviour
     private void SwitchTurn()
     {
         BoardController.OnTurnEnd();
+        GameController.turnPlayerController.OnTurnEnd();
+
         if (_turnPlayer == PlayerInfo.PLAYER1)
             _turnPlayer = PlayerInfo.PLAYER2;
         else
@@ -71,6 +73,7 @@ public class GameController : MonoBehaviour
 
         LogWindow.Log(_turnPlayer + "'s starts now!");
         BoardController.OnTurnStart();
+        GameController.turnPlayerController.OnTurnStart();
     }
     #endregion
 
@@ -108,6 +111,7 @@ public class GameController : MonoBehaviour
 
         BoardController.ResetAllTiles();
         BoardController.OnTurnStart();
+        GameController.turnPlayerController.OnTurnStart();
     }
     #endregion
 }

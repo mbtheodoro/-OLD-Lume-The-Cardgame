@@ -6,14 +6,7 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     #region REFERENCES
-    public RectTransform thisRect;
-    public RectTransform hand;
-
-    public Text staminaText;
-    public Text manaText;
-    
-    public float closedSize;
-    public float openedSize;
+    public PlayerHandController playerHandController;
     #endregion
 
     #region ATTRIBUTES
@@ -36,27 +29,21 @@ public class PlayerController : MonoBehaviour
     #region PROPERTIES
     public int Stamina
     {
-        get
-        {
-            return stamina;
-        }
+        get { return stamina; }
         set
         {
             stamina = value;
-            staminaText.text = stamina.ToString();
+            playerHandController.stamina = stamina;
         }
     }
 
     public int Mana
     {
-        get
-        {
-            return mana;
-        }
+        get { return mana; }
         set
         {
             mana = value;
-            manaText.text = mana.ToString();
+            playerHandController.mana = mana;
         }
     }
     #endregion
@@ -133,7 +120,6 @@ public class PlayerController : MonoBehaviour
         for (int i = 0; i < locationDiscardPile.size; i++)
             locationDeck.AddCardTop(locationDiscardPile.GetTopCard());
         locationDeck.ShuffleDeck();
-
     }
     #endregion
 
@@ -148,8 +134,7 @@ public class PlayerController : MonoBehaviour
 
         attacksOnHand.Add(card);
 
-        card.SetParent(hand);
-        hand.ForceUpdateRectTransforms();
+        playerHandController.AddCard(card);
     }
 
     public void DrawAttackCard(int n)
@@ -189,23 +174,6 @@ public class PlayerController : MonoBehaviour
         Destroy(card.gameObject);
     }
     #endregion
-    
-    #region VISUALS
-    public void OpenHand()
-    {
-        thisRect.sizeDelta = new Vector2(thisRect.sizeDelta.x, openedSize);
-
-        hand.gameObject.SetActive(true);
-        LayoutRebuilder.ForceRebuildLayoutImmediate(hand);
-    }
-
-    public void CloseHand()
-    {
-        thisRect.sizeDelta = new Vector2(thisRect.sizeDelta.x, closedSize);
-
-        hand.gameObject.SetActive(false);
-    }
-    #endregion
     #endregion
 
     #region CALLBACKS
@@ -215,6 +183,16 @@ public class PlayerController : MonoBehaviour
         DrawAttackCard();
         DisableCardsOnHand();
         RegenResources();
+    }
+
+    public void OnTurnStart()
+    {
+        playerHandController.OnTurnStart();
+    }
+
+    public void OnTurnEnd()
+    {
+        playerHandController.OnTurnEnd();
     }
 
     public void OnCombatStart()
@@ -230,8 +208,6 @@ public class PlayerController : MonoBehaviour
         locationDiscardPile = new DiscardPile();
         attackDeck = new Deck(Defines.attackDeckSize);
         locationDeck = new Deck(Defines.locationDeckSize);
-
-        hand.sizeDelta = new Vector2(0f, openedSize);
     }
     #endregion
 }
