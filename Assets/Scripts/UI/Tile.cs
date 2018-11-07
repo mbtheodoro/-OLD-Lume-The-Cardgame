@@ -113,13 +113,25 @@ public class Tile : MonoBehaviour
             }
         }
     }
+
+    public void UiOnMouseEnter()
+    {
+        if (card != null)
+            CardPreviewWindow.Preview(card);
+    }
+
+    public void UiOnMouseExit()
+    {
+        if (card != null)
+            CardPreviewWindow.ResetWindow();
+    }
     #endregion
 
     #region UNITY
     private void Start()
     {
         _id = int.Parse(gameObject.name);
-        rect.sizeDelta = new Vector2(rect.sizeDelta.x, thisRect.sizeDelta.y-10);
+        rect.sizeDelta = new Vector2(rect.sizeDelta.x, thisRect.sizeDelta.y-14);
     }
     #endregion
 }
