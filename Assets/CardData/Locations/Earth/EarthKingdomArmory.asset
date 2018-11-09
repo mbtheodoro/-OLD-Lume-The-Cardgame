@@ -19,5 +19,5 @@ MonoBehaviour:
   flavorText: 
   type: 3
   nation: 1
-  art: {fileID: 0}
+  art: {fileID: 21300000, guid: 15922635a1cd0104c9bb9996d2c8a5b4, type: 3}
   initiative: 8

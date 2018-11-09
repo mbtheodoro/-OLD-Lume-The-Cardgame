@@ -21,11 +21,14 @@ public static class Defines
     public static int manaRegenEarth = 8;
     public static int staminaRegenEarth = 8;
 
-    public static int manaRegenFire = 5;
+    public static int manaRegenFire = 8;
     public static int staminaRegenFire = 5;
 
     public static int manaRegenWater = 5;
     public static int staminaRegenWater = 5;
+
+    public static int maxStamina = 60;
+    public static int maxMana = 60;
 
     public static Nation player1nation = Nation.EARTH;
     public static Nation player2nation = Nation.FIRE;

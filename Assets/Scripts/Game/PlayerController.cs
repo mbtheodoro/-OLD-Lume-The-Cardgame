@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
         get { return stamina; }
         set
         {
-            stamina = value;
+            stamina = Mathf.Min(value, Defines.maxStamina);
             playerHandController.stamina = stamina;
         }
     }
@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
         get { return mana; }
         set
         {
-            mana = value;
+            mana = Mathf.Min(value, Defines.maxMana);
             playerHandController.mana = mana;
         }
     }
@@ -195,6 +195,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnCombatStart()
     {
+        DisableCardsOnHand();
         playerHandController.OnCombatStart();
     }
 

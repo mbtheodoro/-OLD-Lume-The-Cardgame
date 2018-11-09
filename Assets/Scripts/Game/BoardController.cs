@@ -105,7 +105,7 @@ public class BoardController : MonoBehaviour
             board[i].AddCard(player1Cards[i]);
         }
 
-        for (int i = 15; i > (15-player1Cards.Count); i--)
+        for (int i = 15; i > (15-player2Cards.Count); i--)
         {
             board[i].AddCard(player2Cards[15-i]);
         }

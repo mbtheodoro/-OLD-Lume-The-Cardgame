@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Name: Fire
   m_EditorClassIdentifier: 
   units:
-  - {fileID: 11400000, guid: e6921ee1d75c8cb4d9985d9116186c2e, type: 2}
-  - {fileID: 11400000, guid: ca74c94702b6d0a4089518962d777c68, type: 2}
-  - {fileID: 11400000, guid: 6d42f3b718cb8984a98831741d53edf7, type: 2}
-  - {fileID: 11400000, guid: 155669f42a0c54b4f922073b2c84754e, type: 2}
   - {fileID: 11400000, guid: c03e13bee9fb1a64a9919220ee3f8ba6, type: 2}
+  - {fileID: 11400000, guid: ca74c94702b6d0a4089518962d777c68, type: 2}
+  - {fileID: 11400000, guid: 155669f42a0c54b4f922073b2c84754e, type: 2}
+  - {fileID: 11400000, guid: 6d42f3b718cb8984a98831741d53edf7, type: 2}
+  - {fileID: 11400000, guid: e6921ee1d75c8cb4d9985d9116186c2e, type: 2}
   - {fileID: 11400000, guid: 3ea38fe3f1edeae4baf5744e202443a3, type: 2}
   items: []
   attacks:

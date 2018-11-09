@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class CreditsWindow : MonoBehaviour
+public class EndGameWindow : MonoBehaviour
 {
     public RectTransform thisRect;
+    //public Button closeButton;
+    public Text text;
 
     public float moveDuration;
     public float activatedPosY;
@@ -34,6 +37,32 @@ public class CreditsWindow : MonoBehaviour
                 //transform.position = new Vector3(transform.position.x, dh * (t * t * t * t * t + 1) + initialPosY, transform.position.z);
             }
         }
+    }
+
+    public void OnGameEnd(PlayerInfo winner, Nation nation)
+    {
+        string newtext = string.Empty;
+
+        if (winner == PlayerInfo.PLAYER1)
+            newtext += "PLAYER ONE LEAD ";
+        else //winner == PlayerInfo.PLAYER2
+            newtext += "PLAYER TWO LEAD ";
+
+        if (nation == Nation.EARTH)
+            newtext += "THE EARTH KINGDOM ";
+        else if(nation == Nation.FIRE)
+            newtext += "THE FIRE EMPIRE ";
+
+        newtext += text.text;
+
+        text.text = newtext;
+
+        Activate();
+    }
+
+    public void ToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void Activate()

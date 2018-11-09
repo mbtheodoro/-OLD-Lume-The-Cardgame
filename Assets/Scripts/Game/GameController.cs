@@ -44,6 +44,7 @@ public class GameController : MonoBehaviour
     public PlayerController player1Controller;
     public PlayerController player2Controller;
     public ArmyController armyController;
+    public EndGameWindow endGameWindow;
     #endregion
 
     #region METHODS
@@ -59,6 +60,17 @@ public class GameController : MonoBehaviour
     {
         LogWindow.Log(_turnPlayer + "'s turn has ended!");
         SwitchTurn();
+    }
+
+    private void EndGame()
+    {
+        if (player1Controller.units.Count > 0)
+        {
+            Debug.Log(player1Controller.units.Count);
+            endGameWindow.OnGameEnd(PlayerInfo.PLAYER1, player1Controller.nation);
+        }
+        else
+            endGameWindow.OnGameEnd(PlayerInfo.PLAYER2, player2Controller.nation);
     }
 
     private void SwitchTurn()
@@ -83,7 +95,16 @@ public class GameController : MonoBehaviour
     #region CALLBACKS
     public static void OnCombatEnd()
     {
-        instance.EndTurn();
+        bool count = false;
+        if (instance.player1Controller.units.Count == 0)
+            count = true;
+        if (instance.player2Controller.units.Count == 0)
+            count = true;
+
+        if (count)
+            instance.EndGame();
+        else
+            instance.EndTurn();
     }
     #endregion
 

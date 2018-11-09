@@ -19,5 +19,5 @@ MonoBehaviour:
   flavorText: The biggest school of magic in the Fire Empire.
   type: 3
   nation: 2
-  art: {fileID: 0}
+  art: {fileID: 21300000, guid: 7e7b11e2ec249a24f986959ad3b8a3fd, type: 3}
   initiative: 4

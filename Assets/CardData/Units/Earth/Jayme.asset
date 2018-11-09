@@ -17,7 +17,7 @@ MonoBehaviour:
   flavorText: 
   type: 0
   nation: 1
-  art: {fileID: 21300000, guid: 7326b59c6ad508b47857f20d6a36bc60, type: 3}
+  art: {fileID: 21300000, guid: 575083914c71b7641871ef55961f4fdb, type: 3}
   health: 40
   strength: 6
   agility: 4

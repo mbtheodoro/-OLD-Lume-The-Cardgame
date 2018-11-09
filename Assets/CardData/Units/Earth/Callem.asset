@@ -17,15 +17,15 @@ MonoBehaviour:
   flavorText: 
   type: 0
   nation: 1
-  art: {fileID: 0}
-  health: 45
-  strength: 4
+  art: {fileID: 21300000, guid: 575083914c71b7641871ef55961f4fdb, type: 3}
+  health: 50
+  strength: 5
   agility: 5
   wisdom: 6
   spirit: 6
   aggression: 0
   analytic: 0
-  masteryStrenght: 0
+  masteryStrenght: 5
   masteryAgility: 0
   masteryWisdom: 0
   masterySpirit: 0

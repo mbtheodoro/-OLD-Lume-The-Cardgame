@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Name: Earth
   m_EditorClassIdentifier: 
   units:
-  - {fileID: 11400000, guid: 0575bf0160e9c594a9a79aefc5b9a020, type: 2}
   - {fileID: 11400000, guid: 6fd658b4d32ffba47abb6ed08174c863, type: 2}
-  - {fileID: 11400000, guid: 042d90d5b1e53ab458fc5b88ee0a44a7, type: 2}
   - {fileID: 11400000, guid: c68e6b46b759e194f8618a39461041d6, type: 2}
+  - {fileID: 11400000, guid: 0575bf0160e9c594a9a79aefc5b9a020, type: 2}
   - {fileID: 11400000, guid: 43da041c6c69f8d4fb8340dc040c7c62, type: 2}
+  - {fileID: 11400000, guid: 042d90d5b1e53ab458fc5b88ee0a44a7, type: 2}
   - {fileID: 11400000, guid: f28ca3cf74b96464f83759aabb5add52, type: 2}
   items: []
   attacks:
