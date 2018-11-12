@@ -723,6 +723,16 @@ public class UnitCard : Card
     #endregion
 
     #region EVENTS
+    public virtual void OnTurnStart()
+    {
+
+    }
+
+    public virtual void OnUnitMoved(UnitCard unit, Tile tile)
+    {
+
+    }
+
     public virtual void OnCombatStart(UnitCard enemy)
     {
         Weaken(enemy);
@@ -732,24 +742,40 @@ public class UnitCard : Card
         Support();
     }
 
-    public virtual void OnAttack(AttackCard attack, UnitCard enemy)
+    public virtual void OnAttackTurnStart()
+    {
+
+    }
+
+    public virtual void OnAttackCardPlayed(AttackCard attack, UnitCard enemy)
     {
         Reckless();
     }
 
-    public virtual void OnAttackTarget(AttackCard attack, UnitCard enemy)
+    public virtual void OnAttackCardTarget(AttackCard attack, UnitCard enemy)
+    {
+
+    }
+
+    public virtual void OnAttackTurnEnd()
     {
 
     }
 
     public virtual void OnCombatEnd()
     {
-        if(currentHealth <= 0)
+        if (currentHealth <= 0)
         {
             player.DiscardUnitCard(this);
         }
         else
             Regenerate();
     }
+
+    public virtual void OnTurnEnd()
+    {
+
+    }
+    
     #endregion
 }

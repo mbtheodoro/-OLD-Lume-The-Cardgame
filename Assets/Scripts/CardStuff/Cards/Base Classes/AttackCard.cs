@@ -558,15 +558,14 @@ public class AttackCard : Card
             LogWindow.Log(user.name + " used " + name + " on " + enemy.name + " and dealt no damage!");
         }
 
-
         //modifying status come after damage
         ModifyUserStats();
         ModifyEnemyStats();
 
         //callbacks
         CombatController.instance.location.OnAttackCardPlayed(this, user, enemy); //first resolve location effects
-        user.OnAttack(this, enemy); //then resolve user
-        enemy.OnAttackTarget(this, user); //then resolve enemy
+        user.OnAttackCardPlayed(this, enemy); //then resolve user
+        enemy.OnAttackCardTarget(this, user); //then resolve enemy
         player.OnAttackCardPlayed(this); //then discard card and draw a new one
         CombatController.OnAttackCardPlayed(); //and finally, switch turns
     }

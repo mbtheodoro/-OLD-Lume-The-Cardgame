@@ -52,6 +52,7 @@ public class PlayerController : MonoBehaviour
     public void EnableCardsOnHand()
     {
         bool atLeastOneCardCanBePlayed = false;
+
         for (int i = 0; i < attacksOnHand.Count; i++)
         {
             if(attacksOnHand[i].type == AttackType.PHYSICAL && attacksOnHand[i].currentCost <= stamina)
@@ -176,10 +177,11 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region CALLBACKS
-    public void OnAttackCardPlayed(AttackCard card)
+    public void OnGameStart(PlayerInfo player)
     {
-        DiscardAttackCard(card);
-        DrawAttackCard();
+        this.player = player;
+        RegenResources();
+        DisableCardsOnHand();
     }
 
     public void OnTurnStart()
@@ -187,15 +189,34 @@ public class PlayerController : MonoBehaviour
         playerHandController.OnTurnStart();
     }
 
-    public void OnTurnEnd()
+    public void OnUnitMoved(UnitCard unit, Tile tile)
     {
-        playerHandController.OnTurnEnd();
+
     }
 
     public void OnCombatStart()
     {
-        DisableCardsOnHand();
+        //DisableCardsOnHand();
         playerHandController.OnCombatStart();
+    }
+
+    public void OnAttackTurnStart()
+    {
+        playerHandController.OnAttackTurnStart();
+        EnableCardsOnHand();
+    }
+
+    public void OnAttackCardPlayed(AttackCard card)
+    {
+        DiscardAttackCard(card);
+        DrawAttackCard();
+    }
+
+    public void OnAttackTurnEnd()
+    {
+        playerHandController.OnAttackEnd();
+        DisableCardsOnHand();
+        RegenResources();
     }
 
     public void OnCombatEnd()
@@ -203,17 +224,9 @@ public class PlayerController : MonoBehaviour
         playerHandController.OnCombatEnd();
     }
 
-    public void OnAttackStart()
+    public void OnTurnEnd()
     {
-        playerHandController.OnAttackStart();
-        EnableCardsOnHand();
-    }
-
-    public void OnAttackEnd()
-    {
-        playerHandController.OnAttackEnd();
-        DisableCardsOnHand();
-        RegenResources();
+        playerHandController.OnTurnEnd();
     }
     #endregion
 

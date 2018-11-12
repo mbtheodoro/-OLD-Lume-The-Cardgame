@@ -170,11 +170,11 @@ public class CombatController : MonoBehaviour
         }
     }
 
-    public static void StartCombat(LocationCard l, UnitCard p1, UnitCard p2)
+    public static void StartCombat(LocationCard locationCard, UnitCard p1, UnitCard p2)
     {
         instance.gameObject.SetActive(true);
 
-        instance.location = l;
+        instance.location = locationCard;
         instance.player1Card = p1;
         instance.player2Card = p2;
 
@@ -182,7 +182,7 @@ public class CombatController : MonoBehaviour
         instance.player1Card.SetParent(instance.player1Rect);
         instance.player2Card.SetParent(instance.player2Rect);
 
-        instance.CalculateInitiative();
+        instance.turn = locationCard.CalculateInitiative(instance.player1Card, instance.player2Card);
 
         instance.OnCombatStart();
         instance.OnAttackTurnStart();
@@ -190,29 +190,49 @@ public class CombatController : MonoBehaviour
     #endregion
 
     #region EVENTS
-    public static void OnAttackCardPlayed()
-    {
-        if(defendingUnit.currentHealth <= 0 && attackingUnit.currentHealth <= 0)
-            instance.OnCombatEnd(false, true); //draw
-        if (defendingUnit.currentHealth <= 0)
-            instance.OnCombatEnd(); //attacker wins
-        else if(attackingUnit.currentHealth <= 0)
-            instance.OnCombatEnd(true, false); //suicide (reckless)
-        else
-            instance.SwitchTurn();
-    }
-
     private void OnCombatStart()
     {
         LogWindow.Log("Combat Started! It's " + player1Card.name + " Vs " + player2Card.name + " on " + location.name + "!");
         LogWindow.Log(turn + "'s got the advantage!");
 
+        //other controllers
+        GameController.OnCombatStart();
+        BoardController.OnCombatStart();
+
+        //players
+        GameController.GetPlayerController(PlayerInfo.PLAYER1).OnCombatStart();
+        GameController.GetPlayerController(PlayerInfo.PLAYER2).OnCombatStart();
+        
+        //cards
         location.OnCombatStart(player1Card, player2Card);
         player1Card.OnCombatStart(player2Card);
         player2Card.OnCombatStart(player1Card);
-        GameController.GetPlayerController(PlayerInfo.PLAYER1).OnCombatStart();
-        GameController.GetPlayerController(PlayerInfo.PLAYER2).OnCombatStart();
-        //TO DO: other controllers?
+    }
+
+    private void OnAttackTurnStart()
+    {
+        location.OnAttackTurnStart(player1Card, player2Card);
+        GameController.GetPlayerController(instance.turn).OnAttackTurnStart();
+        //maybe other cards
+    }
+
+    public static void OnAttackCardPlayed()
+    {
+        if (defendingUnit.currentHealth <= 0 && attackingUnit.currentHealth <= 0)
+            instance.OnCombatEnd(false, true); //draw
+        if (defendingUnit.currentHealth <= 0)
+            instance.OnCombatEnd(); //attacker wins
+        else if (attackingUnit.currentHealth <= 0)
+            instance.OnCombatEnd(true, false); //suicide (reckless)
+        else
+            instance.SwitchTurn();
+    }
+
+    private void OnAttackTurnEnd()
+    {
+        location.OnAttackTurnEnd(player1Card, player2Card);
+        GameController.GetPlayerController(instance.turn).OnAttackTurnEnd();
+        //maybe other cards
     }
 
     private void OnCombatEnd(bool suicide = false, bool draw = false)
@@ -232,7 +252,7 @@ public class CombatController : MonoBehaviour
             loser = attackingUnit;
         }
 
-        if(winner != null)
+        if (winner != null)
             LogWindow.Log("Combat Ended! " + winner.name + " is victorious!");
         else
             LogWindow.Log("Combat Ended! No one came out victorious!");
@@ -250,20 +270,6 @@ public class CombatController : MonoBehaviour
         BoardController.OnCombatEnd(winner);
 
         GameController.OnCombatEnd();
-    }
-
-    private void OnAttackTurnStart()
-    {
-        location.OnAttackTurnStart(player1Card, player2Card);
-        GameController.GetPlayerController(instance.turn).OnAttackStart();
-        //maybe other cards
-    }
-
-    private void OnAttackTurnEnd()
-    {
-        location.OnAttackTurnEnd(player1Card, player2Card);
-        GameController.GetPlayerController(instance.turn).OnAttackEnd();
-        //maybe other cards
     }
     #endregion
 
