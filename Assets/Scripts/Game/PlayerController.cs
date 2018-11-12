@@ -212,7 +212,7 @@ public class PlayerController : MonoBehaviour
         DrawAttackCard();
     }
 
-    public void OnAttackEnd()
+    public void OnAttackTurnEnd()
     {
         playerHandController.OnAttackEnd();
         DisableCardsOnHand();

@@ -112,7 +112,12 @@ public class GameController : MonoBehaviour
         GameController.turnPlayerController.OnTurnStart();
     }
     #endregion
-        
+      
+    public static void OnCombatStart()
+    {
+
+    }
+
     public static void OnCombatEnd()
     {
         bool count = false;
