@@ -52,6 +52,7 @@ public class PlayerController : MonoBehaviour
     public void EnableCardsOnHand()
     {
         bool atLeastOneCardCanBePlayed = false;
+
         for (int i = 0; i < attacksOnHand.Count; i++)
         {
             if(attacksOnHand[i].type == AttackType.PHYSICAL && attacksOnHand[i].currentCost <= stamina)
@@ -176,10 +177,11 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region CALLBACKS
-    public void OnAttackCardPlayed(AttackCard card)
+    public void OnGameStart(PlayerInfo player)
     {
-        DiscardAttackCard(card);
-        DrawAttackCard();
+        this.player = player;
+        RegenResources();
+        DisableCardsOnHand();
     }
 
     public void OnTurnStart()
@@ -187,26 +189,27 @@ public class PlayerController : MonoBehaviour
         playerHandController.OnTurnStart();
     }
 
-    public void OnTurnEnd()
+    public void OnUnitMoved(UnitCard unit, Tile tile)
     {
-        playerHandController.OnTurnEnd();
+
     }
 
     public void OnCombatStart()
     {
-        DisableCardsOnHand();
+        //DisableCardsOnHand();
         playerHandController.OnCombatStart();
     }
 
-    public void OnCombatEnd()
+    public void OnAttackTurnStart()
     {
-        playerHandController.OnCombatEnd();
+        playerHandController.OnAttackTurnStart();
+        EnableCardsOnHand();
     }
 
-    public void OnAttackStart()
+    public void OnAttackCardPlayed(AttackCard card)
     {
-        playerHandController.OnAttackStart();
-        EnableCardsOnHand();
+        DiscardAttackCard(card);
+        DrawAttackCard();
     }
 
     public void OnAttackEnd()
@@ -214,6 +217,16 @@ public class PlayerController : MonoBehaviour
         playerHandController.OnAttackEnd();
         DisableCardsOnHand();
         RegenResources();
+    }
+
+    public void OnCombatEnd()
+    {
+        playerHandController.OnCombatEnd();
+    }
+
+    public void OnTurnEnd()
+    {
+        playerHandController.OnTurnEnd();
     }
     #endregion
 

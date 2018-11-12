@@ -255,7 +255,7 @@ public class CombatController : MonoBehaviour
     private void OnAttackTurnStart()
     {
         location.OnAttackTurnStart(player1Card, player2Card);
-        GameController.GetPlayerController(instance.turn).OnAttackStart();
+        GameController.GetPlayerController(instance.turn).OnAttackTurnStart();
         //maybe other cards
     }
 

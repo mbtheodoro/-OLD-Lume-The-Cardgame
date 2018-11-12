@@ -82,7 +82,12 @@ public class PlayerHandController : MonoBehaviour
     }
     #endregion
 
-    #region CALLBACKS
+    #region EVENTS
+    public void OnGameStart()
+    {
+        Active = false;
+    }
+
     public void OnTurnStart()
     {
         turn = true;
@@ -91,21 +96,9 @@ public class PlayerHandController : MonoBehaviour
         endTurnButton.gameObject.SetActive(turn);
     }
 
-    public void OnTurnEnd()
+    public void OnUnitMoved(UnitCard unit, Tile tile)
     {
-        turn = false;
-        Active = false;
-        endTurnButton.gameObject.SetActive(false);
-    }
 
-    public void OnAttackStart()
-    {
-        Active = true;
-    }
-
-    public void OnAttackEnd()
-    {
-        Active = false;
     }
 
     public void OnCombatStart()
@@ -114,15 +107,38 @@ public class PlayerHandController : MonoBehaviour
         endTurnButton.gameObject.SetActive(false);
     }
 
+    public void OnAttackTurnStart()
+    {
+        Active = true;
+    }
+
+    public void OnAttackCardPlayed(AttackCard card)
+    {
+
+    }
+
+    public void OnAttackEnd()
+    {
+        Active = false;
+    }
+
     public void OnCombatEnd()
     {
         inCombat = false;
     }
+
+    public void OnTurnEnd()
+    {
+        turn = false;
+        Active = false;
+        endTurnButton.gameObject.SetActive(false);
+    }
     #endregion
 
-    // Use this for initialization
+    #region UNITY
     void Start ()
     {
         hand.sizeDelta = new Vector2(0f, openedSize);
     }
+    #endregion
 }

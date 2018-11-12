@@ -58,8 +58,13 @@ public class GameController : MonoBehaviour
 
     public void EndTurn()
     {
+        BoardController.OnTurnEnd();
+        GameController.turnPlayerController.OnTurnEnd();
+
         LogWindow.Log(_turnPlayer + "'s turn has ended!");
+
         SwitchTurn();
+        StartTurn();
     }
 
     private void EndGame()
@@ -75,30 +80,45 @@ public class GameController : MonoBehaviour
 
     private void SwitchTurn()
     {
-        BoardController.OnTurnEnd();
-        GameController.turnPlayerController.OnTurnEnd();
-
         if (_turnPlayer == PlayerInfo.PLAYER1)
             _turnPlayer = PlayerInfo.PLAYER2;
         else
             _turnPlayer = PlayerInfo.PLAYER1;
+    }
 
-        LogWindow.Log(_turnPlayer + "'s starts now!");
+    private void StartGame()
+    {
+        //set itself
+        _turnPlayer = PlayerInfo.PLAYER1;
+
+        //set players
+        player1Controller.OnGameStart(PlayerInfo.PLAYER1);
+        player2Controller.OnGameStart(PlayerInfo.PLAYER2);
+
+        armyController.SetBothPlayersArmies(Defines.player1nation, Defines.player2nation);
+
+        //set board
+        BoardController.OnGameStart();
+
+        //after everything is set, start the first turn:
+        StartTurn();
+    }
+
+    private void StartTurn()
+    {
+        LogWindow.Log(_turnPlayer + "'s turn starts now!");
+
         BoardController.OnTurnStart();
         GameController.turnPlayerController.OnTurnStart();
     }
     #endregion
-
-    #region EVENTS
-    #endregion
-
-    #region CALLBACKS
+        
     public static void OnCombatEnd()
     {
         bool count = false;
         if (instance.player1Controller.units.Count == 0)
             count = true;
-        if (instance.player2Controller.units.Count == 0)
+        else if (instance.player2Controller.units.Count == 0)
             count = true;
 
         if (count)
@@ -106,7 +126,6 @@ public class GameController : MonoBehaviour
         else
             instance.EndTurn();
     }
-    #endregion
 
     #region UNITY
     private void Awake()
@@ -121,22 +140,7 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
-        //set player controllers
-        player1Controller.player = PlayerInfo.PLAYER1;
-        player2Controller.player = PlayerInfo.PLAYER2;
-
-        armyController.SetBothPlayersArmies(Defines.player1nation, Defines.player2nation);
-        
-        ////set player turn
-        _turnPlayer = PlayerInfo.PLAYER1;
-
-        BoardController.ResetAllTiles();
-        BoardController.OnTurnStart();
-        GameController.turnPlayerController.OnTurnStart();
-
-        //set starting resources
-        player1Controller.RegenResources();
-        player2Controller.RegenResources();
+        StartGame();
     }
     #endregion
 }

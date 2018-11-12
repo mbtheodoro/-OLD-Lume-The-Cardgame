@@ -13,9 +13,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   className: AttackCard
   name: Meteor Strike
-  description: 'Outstat Wisdom: Deal 10 more damage.
+  description: 'Stat test Wisdom 7: Deal 10 more damage.
 
-    Stat fail Wisdom 5: Deal 10 more damage.'
+    Stat fail Agility 5: Deal 10 more damage.'
   flavorText: 
   type: 2
   nation: 2
@@ -24,12 +24,12 @@ MonoBehaviour:
   cost: 20
   attackType: 1
   statTestStrength: {x: 0, y: 0}
-  statTestAgility: {x: 0, y: 0}
+  statTestAgility: {x: 7, y: 10}
   statTestWisdom: {x: 0, y: 0}
   statTestSpirit: {x: 0, y: 0}
   outStatStrength: {x: 0, y: 0}
   outStatAgility: {x: 0, y: 0}
-  outStatWisdom: {x: 1, y: 10}
+  outStatWisdom: {x: 0, y: 0}
   outStatSpirit: {x: 0, y: 0}
   statFailStrength: {x: 0, y: 0}
   statFailAgility: {x: 5, y: 10}
