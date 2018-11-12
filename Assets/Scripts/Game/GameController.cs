@@ -128,8 +128,6 @@ public class GameController : MonoBehaviour
 
         if (count)
             instance.EndGame();
-        else
-            instance.EndTurn();
     }
 
     #region UNITY
