@@ -74,11 +74,11 @@ public class Tile : MonoBehaviour
     {
         Tile prevSelectedTile = BoardController.instance.selectedTile;
 
-        if (prevSelectedTile == null) //first click
+        if (prevSelectedTile == null) //select
         {
             BoardController.SelectTile(this);
         }
-        else if(prevSelectedTile.id == this.id)
+        else if(prevSelectedTile.id == this.id) //deselect
         {
             BoardController.DeSelectTile();
         }
@@ -110,6 +110,7 @@ public class Tile : MonoBehaviour
                 prevSelectedTile.RemoveCard();
 
                 CombatController.StartCombat(BoardController.instance.turnLocation, player1Card, player2Card);
+                moved = true;
             }
         }
     }

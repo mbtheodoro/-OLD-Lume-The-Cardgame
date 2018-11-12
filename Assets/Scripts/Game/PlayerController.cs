@@ -221,6 +221,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnCombatEnd()
     {
+        DisableCardsOnHand();
         playerHandController.OnCombatEnd();
     }
 

@@ -93,13 +93,14 @@ public class BoardController : MonoBehaviour
     {
         PlayerInfo player = (PlayerInfo)Enum.Parse(typeof(PlayerInfo), tilePlayer.ToString());
 
-        if (board[tile].card == null)
+        if (board[tile].card == null) //if there is no card at destination
             return true;
 
-        if (board[tile].card.player.player == player)
+        if (board[tile].card.player.player == player) //if the card is an ally
             return false;
-        else
-            return true;
+        else if (combat) //prevents a second combat from happening
+            return false;
+        return true;
     }
 
     private void SetPlayersUnitsOnTiles(List<UnitCard> player1Cards, List<UnitCard> player2Cards)

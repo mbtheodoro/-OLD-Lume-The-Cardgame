@@ -125,6 +125,8 @@ public class PlayerHandController : MonoBehaviour
     public void OnCombatEnd()
     {
         inCombat = false;
+        Active = turn;
+        endTurnButton.gameObject.SetActive(false);
     }
 
     public void OnTurnEnd()
