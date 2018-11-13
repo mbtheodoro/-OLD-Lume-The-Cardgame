@@ -152,6 +152,7 @@ public class BoardController : MonoBehaviour
     public static void OnCombatStart()
     {
         instance.combat = true;
+        CardPreviewWindow.OnCombatStart();
     }
 
     public static void OnAttackTurnStart()
@@ -173,6 +174,7 @@ public class BoardController : MonoBehaviour
     {
         instance.selectedTile.AddCard(victoriousUnit);
         DeSelectTile();
+        CardPreviewWindow.OnCombatEnd();
     }
 
     public static void OnTurnEnd()

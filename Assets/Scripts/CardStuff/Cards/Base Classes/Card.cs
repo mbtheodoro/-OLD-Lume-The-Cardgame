@@ -40,6 +40,8 @@ public class Card : MonoBehaviour
         rect.SetParent(parent);
 
         rect.sizeDelta = new Vector2(parent.sizeDelta.x, parent.sizeDelta.y);
+        rect.anchorMin = new Vector2(0.5f, 0.5f);
+        rect.anchorMax = new Vector2(0.5f, 0.5f);
         rect.anchoredPosition3D = Vector3.zero;
         rect.localScale = Vector3.one;
 

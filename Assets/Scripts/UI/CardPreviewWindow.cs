@@ -20,7 +20,11 @@ public class CardPreviewWindow : MonoBehaviour
     #region ATTRIBUTES
     Card card;
 
-    public float posX;
+    public float posXOutOfCombat;
+    public float posXOnCombat;
+    private float posYOutOfCombat;
+
+    private bool combat;
     #endregion
 
     #region METHODS
@@ -50,12 +54,27 @@ public class CardPreviewWindow : MonoBehaviour
 
     private void Open()
     {
-        thisRect.anchoredPosition = new Vector2(posX, thisRect.anchoredPosition.y);
+        if(combat)
+            thisRect.anchoredPosition = new Vector2(posXOnCombat, 0f);
+        else
+            thisRect.anchoredPosition = new Vector2(posXOutOfCombat, posYOutOfCombat);
     }
 
     private void Close()
     {
-        thisRect.anchoredPosition = new Vector2(0f, thisRect.anchoredPosition.y);
+        thisRect.anchoredPosition = new Vector2(0f, posYOutOfCombat);
+    }
+
+    public static void OnCombatStart()
+    {
+        instance.combat = true;
+        ResetWindow();
+    }
+
+    public static void OnCombatEnd()
+    {
+        instance.combat = false;
+        ResetWindow();
     }
     #endregion
 
@@ -68,6 +87,11 @@ public class CardPreviewWindow : MonoBehaviour
         }
         else
             DestroyImmediate(gameObject);
+    }
+
+    private void Start()
+    {
+        posYOutOfCombat = thisRect.anchoredPosition.y;
     }
     #endregion
 }
