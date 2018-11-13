@@ -591,5 +591,15 @@ public class AttackCard : Card
         if(playable)
             Activate();
     }
+
+    private void OnMouseEnter()
+    {
+        CardPreviewWindow.Preview(this);
+    }
+
+    private void OnMouseExit()
+    {
+        CardPreviewWindow.ResetWindow();
+    }
     #endregion
 }
