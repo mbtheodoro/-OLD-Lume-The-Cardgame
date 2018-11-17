@@ -441,6 +441,7 @@ MonoBehaviour:
   handBackground: {fileID: 114158963704171338}
   closedSize: 66
   openedSize: 200
+  player: 0
 --- !u!114 &114864549981021578
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -480,8 +481,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: EndTurn
+      - m_Target: {fileID: 114688677774027160}
+        m_MethodName: OnEndTurnButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -180,6 +180,8 @@ public class PlayerController : MonoBehaviour
     public void OnGameStart(PlayerInfo player)
     {
         this.player = player;
+        playerHandController.player = player;
+
         RegenResources();
         DisableCardsOnHand();
     }

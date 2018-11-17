@@ -20,6 +20,8 @@ public class PlayerHandController : MonoBehaviour
 
     public float closedSize;
     public float openedSize;
+
+    public PlayerInfo player;
     #endregion
 
     #region ATTRIBUTES
@@ -78,7 +80,7 @@ public class PlayerHandController : MonoBehaviour
 
         hand.gameObject.SetActive(false);
         playerText.gameObject.SetActive(true);
-        endTurnButton.gameObject.SetActive(turn&&!inCombat);
+        endTurnButton.gameObject.SetActive(Active);
     }
     #endregion
 
@@ -104,12 +106,12 @@ public class PlayerHandController : MonoBehaviour
     public void OnCombatStart()
     {
         inCombat = true;
-        endTurnButton.gameObject.SetActive(false);
     }
 
     public void OnAttackTurnStart()
     {
         Active = true;
+        endTurnButton.gameObject.SetActive(Active);
     }
 
     public void OnAttackCardPlayed(AttackCard card)
@@ -120,6 +122,7 @@ public class PlayerHandController : MonoBehaviour
     public void OnAttackEnd()
     {
         Active = false;
+        endTurnButton.gameObject.SetActive(Active);
     }
 
     public void OnCombatEnd()
@@ -134,6 +137,17 @@ public class PlayerHandController : MonoBehaviour
         turn = false;
         Active = false;
         endTurnButton.gameObject.SetActive(false);
+    }
+
+    public void OnEndTurnButtonClick()
+    {
+        if (inCombat)
+        {
+            LogWindow.Log(player + " decided not to attack that turn!");
+            CombatController.OnAttackCardPlayed();
+        }
+        else
+            GameController.instance.EndTurn();
     }
     #endregion
 
