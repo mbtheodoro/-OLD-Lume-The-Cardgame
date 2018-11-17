@@ -14,12 +14,15 @@ public class PlayerHandController : MonoBehaviour
     public Text staminaText;
     public Text manaText;
     public Text playerText;
+    public Text endTurnButtonText;
 
     public Sprite activeSprite, inactiveSprite;
     public Image handBackground;
 
     public float closedSize;
     public float openedSize;
+
+    public PlayerInfo player;
     #endregion
 
     #region ATTRIBUTES
@@ -44,10 +47,13 @@ public class PlayerHandController : MonoBehaviour
         set
         {
             active = value;
+            endTurnButton.gameObject.SetActive(active);
+
             if (active)
                 handBackground.sprite = activeSprite;
             else
                 handBackground.sprite = inactiveSprite;
+
         }
     }
     #endregion
@@ -78,7 +84,7 @@ public class PlayerHandController : MonoBehaviour
 
         hand.gameObject.SetActive(false);
         playerText.gameObject.SetActive(true);
-        endTurnButton.gameObject.SetActive(turn&&!inCombat);
+        endTurnButton.gameObject.SetActive(Active);
     }
     #endregion
 
@@ -92,8 +98,6 @@ public class PlayerHandController : MonoBehaviour
     {
         turn = true;
         Active = true;
-
-        endTurnButton.gameObject.SetActive(turn);
     }
 
     public void OnUnitMoved(UnitCard unit, Tile tile)
@@ -104,7 +108,8 @@ public class PlayerHandController : MonoBehaviour
     public void OnCombatStart()
     {
         inCombat = true;
-        endTurnButton.gameObject.SetActive(false);
+        Active = false;
+        endTurnButtonText.text = "PASS";
     }
 
     public void OnAttackTurnStart()
@@ -126,14 +131,24 @@ public class PlayerHandController : MonoBehaviour
     {
         inCombat = false;
         Active = turn;
-        endTurnButton.gameObject.SetActive(false);
+        endTurnButtonText.text = "END TURN";
     }
 
     public void OnTurnEnd()
     {
         turn = false;
         Active = false;
-        endTurnButton.gameObject.SetActive(false);
+    }
+
+    public void OnEndTurnButtonClick()
+    {
+        if (inCombat)
+        {
+            LogWindow.Log(player + " decided not to attack that turn!");
+            CombatController.OnAttackCardPlayed();
+        }
+        else
+            GameController.instance.EndTurn();
     }
     #endregion
 

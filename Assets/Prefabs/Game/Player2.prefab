@@ -436,11 +436,13 @@ MonoBehaviour:
   staminaText: {fileID: 114074733683442964}
   manaText: {fileID: 114588529320531610}
   playerText: {fileID: 114024560696035508}
+  endTurnButtonText: {fileID: 114096311088356098}
   activeSprite: {fileID: 21300000, guid: 0bc02c35e5b9e2e4f9ac608dcc5e0c56, type: 3}
   inactiveSprite: {fileID: 21300000, guid: 079b16897d604b44c988387d8593b71a, type: 3}
   handBackground: {fileID: 114158963704171338}
   closedSize: 66
   openedSize: 200
+  player: 0
 --- !u!114 &114864549981021578
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -480,8 +482,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: EndTurn
+      - m_Target: {fileID: 114688677774027160}
+        m_MethodName: OnEndTurnButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
