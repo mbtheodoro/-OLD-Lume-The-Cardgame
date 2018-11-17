@@ -14,6 +14,7 @@ public class PlayerHandController : MonoBehaviour
     public Text staminaText;
     public Text manaText;
     public Text playerText;
+    public Text endTurnButtonText;
 
     public Sprite activeSprite, inactiveSprite;
     public Image handBackground;
@@ -46,10 +47,13 @@ public class PlayerHandController : MonoBehaviour
         set
         {
             active = value;
+            endTurnButton.gameObject.SetActive(active);
+
             if (active)
                 handBackground.sprite = activeSprite;
             else
                 handBackground.sprite = inactiveSprite;
+
         }
     }
     #endregion
@@ -94,8 +98,6 @@ public class PlayerHandController : MonoBehaviour
     {
         turn = true;
         Active = true;
-
-        endTurnButton.gameObject.SetActive(turn);
     }
 
     public void OnUnitMoved(UnitCard unit, Tile tile)
@@ -106,12 +108,13 @@ public class PlayerHandController : MonoBehaviour
     public void OnCombatStart()
     {
         inCombat = true;
+        Active = false;
+        endTurnButtonText.text = "PASS";
     }
 
     public void OnAttackTurnStart()
     {
         Active = true;
-        endTurnButton.gameObject.SetActive(Active);
     }
 
     public void OnAttackCardPlayed(AttackCard card)
@@ -122,21 +125,19 @@ public class PlayerHandController : MonoBehaviour
     public void OnAttackEnd()
     {
         Active = false;
-        endTurnButton.gameObject.SetActive(Active);
     }
 
     public void OnCombatEnd()
     {
         inCombat = false;
         Active = turn;
-        endTurnButton.gameObject.SetActive(false);
+        endTurnButtonText.text = "END TURN";
     }
 
     public void OnTurnEnd()
     {
         turn = false;
         Active = false;
-        endTurnButton.gameObject.SetActive(false);
     }
 
     public void OnEndTurnButtonClick()
