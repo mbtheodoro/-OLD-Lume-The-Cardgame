@@ -19,7 +19,7 @@ MonoBehaviour:
   nation: 0
   art: {fileID: 0}
   baseDamage: 10
-  cost: 10
+  cost: 8
   attackType: 1
   statTestStrength: {x: 0, y: 0}
   statTestAgility: {x: 0, y: 0}

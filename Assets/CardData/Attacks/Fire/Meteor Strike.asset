@@ -24,8 +24,8 @@ MonoBehaviour:
   cost: 20
   attackType: 1
   statTestStrength: {x: 0, y: 0}
-  statTestAgility: {x: 7, y: 10}
-  statTestWisdom: {x: 0, y: 0}
+  statTestAgility: {x: 0, y: 0}
+  statTestWisdom: {x: 7, y: 10}
   statTestSpirit: {x: 0, y: 0}
   outStatStrength: {x: 0, y: 0}
   outStatAgility: {x: 0, y: 0}

@@ -11,15 +11,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b435711300fcb64abee0d7634b06702, type: 3}
   m_Name: Focus Punch
   m_EditorClassIdentifier: 
-  className: 
-  name: 
-  description: 
+  className: AttackCard
+  name: Focus Punch
+  description: Increase the user's Strength ny 1.
   flavorText: 
   type: 2
-  nation: 0
+  nation: 1
   art: {fileID: 0}
-  baseDamage: 0
-  cost: 0
+  baseDamage: 5
+  cost: 5
   attackType: 0
   statTestStrength: {x: 0, y: 0}
   statTestAgility: {x: 0, y: 0}
@@ -33,7 +33,7 @@ MonoBehaviour:
   statFailAgility: {x: 0, y: 0}
   statFailWisdom: {x: 0, y: 0}
   statFailSpirit: {x: 0, y: 0}
-  modifyUserStrength: 0
+  modifyUserStrength: 1
   modifyUserAgility: 0
   modifyUserWisdom: 0
   modifyUserSpirit: 0
