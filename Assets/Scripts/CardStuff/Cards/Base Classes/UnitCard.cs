@@ -720,6 +720,49 @@ public class UnitCard : Card
             return false;
         }
     }
+    
+    public virtual int UserDamageModifiers(int damage, AttackCard attack, UnitCard target, bool heal = false)
+    {
+        if (!heal)
+        {
+            if (attack.type == AttackType.PHYSICAL)
+            {
+                //aggresion
+                damage += aggression;
+
+                //berserk
+                if (currentHealth <= Defines.criticalHp && berserk)
+                    damage *= Defines.criticalHpMultiplier;
+            }
+            else //type == AttackType.MAGICAL
+            {
+                //analytic
+                damage += analytic;
+
+                //overdrive
+                if (currentHealth <= Defines.criticalHp && overdrive)
+                    damage *= Defines.criticalHpMultiplier;
+            }
+
+            if (infiltrate > 0 && Infiltrated())
+                damage += infiltrate;
+        }
+
+        return damage;
+    }
+
+    public virtual int TargetDamageModifiers(int damage, AttackCard attack, UnitCard attacker, bool heal = false)
+    {
+        if (!heal)
+        {
+            if (attack.type == AttackType.PHYSICAL)
+                damage -= armor; //armor
+            else //type == AttackType.MAGICAL
+                damage -= endurance; //endurance
+        }
+
+        return Mathf.Max(damage, 0);
+    }
     #endregion
 
     #region EVENTS

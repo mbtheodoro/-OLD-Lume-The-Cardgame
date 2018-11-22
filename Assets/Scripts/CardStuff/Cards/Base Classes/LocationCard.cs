@@ -117,6 +117,11 @@ public class LocationCard : Card
         }
         return turn;
     }
+    
+    public virtual int DamageModifiers(int damage, UnitCard attacker, UnitCard defender, bool heal = false)
+    {
+        return damage;
+    }
     #endregion
 
     #region EVENTS

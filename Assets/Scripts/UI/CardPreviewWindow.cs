@@ -49,7 +49,7 @@ public class CardPreviewWindow : MonoBehaviour
     private void RemoveCard()
     {
         if(card != null)
-            Destroy(card.gameObject);
+            DestroyImmediate(card.gameObject);
     }
 
     private void Open()

@@ -226,6 +226,16 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 224583978871555574, guid: dc85662ab8b321140af3d489c2b58582,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 134.00002
+      objectReference: {fileID: 0}
+    - target: {fileID: 224638299327346686, guid: dc85662ab8b321140af3d489c2b58582,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 204.00002
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc85662ab8b321140af3d489c2b58582, type: 2}
   m_IsPrefabAsset: 0
@@ -629,6 +639,16 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 224349517492478132, guid: b0386ee5aa2770b4ab448f66bf950012,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 134.00002
+      objectReference: {fileID: 0}
+    - target: {fileID: 224789978184566648, guid: b0386ee5aa2770b4ab448f66bf950012,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 204.00002
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0386ee5aa2770b4ab448f66bf950012, type: 2}
   m_IsPrefabAsset: 0
@@ -732,12 +752,12 @@ Prefab:
     - target: {fileID: 224886410055817050, guid: e96ec4575285c7142a8559422ac70ad5,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 0.000073700685
+      value: 0.0000029069663
       objectReference: {fileID: 0}
     - target: {fileID: 224472261255958708, guid: e96ec4575285c7142a8559422ac70ad5,
         type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.00000011920929
       objectReference: {fileID: 0}
     - target: {fileID: 224886410055817050, guid: e96ec4575285c7142a8559422ac70ad5,
         type: 2}
