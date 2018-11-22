@@ -18,14 +18,28 @@ public class HealAttackCard : AttackCard
         }
     }
 
+    public override int CalculateDamage()
+    {
+        int heal = baseDamage;
+
+        heal += StatBasedDamageCalculation();
+
+        heal = user.UserDamageModifiers(heal, this, enemy, true);
+
+        heal = enemy.TargetDamageModifiers(heal, this, user, true);
+
+        heal = CombatController.instance.location.DamageModifiers(heal, this, user, enemy, true);
+
+        return heal;
+    }
+
     public override void Activate()
     {
         SetUserEnemy();
 
         //deal damage
-        int heal = baseDamage;
-
-        heal += StatBasedDamageCalculation();
+        int heal = CalculateDamage();
+        
         int result = user.ModifyHealth(-heal);
 
         if (result > 0)

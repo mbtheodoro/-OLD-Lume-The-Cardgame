@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class LilithsPool : LocationCard
 {
-    public override void OnAttackCardPlayed(AttackCard attack, UnitCard user, UnitCard enemy)
+    public override int DamageModifiers(int damage, AttackCard attack, UnitCard user, UnitCard enemy, bool heal = false)
     {
         if (attack is HealAttackCard)
-            user.ModifyHealth(-10);
+            return damage + 10;
+        return damage;
     }
 }

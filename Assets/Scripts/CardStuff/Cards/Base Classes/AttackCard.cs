@@ -455,52 +455,18 @@ public class AttackCard : Card
         return damage;
     }
 
-    protected virtual int UserDamageModifiers(int damage)
-    {
-        if (type == AttackType.PHYSICAL)
-        {
-            //aggresion
-            damage += user.aggression;
-
-            //berserk
-            if (user.currentHealth <= Defines.criticalHp && user.berserk)
-                damage *= Defines.criticalHpMultiplier;
-        }
-        else //type == AttackType.MAGICAL
-        {
-            //analytic
-            damage += user.analytic;
-
-            //overdrive
-            if (user.currentHealth <= Defines.criticalHp && user.overdrive)
-                damage *= Defines.criticalHpMultiplier;
-        }
-
-        if(user.infiltrate > 0 && user.Infiltrated())
-            damage += user.infiltrate;
-
-        return damage;
-    }
-
-    protected virtual int EnemyDamageModifiers(int damage)
-    {
-        if (type == AttackType.PHYSICAL)
-            damage -= enemy.armor; //armor
-        else //type == AttackType.MAGICAL
-            damage -= enemy.endurance; //endurance
-
-        return Mathf.Max(damage, 0);
-    }
-
     public virtual int CalculateDamage()
     {
         int damage = baseDamage;
 
         damage += StatBasedDamageCalculation();
         
-        damage = UserDamageModifiers(damage);
-        if(!user.piercer)
-            damage = EnemyDamageModifiers(damage);
+        damage = user.UserDamageModifiers(damage, this, enemy);
+
+        if (!user.piercer)
+            damage = enemy.TargetDamageModifiers(damage, this, user);
+
+        damage = CombatController.instance.location.DamageModifiers(damage, this, user, enemy);
 
         return damage;
     }
@@ -563,9 +529,9 @@ public class AttackCard : Card
         ModifyEnemyStats();
 
         //callbacks
-        CombatController.instance.location.OnAttackCardPlayed(this, user, enemy); //first resolve location effects
-        user.OnAttackCardPlayed(this, enemy); //then resolve user
+        user.OnAttackCardPlayed(this, enemy); //first resolve resolve user
         enemy.OnAttackCardTarget(this, user); //then resolve enemy
+        CombatController.instance.location.OnAttackCardPlayed(this, user, enemy); //then location effects
         player.OnAttackCardPlayed(this); //then discard card and draw a new one
         CombatController.OnAttackCardPlayed(); //and finally, switch turns
     }
@@ -588,8 +554,12 @@ public class AttackCard : Card
 
     private void OnMouseUpAsButton()
     {
-        if(playable)
+        if (playable)
+        {
+            CardPreviewWindow.ResetWindow();
             Activate();
+        }
+        
     }
 
     private void OnMouseEnter()
