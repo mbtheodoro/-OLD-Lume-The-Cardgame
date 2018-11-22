@@ -9,33 +9,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2b435711300fcb64abee0d7634b06702, type: 3}
-  m_Name: Meteor Strike
+  m_Name: Focus Punch
   m_EditorClassIdentifier: 
   className: AttackCard
-  name: Meteor Strike
-  description: 'Stat test Wisdom 7: Deal 10 more damage.
-
-    Stat fail Agility 5: Deal 10 more damage.'
+  name: Focus Punch
+  description: Increase the user's Strength ny 1.
   flavorText: 
   type: 2
-  nation: 2
-  art: {fileID: 21300000, guid: cf8e56e7343ec5f4bb6e51785a1c8151, type: 3}
+  nation: 1
+  art: {fileID: 0}
   baseDamage: 5
-  cost: 20
-  attackType: 1
+  cost: 5
+  attackType: 0
   statTestStrength: {x: 0, y: 0}
   statTestAgility: {x: 0, y: 0}
-  statTestWisdom: {x: 7, y: 10}
+  statTestWisdom: {x: 0, y: 0}
   statTestSpirit: {x: 0, y: 0}
   outStatStrength: {x: 0, y: 0}
   outStatAgility: {x: 0, y: 0}
   outStatWisdom: {x: 0, y: 0}
   outStatSpirit: {x: 0, y: 0}
   statFailStrength: {x: 0, y: 0}
-  statFailAgility: {x: 5, y: 10}
+  statFailAgility: {x: 0, y: 0}
   statFailWisdom: {x: 0, y: 0}
   statFailSpirit: {x: 0, y: 0}
-  modifyUserStrength: 0
+  modifyUserStrength: 1
   modifyUserAgility: 0
   modifyUserWisdom: 0
   modifyUserSpirit: 0

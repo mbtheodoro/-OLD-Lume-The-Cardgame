@@ -22,12 +22,13 @@ MonoBehaviour:
   attacks:
   - {fileID: 11400000, guid: a2fc0ccd25ff17a49b7039492e2a64fc, type: 2}
   - {fileID: 11400000, guid: 0edd4842392d320498cf48a5200f54ed, type: 2}
-  - {fileID: 11400000, guid: 74e0e4a8ad406b1478ce852e711eec51, type: 2}
+  - {fileID: 11400000, guid: 3fca15a7219527a4c9d4691499862cdb, type: 2}
   - {fileID: 11400000, guid: 50167c8ec12791f4a95cf738f2b6d63e, type: 2}
   - {fileID: 11400000, guid: dc15e5591bbed6b4b8fdbad9a91233c8, type: 2}
   - {fileID: 11400000, guid: 7a078a965a44d6f4ca642e4c22d12281, type: 2}
   - {fileID: 11400000, guid: e4443b9f198fc204f9efb2fbaed72057, type: 2}
-  attackCounts: 03000000020000000300000003000000030000000200000001000000
+  - {fileID: 11400000, guid: 74e0e4a8ad406b1478ce852e711eec51, type: 2}
+  attackCounts: 0300000002000000030000000300000003000000020000000100000003000000
   locations:
   - {fileID: 11400000, guid: a0164c0495867ee4bab93f6446afa448, type: 2}
   - {fileID: 11400000, guid: 5b50791b4b426d14c8a0876847fb8235, type: 2}
