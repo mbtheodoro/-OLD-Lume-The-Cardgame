@@ -28,7 +28,7 @@ public class HealAttackCard : AttackCard
 
         heal = enemy.TargetDamageModifiers(heal, this, user, true);
 
-        heal = CombatController.instance.location.DamageModifiers(heal, user, enemy, true);
+        heal = CombatController.instance.location.DamageModifiers(heal, this, user, enemy, true);
 
         return heal;
     }

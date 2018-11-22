@@ -466,7 +466,7 @@ public class AttackCard : Card
         if (!user.piercer)
             damage = enemy.TargetDamageModifiers(damage, this, user);
 
-        damage = CombatController.instance.location.DamageModifiers(damage, user, enemy);
+        damage = CombatController.instance.location.DamageModifiers(damage, this, user, enemy);
 
         return damage;
     }
