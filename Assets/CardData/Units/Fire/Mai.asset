@@ -21,7 +21,7 @@ MonoBehaviour:
   health: 30
   strength: 3
   agility: 4
-  wisdom: 5
+  wisdom: 7
   spirit: 5
   aggression: 0
   analytic: 0

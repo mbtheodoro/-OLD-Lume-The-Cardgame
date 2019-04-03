@@ -37,7 +37,7 @@ MonoBehaviour:
   supportAgility: 0
   supportWisdom: 0
   supportSpirit: 0
-  infiltrate: 0
+  infiltrate: 10
   berserk: 0
   overdrive: 0
   armor: 0

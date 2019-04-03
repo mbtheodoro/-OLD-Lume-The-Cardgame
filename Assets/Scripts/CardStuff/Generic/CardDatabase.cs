@@ -8,8 +8,9 @@ public class CardDatabase : MonoBehaviour
 
     public List<AttackCardData> attackList;
     public List<UnitCardData> unitList;
-    public List<EquipCardData> equipList;
+    public List<EquipCardData> itemList;
     public List<LocationCardData> locationList;
+    public List<LocationCardData> secretsList;
     private Dictionary<string, CardData> cardDatabase = new Dictionary<string, CardData>();
 
     private static CardDatabase instance
@@ -28,14 +29,14 @@ public class CardDatabase : MonoBehaviour
                 cardDatabase.Add(card.name, card);
             foreach (CardData card in unitList)
                 cardDatabase.Add(card.name, card);
-            foreach (CardData card in equipList)
+            foreach (CardData card in itemList)
                 cardDatabase.Add(card.name, card);
             foreach (CardData card in locationList)
                 cardDatabase.Add(card.name, card);
             
             attackList.Clear();
             unitList.Clear();
-            equipList.Clear();
+            itemList.Clear();
             locationList.Clear();
         }
         else

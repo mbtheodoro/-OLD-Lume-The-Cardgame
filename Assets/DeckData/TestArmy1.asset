@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f994529a6efc2b4588d067f3459102e, type: 3}
+  m_Name: TestArmy1
+  m_EditorClassIdentifier: 
+  units:
+  - {fileID: 11400000, guid: 0575bf0160e9c594a9a79aefc5b9a020, type: 2}
+  - {fileID: 11400000, guid: 0575bf0160e9c594a9a79aefc5b9a020, type: 2}
+  - {fileID: 11400000, guid: 0575bf0160e9c594a9a79aefc5b9a020, type: 2}
+  - {fileID: 11400000, guid: 0575bf0160e9c594a9a79aefc5b9a020, type: 2}
+  - {fileID: 11400000, guid: 0575bf0160e9c594a9a79aefc5b9a020, type: 2}
+  - {fileID: 11400000, guid: 0575bf0160e9c594a9a79aefc5b9a020, type: 2}
+  items: []
+  attacks:
+  - {fileID: 11400000, guid: 3fca15a7219527a4c9d4691499862cdb, type: 2}
+  attackCounts: 14000000
+  locations:
+  - {fileID: 11400000, guid: a0164c0495867ee4bab93f6446afa448, type: 2}
+  - {fileID: 11400000, guid: 5b50791b4b426d14c8a0876847fb8235, type: 2}
+  - {fileID: 11400000, guid: c1fcb3a6b88bfb14cad36ac889e9eae9, type: 2}
+  - {fileID: 11400000, guid: f55eb5f5ee2245e4c8bb9edfdb398f24, type: 2}
+  - {fileID: 11400000, guid: f8d92b7c317bae84689fb1df3a719762, type: 2}
+  - {fileID: 11400000, guid: 49d23f36379a3ff428ff19651c75d410, type: 2}
+  - {fileID: 11400000, guid: 1f914d8229b3055419d89ae288067c29, type: 2}

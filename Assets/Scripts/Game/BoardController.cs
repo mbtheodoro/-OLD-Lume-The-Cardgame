@@ -174,6 +174,7 @@ public class BoardController : MonoBehaviour
     {
         instance.selectedTile.AddCard(victoriousUnit);
         DeSelectTile();
+        instance.turnLocation.SetParent(instance.turnLocationRect);
         CardPreviewWindow.OnCombatEnd();
     }
 

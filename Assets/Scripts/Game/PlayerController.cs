@@ -110,14 +110,14 @@ public class PlayerController : MonoBehaviour
     #region SHUFFLE
     public void ReshuffleAttackDeck()
     {
-        for(int i = 0; i < attackDiscardPile.size; i++)
+        while (attackDiscardPile.size > 0)
             attackDeck.AddCardTop(attackDiscardPile.GetTopCard());
         attackDeck.ShuffleDeck();
     }
 
     public void ReshuffleLocationDeck()
     {
-        for (int i = 0; i < locationDiscardPile.size; i++)
+        while (locationDiscardPile.size > 0)
             locationDeck.AddCardTop(locationDiscardPile.GetTopCard());
         locationDeck.ShuffleDeck();
     }

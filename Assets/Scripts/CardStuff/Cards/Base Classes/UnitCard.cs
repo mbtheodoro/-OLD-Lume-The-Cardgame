@@ -707,6 +707,7 @@ public class UnitCard : Card
     public bool Infiltrated()
     {
         int tile = BoardController.instance.selectedTile.id;
+        Debug.Log("infiltrate test: tile = " + tile);
         if (player.player == PlayerInfo.PLAYER1)
         {
             if (tile > 9)
